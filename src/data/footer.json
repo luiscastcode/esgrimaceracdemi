@@ -13,12 +13,12 @@
   "links": {
     "clubes": [
       { "label": "Todos los clubes", "href": "/clubes" },
-      { "label": "Clubes en Caracas", "href": "/clubes/caracas/caracas" },
-      { "label": "Clubes en Valencia", "href": "/clubes/carabobo/valencia" },
-      { "label": "Clubes en Maracaibo", "href": "/clubes/zulia/maracaibo" }
+      { "label": "Clubes de Esgrima en Caracas", "href": "/clubes/caracas-caracas" },
+      { "label": "Clubes de Esgrima en Valencia", "href": "/clubes/carabobo-valencia" },
+      { "label": "Clubes Esgrima en Cabudare", "href": "/clubes/lara-cabudare" }
     ],
     "guias": [
-      { "label": "Trajes de esgrima", "href": "/guias/trajes" },
+      { "label": "Trajes de esgrima", "href": "/guias/trajes-esgrima" },
       { "label": "Guantes de esgrima", "href": "/guias/guantes" },
       { "label": "Caretas de esgrima", "href": "/guias/caretas" },
       { "label": "Armas de esgrima", "href": "/guias/armas" }
