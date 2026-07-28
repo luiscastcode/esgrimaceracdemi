@@ -1,0 +1,238 @@
+---
+// src/pages/privacidad.astro
+import Layout from '../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight } from 'react-icons/fi';
+import { FaShieldAlt, FaUserSecret, FaDatabase, FaCookieBite } from 'react-icons/fa';
+
+const titulo = 'Política de Privacidad - Esgrima Cerca de Mí';
+const descripcion = 'Conoce nuestra política de privacidad y cómo protegemos tus datos personales según la legislación venezolana.';
+const fechaActualizacion = '28 de julio, 2026';
+---
+
+<Layout title={titulo} description={descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome class="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight class="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Política de Privacidad</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-gradient-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <i class="fa-solid fa-shield-halved text-3xl text-gold"></i>
+        </div>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading">Política de Privacidad</h1>
+          <p class="text-gray-300 text-sm mt-1">Última actualización: {fechaActualizacion}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+      <!-- Introducción -->
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+        <p class="text-sm leading-relaxed">
+          En <strong>Esgrima Cerca de Mí</strong> (en adelante, "nosotros", "nuestro" o "la Web"), nos tomamos muy en serio la protección de tus datos personales. 
+          Esta Política de Privacidad explica cómo recopilamos, usamos, almacenamos y protegemos tu información personal, en cumplimiento con la 
+          <strong>Ley Orgánica de Protección de Datos Personales (LOPDP)</strong> de Venezuela y demás normativas aplicables.
+        </p>
+      </div>
+
+      <!-- 1. Responsable del Tratamiento -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-building text-gold"></i>
+          1. Responsable del Tratamiento
+        </h2>
+        <p>
+          El responsable del tratamiento de tus datos personales es <strong>Esgrima Cerca de Mí</strong>. 
+          Puedes contactarnos a través del correo electrónico: 
+          <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a>
+        </p>
+      </section>
+
+      <!-- 2. Datos que Recopilamos -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-circle-check text-gold"></i>
+          2. Datos que Recopilamos
+        </h2>
+        <p>Podemos recopilar los siguientes datos personales cuando interactúas con nuestra Web:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Datos de contacto:</strong> nombre, correo electrónico, número de teléfono.</li>
+          <li><strong>Datos de tu club o negocio:</strong> nombre del club, ciudad, dirección, especialidad, horarios, fundador, redes sociales.</li>
+          <li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia (mediante cookies).</li>
+          <li><strong>Datos de formularios:</strong> cualquier información que nos proporciones a través de nuestros formularios de contacto.</li>
+        </ul>
+        <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-700">
+          <i class="fa-regular fa-circle-info mr-2"></i>
+          <strong>Importante:</strong> No recopilamos datos sensibles sin tu consentimiento expreso.
+        </div>
+      </section>
+
+      <!-- 3. Finalidad del Tratamiento -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-bullseye text-gold"></i>
+          3. Finalidad del Tratamiento
+        </h2>
+        <p>Utilizamos tus datos personales para las siguientes finalidades:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Gestionar tu solicitud de registro en el directorio de clubes o proveedores.</li>
+          <li>Mantener y actualizar el directorio de esgrima en Venezuela.</li>
+          <li>Responder a tus consultas, sugerencias o reclamaciones.</li>
+          <li>Enviar comunicaciones relacionadas con tu solicitud o con el funcionamiento de la Web.</li>
+          <li>Mejorar la experiencia de usuario y el contenido de la Web.</li>
+          <li>Cumplir con obligaciones legales aplicables.</li>
+        </ul>
+      </section>
+
+      <!-- 4. Base Legal -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-gold"></i>
+          4. Base Legal para el Tratamiento
+        </h2>
+        <p>El tratamiento de tus datos personales se basa en las siguientes legitimaciones:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Consentimiento:</strong> cuando aceptas nuestras políticas al contactarnos o solicitar el registro.</li>
+          <li><strong>Interés legítimo:</strong> para gestionar y mantener el directorio de esgrima.</li>
+          <li><strong>Cumplimiento de obligaciones legales:</strong> cuando sea requerido por la legislación venezolana.</li>
+        </ul>
+      </section>
+
+      <!-- 5. Plazo de Conservación -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-clock text-gold"></i>
+          5. Plazo de Conservación de los Datos
+        </h2>
+        <p>
+          Conservaremos tus datos personales durante el tiempo necesario para cumplir con las finalidades para las que fueron recopilados, 
+          y posteriormente durante los plazos legalmente establecidos para atender posibles responsabilidades derivadas del tratamiento.
+        </p>
+        <p class="mt-2">
+          En el caso de los datos de clubes y proveedores, se mantendrán mientras el club o negocio permanezca activo en el directorio, 
+          a menos que solicites su eliminación.
+        </p>
+      </section>
+
+      <!-- 6. Derechos de los Titulares -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-hand text-gold"></i>
+          6. Tus Derechos (LOPDP)
+        </h2>
+        <p>De acuerdo con la Ley Orgánica de Protección de Datos Personales (LOPDP), tienes los siguientes derechos:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Acceso:</strong> conocer qué datos personales tenemos sobre ti.</li>
+          <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+          <li><strong>Cancelación:</strong> solicitar la eliminación de tus datos cuando ya no sean necesarios.</li>
+          <li><strong>Oposición:</strong> oponerte al tratamiento de tus datos para fines específicos.</li>
+          <li><strong>Actualización:</strong> mantener tus datos actualizados.</li>
+          <li><strong>Confidencialidad:</strong> garantizar la confidencialidad de tus datos.</li>
+        </ul>
+        <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-200 text-sm">
+          <p class="font-semibold">Para ejercer tus derechos, puedes contactarnos en:</p>
+          <p class="mt-1">
+            <i class="fa-regular fa-envelope text-primary mr-2"></i>
+            <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a>
+          </p>
+          <p class="text-xs text-gray-500 mt-1">
+            Responderemos a tu solicitud en un plazo máximo de 30 días hábiles, según lo establecido en la LOPDP.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7. Seguridad de los Datos -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-lock text-gold"></i>
+          7. Seguridad de los Datos
+        </h2>
+        <p>
+          Hemos implementado medidas de seguridad técnicas y organizativas adecuadas para proteger tus datos personales contra 
+          acceso no autorizado, alteración, divulgación o destrucción. Estas medidas incluyen:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Uso de conexiones seguras (HTTPS).</li>
+          <li>Almacenamiento seguro de la información.</li>
+          <li>Control de acceso a los datos.</li>
+          <li>Formación de nuestro personal en protección de datos.</li>
+        </ul>
+      </section>
+
+      <!-- 8. Transferencia de Datos -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-arrow-right-arrow-left text-gold"></i>
+          8. Transferencia de Datos
+        </h2>
+        <p>
+          No transferimos tus datos personales a terceros, excepto cuando sea necesario para cumplir con obligaciones legales 
+          o cuando hayamos obtenido tu consentimiento expreso.
+        </p>
+        <p class="mt-2">
+          La información de los clubes y proveedores que aparecen en el directorio es pública y está disponible para todos los usuarios de la Web.
+        </p>
+      </section>
+
+      <!-- 9. Menores de Edad -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-child text-gold"></i>
+          9. Menores de Edad
+        </h2>
+        <p>
+          Nuestra Web no está dirigida a menores de 14 años. No recopilamos intencionalmente datos personales de menores de 14 años. 
+          Si eres padre, madre o tutor y crees que tu hijo nos ha proporcionado datos personales, por favor contáctanos para eliminar esa información.
+        </p>
+      </section>
+
+      <!-- 10. Cambios en la Política -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-pen-to-square text-gold"></i>
+          10. Cambios en la Política de Privacidad
+        </h2>
+        <p>
+          Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas o en la legislación aplicable. 
+          Te notificaremos cualquier cambio significativo mediante un aviso en nuestra Web o por correo electrónico.
+        </p>
+        <p class="mt-2 text-sm text-gray-500">
+          Fecha de la última actualización: <strong>{fechaActualizacion}</strong>
+        </p>
+      </section>
+
+      <!-- 11. Contacto -->
+      <section class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-envelope text-gold"></i>
+          11. Contacto
+        </h2>
+        <p>Si tienes preguntas, comentarios o deseas ejercer tus derechos sobre protección de datos, puedes contactarnos en:</p>
+        <div class="mt-4 space-y-2">
+          <p><strong>Correo electrónico:</strong> <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a></p>
+          <p class="text-sm text-gray-500">
+            <i class="fa-regular fa-clock mr-1"></i>
+            Tiempo estimado de respuesta: 48 horas hábiles.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Botón de volver -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-primary hover:underline">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver al inicio
+      </a>
+    </div>
+  </div>
+</Layout>

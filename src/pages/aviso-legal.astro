@@ -1,0 +1,211 @@
+---
+// src/pages/aviso-legal.astro
+import Layout from '../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight } from 'react-icons/fi';
+import { FaShieldAlt, FaUserSecret, FaDatabase, FaCookieBite } from 'react-icons/fa';
+
+const titulo = 'Aviso Legal - Esgrima Cerca de Mí';
+const descripcion = 'Consulta el aviso legal de Esgrima Cerca de Mí, con información sobre propiedad intelectual, condiciones de uso y responsabilidades.';
+const fechaActualizacion = '28 de julio, 2026';
+---
+
+<Layout title={titulo} description={descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Aviso Legal</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+          <i class="fa-regular fa-file-lines text-3xl text-gold"></i>
+        </div>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading">Aviso Legal</h1>
+          <p class="text-gray-300 text-sm mt-1">Última actualización: {fechaActualizacion}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+      <!-- Introducción -->
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+        <p class="text-sm leading-relaxed">
+          En <strong>Esgrima Cerca de Mí</strong> (en adelante, "nosotros", "nuestro" o "la Web"), ponemos a tu disposición el presente Aviso Legal 
+          para darte a conocer las condiciones de uso, los derechos de propiedad intelectual y las responsabilidades que rigen tu acceso y navegación 
+          por nuestra plataforma. Al utilizar la Web, aceptas íntegramente las condiciones aquí establecidas.
+        </p>
+      </div>
+
+      <!-- 1. Titularidad -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-building text-gold"></i>
+          1. Titularidad de la Web
+        </h2>
+        <p><strong>Nombre:</strong> Esgrima Cerca de Mí</p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a></p>
+        <p><strong>Actividad:</strong> Directorio de clubes y proveedores de esgrima en Venezuela.</p>
+        <p><strong>País:</strong> Venezuela</p>
+        <p><strong>Dominio:</strong> esgrimacercademi.vercel.app</p>
+      </section>
+
+      <!-- 2. Propiedad Intelectual -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-copyright text-gold"></i>
+          2. Propiedad Intelectual e Industrial
+        </h2>
+        <p>
+          Todo el contenido de la Web (textos, imágenes, logotipos, diseños, estructura, código fuente, etc.) es propiedad de <strong>Esgrima Cerca de Mí </strong>  
+           o de sus respectivos titulares, y está protegido por las leyes de propiedad intelectual e industrial vigentes en Venezuela y en el ámbito internacional.
+        </p>
+        <p class="mt-2">
+          Queda prohibido cualquier acto de reproducción, distribución, comunicación pública, transformación o puesta a disposición del contenido de la Web, 
+          total o parcialmente, sin el consentimiento expreso y por escrito de los titulares.
+        </p>
+        <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-700">
+          <i class="fa-solid fa-circle-info mr-2"></i>
+          <strong>Excepción:</strong> Los nombres, logos e información de los clubes y proveedores incluidos en el directorio son propiedad de sus respectivos dueños y se utilizan con fines informativos.
+        </div>
+      </section>
+
+      <!-- 3. Condiciones de Uso -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-hand text-gold"></i>
+          3. Condiciones de Uso
+        </h2>
+        <p>El usuario se compromete a hacer un uso adecuado de la Web, de conformidad con la ley, la moral y el orden público. En particular, se compromete a:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>No utilizar la Web para fines ilícitos o contrarios a la buena fe.</li>
+          <li>No difundir contenidos falsos, engañosos o que atenten contra los derechos de terceros.</li>
+          <li>No realizar acciones que puedan dañar, sobrecargar o inutilizar la Web.</li>
+          <li>No acceder a áreas restringidas sin autorización.</li>
+          <li>No utilizar la Web para enviar spam o publicidad no solicitada.</li>
+        </ul>
+      </section>
+
+      <!-- 4. Responsabilidades -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-gold"></i>
+          4. Responsabilidades
+        </h2>
+        <p>No nos hacemos responsables de:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>La veracidad, exactitud y actualización de la información proporcionada por los clubes y proveedores incluidos en el directorio.</li>
+          <li>Los daños o perjuicios que puedan derivarse del uso de la información contenida en la Web.</li>
+          <li>Las interrupciones o errores en el funcionamiento de la Web por causas ajenas a nuestra voluntad.</li>
+          <li>El contenido de los sitios web de terceros enlazados desde nuestra plataforma.</li>
+          <li>El mal uso que los usuarios puedan hacer de la Web o de la información publicada.</li>
+        </ul>
+        <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700">
+          <i class="fa-solid fa-circle-exclamation mr-2"></i>
+          <strong>Nota:</strong> Los datos de los clubes y proveedores son proporcionados por los propios interesados. Recomendamos verificar la información directamente con el club o proveedor antes de tomar decisiones.
+        </div>
+      </section>
+
+      <!-- 5. Enlaces a Terceros -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-link text-gold"></i>
+          5. Enlaces a Terceros
+        </h2>
+        <p>
+          La Web puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para tu comodidad y no implican 
+          nuestra aprobación o responsabilidad sobre el contenido de dichos sitios. Te recomendamos revisar las políticas de privacidad y 
+          condiciones de uso de estos sitios antes de navegar en ellos.
+        </p>
+      </section>
+
+      <!-- 6. Ley Aplicable -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-gavel text-gold"></i>
+          6. Ley Aplicable y Jurisdicción
+        </h2>
+        <p>
+          El presente Aviso Legal se rige por la legislación vigente en <strong>Venezuela</strong>. 
+          Para cualquier controversia que pueda surgir en relación con la Web o con el uso de sus contenidos, 
+          las partes se someten a la jurisdicción de los tribunales de la ciudad de Caracas, Venezuela, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.
+        </p>
+      </section>
+
+      <!-- 7. Protección de Datos -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-gold"></i>
+          7. Protección de Datos Personales
+        </h2>
+        <p>
+          En cumplimiento de la <strong>Ley Orgánica de Protección de Datos Personales (LOPDP)</strong> de Venezuela, 
+          te informamos que los datos personales que nos proporciones serán tratados conforme a nuestra 
+          <a href="/privacidad" class="text-primary hover:underline">Política de Privacidad</a>.
+        </p>
+        <p class="mt-2">
+          Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición contactándonos en 
+          <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a>.
+        </p>
+      </section>
+
+      <!-- 8. Exclusión de Garantías -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-gold"></i>
+          8. Exclusión de Garantías y Responsabilidad
+        </h2>
+        <p>
+          La Web se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas. 
+          No garantizamos que la Web esté libre de errores, virus o cualquier otro elemento dañino.
+        </p>
+        <p class="mt-2">
+          En la máxima medida permitida por la ley, nos eximimos de toda responsabilidad por daños directos, indirectos, incidentales, 
+          especiales o consecuentes que puedan derivarse del uso o la imposibilidad de uso de la Web.
+        </p>
+      </section>
+
+      <!-- 9. Modificaciones -->
+      <section>
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-pen-to-square text-gold"></i>
+          9. Modificaciones
+        </h2>
+        <p>
+          Nos reservamos el derecho de modificar el presente Aviso Legal en cualquier momento. 
+          Las modificaciones serán publicadas en esta misma página y entrarán en vigor en el momento de su publicación.
+        </p>
+        <p class="mt-2 text-sm text-gray-500">
+          Fecha de la última actualización: <strong>{fechaActualizacion}</strong>
+        </p>
+      </section>
+
+      <!-- 10. Contacto -->
+      <section class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+        <h2 class="text-2xl font-bold font-heading text-primary flex items-center gap-2">
+          <i class="fa-regular fa-envelope text-gold"></i>
+          10. Contacto
+        </h2>
+        <p>Si tienes preguntas o comentarios sobre este Aviso Legal, puedes contactarnos en:</p>
+        <div class="mt-4">
+          <p><strong>Correo electrónico:</strong> <a href="mailto:info@esgrimacercademi.com" class="text-primary hover:underline">info@esgrimacercademi.com</a></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Botón de volver -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-primary hover:underline">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver al inicio
+      </a>
+    </div>
+  </div>
+</Layout>

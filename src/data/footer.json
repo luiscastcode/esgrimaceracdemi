@@ -19,9 +19,9 @@
     ],
     "guias": [
       { "label": "Trajes de esgrima", "href": "/guias/trajes-esgrima" },
-      { "label": "Guantes de esgrima", "href": "/guias/guantes" },
-      { "label": "Caretas de esgrima", "href": "/guias/caretas" },
-      { "label": "Armas de esgrima", "href": "/guias/armas" }
+      { "label": "Zapatos de esgrima", "href": "/guias/zapatillas" },
+      { "label": "Caretas de esgrima", "href": "/guias" },
+      { "label": "Armas de esgrima", "href": "/guias" }
     ],
     "reglamento": [
       { "label": "Reglas del Florete", "href": "/reglamento/armas#florete" },
