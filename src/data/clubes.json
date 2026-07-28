@@ -1,0 +1,272 @@
+{
+  "clubes": [
+    {
+      "id": "club-dragones-caricuao",
+      "slug": "club-dragones-caricuao",
+      "nombre": "Club de Esgrima Dragones de Caricuao",
+      "estado": "Caracas",
+      "estado_slug": "caracas",
+      "ciudad": "Caracas",
+      "ciudad_slug": "caracas",
+      "direccion": "Gran Base Misión de Paz y Vida (Curpa), UD 4 Caricuao",
+      "direccion_alternativa": "Gran Base Misión de Paz y Vida (Curpa)",
+      "coordenadas": {
+        "lat": 10.428323,
+        "lng": -66.977225
+      },
+      "especialidad": "Espada",
+      "edades": "Infantil, Juvenil, Adulto",
+      "fundador": "Eliana Lugo",
+      "contacto": "Eliana Lugo",
+      "email": "Sin información",
+      "telefono": "Sin información",
+      "instagram": "https://www.instagram.com/dragonesdecaricuao/",
+      "whatsapp": " ",
+      "web": " ",
+      "horarios":"Lun a Vier 4pm-8pm | Sáb 9am-1pm",
+      "logo": "/images/clubes/dragones/dragones-logo.jpg",
+      "imagen_portada": "/images/clubes/dragones/dragones-portada.png",
+      "galeria": [
+        "/images/clubes/dragones/dragones-1.webp",
+        "/images/clubes/dragones/dragones-2.webp",
+        "/images/clubes/dragones/dragones-3.png"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Eliana Lugo",
+          "especialidad": "Entrenadora Principal - Espada",
+          "experiencia": "20 años de experiencia",
+          "foto": "/images/clubes/dragones/dragones-logo.jpg"
+        }
+        
+      ],
+      "descripcion": "Club fundado por Eliana Lugo atleta del equipo nacional de esgrima, especializado en espada. Ofrece clases desde los 4 años hasta adultos. Cuenta con dos sedes en Caricuao. En el Club Dragones de Caricuao se le da igual importancia al compartir en familia, pasarla bien, y saber que siempre es posible mejorar.",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    },
+    {
+      "id": "club-esgrima-excalibur",
+      "slug": "club-esgrima-excalibur",
+      "nombre": "Club de Esgrima Excalibur",
+      "estado": "Carabobo",
+      "estado_slug": "carabobo",
+      "ciudad": "Naguanagua",
+      "ciudad_slug": "naguanagua",
+      "direccion": "Complejo Bicentenario, Naguanagua",
+      "coordenadas": {
+        "lat": 10.239756,
+        "lng": -68.007753
+      },
+      "especialidad": "Espada - Florete",
+      "edades": "Todas las edades",
+      "fundador": "Joselina Pineda",
+      "contacto": "Joselina Pineda",
+      "email": "excalibur@club.com",
+      "telefono": "+58 412-7654321",
+      "instagram": " ",
+      "whatsapp": "https://wa.me/584127654321",
+      "web": " ",
+      "horarios": "Martes a Jueves 4pm-6pm",
+      "logo": "/images/clubes/valencia-logo.png",
+      "imagen_portada": "/images/clubes/valencia-portada.jpg",
+      "galeria": [
+        "/images/clubes/valencia-1.jpg",
+        "/images/clubes/valencia-2.jpg"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Luis Castillo",
+          "especialidad": "Entrenador Principal - Espada",
+          "experiencia": "15 años de experiencia",
+          "foto": "/images/entrenadores/luis-castillo.jpg"
+        }
+      ],
+      "descripcion": "Club especializado en espada. Contamos con instalaciones de primer nivel y un equipo de entrenadores altamente calificados.",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    },
+    {
+      "id": "club-esgrima-cabudare",
+      "slug": "club-esgrima-cabudare",
+      "nombre": "Club de Esgrima Cabudare",
+      "estado": "Lara",
+      "estado_slug": "lara",
+      "ciudad": "Cabudare",
+      "ciudad_slug": "cabudare",
+      "direccion": "Gimnasio \"Manuel Gallegos Carratú\", Cabudare",
+      "coordenadas": {
+        "lat": 10.017057, 
+        "lng": -69.261894
+      },
+      "especialidad": "Sable - Florete",
+      "edades": "Infantil, Juvenil, Adulto",
+      "fundador": "Tibisay Reinoso",
+      "contacto": "Tibisay Reinoso ",
+      "email": "Sin información",
+      "telefono": "+58 412-5164916",
+      "instagram": "https://instagram.com/clubesgrimacabudare",
+      "whatsapp": "https://wa.me/584125164916",
+      "web": " ",
+      "horarios": "Martes y Jueves 3:00pm-6:00pm",
+      "logo": "/images/clubes/cabudare/cabudare-logo.jpg",
+      "imagen_portada": "/images/clubes/cabudare/cabudare-portada.png",
+      "galeria": [
+        "/images/clubes/cabudare/cabudare-1.png",
+        "/images/clubes/cabudare/cabudare-2.png",
+        "/images/clubes/cabudare/cabudare-3.png"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Josefina \"La Negra\" Escalona",
+          "especialidad": "Entrenadora Principal - Florete",
+          "experiencia": "+30 años de experiencia",
+          "foto": "/images/clubes/cabudare/cabudare-logo.jpg"
+        },
+        {
+          "nombre": "Tibisay Reinoso",
+          "especialidad": "Entrenadora Principal - Sable",
+          "experiencia": "+8 años de experiencia",
+          "foto": "/images/clubes/cabudare/cabudare-logo.jpg"
+        }
+      ],
+      "descripcion": "Club especializado en sable y florete. Ser un referente en la transmisión de valores humanos a través de la práctica de la esgrima, con la idea de contribuir positivamente a la sociedad 🤺",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    },
+     {
+      "id": "club-esgrima-quinta-crespo",
+      "slug": "club-esgrima-quinta-crespo",
+      "nombre": "Club de Esgrima Quinta Crespo",
+      "estado": "Caracas",
+      "estado_slug": "caracas",
+      "ciudad": "Caracas",
+      "ciudad_slug": "caracas",
+      "direccion": "Calle 500 Av. Sur 4, Quinta Crespo Base de Misiones Hugo Chavez, Caracas",
+      "coordenadas": {
+        "lat": 10.493958, 
+        "lng": -66.918727
+      },
+      "especialidad": "Espada - Florete",
+      "edades": "Infantil, Juvenil, Adulto",
+      "fundador": "Edward Hernandez",
+      "contacto": " ",
+      "email": "Sin información",
+      "telefono": "+58 412-3680090",
+      "instagram": "https://www.instagram.com/clubde.esgrimaquintacrespo/",
+      "whatsapp": "https://wa.me/584123680090",
+      "web": " ",
+      "horarios": "Lunes, Miercoles y Viernes 2:00pm-5:30pm",
+      "logo": "/images/clubes/quinta-crespo/quinta-crespo-logo.jpg",
+      "imagen_portada": "/images/clubes/quinta-crespo/quinta-crespo-portada.png",
+      "galeria": [
+        "/images/clubes/quinta-crespo/quinta-crespo-1.png",
+        "/images/clubes/quinta-crespo/quinta-crespo-2.png",
+        "/images/clubes/quinta-crespo/quinta-crespo-3.png"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Edward Hernandez",
+          "especialidad": "Entrenador Principal - Espada",
+          "experiencia": "+10 años de experiencia - Ex número 1 del ranking nacional de esgrima",
+          "foto": "/images/clubes/quinta-crespo/quinta-crespo-logo.jpg"
+        }
+      ],
+      "descripcion": "Club especializado en espada. Su entrenador principal es Edward Hernandez, quien cuenta con más de 10 años de experiencia en la enseñanza de la esgrima. El club ofrece clases para todas las edades y niveles, promoviendo el desarrollo de habilidades técnicas y valores como la disciplina y el respeto.",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    },
+
+    {
+      "id": "club-esgrima-carlos-bravo",
+      "slug": "club-esgrima-carlos-bravo",
+      "nombre": "Club de Esgrima Carlos Bravo",
+      "estado": "Caracas",
+      "estado_slug": "caracas",
+      "ciudad": "Caracas",
+      "ciudad_slug": "caracas",
+      "direccion": "Gimnasio Vertical del IND, Piso 7, El Paraiso, Caracas",
+      "coordenadas": {
+        "lat": 10.47386222, 
+        "lng": -66.94762971
+      },
+      "especialidad": "Sable",
+      "edades": "Infantil, Juvenil, Adulto",
+      "fundador": "Carlos Bravo",
+      "contacto": " ",
+      "email": "Sin información",
+      "telefono": "Sin información",
+      "instagram": "https://www.instagram.com/clubdesablecb_ven/",
+      "whatsapp": " ",
+      "web": " ",
+      "horarios": "Lunes a Viernes 3:00pm - 4:00pm",
+      "logo": "/images/clubes/carlos-bravo/carlos-bravo-logo.jpg",
+      "imagen_portada": "/images/clubes/carlos-bravo/carlos-bravo-portada.png",
+      "galeria": [
+        "/images/clubes/carlos-bravo/carlos-bravo-1.png",
+        "/images/clubes/carlos-bravo/carlos-bravo-2.png",
+        "/images/clubes/carlos-bravo/carlos-bravo-3.png"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Carlos Bravo",
+          "especialidad": "Entrenador Principal - Sable",
+          "experiencia": "+30 años de experiencia - Ex miembro olímpico y número 1 del ranking nacional de sable",
+          "foto": "/images/clubes/carlos-bravo/carlos-bravo-logo.jpg"
+        }
+      ],
+      "descripcion": "Club especializado en sable, afiliado a la asociación de esgrima de Miranda. Su entrenador principal es Carlos Bravo quien fue equipo nacional de sable y miembro del equipo olímpico cuenta con más de 30 años de experiencia tanto como atleta asi como en la enseñanza de la esgrima. El club ofrece clases para todas las edades y niveles, promoviendo el desarrollo de habilidades técnicas y valores como la disciplina y el respeto.",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    },
+    
+    {
+      "id": "club-esgrima-templarios-carabobo",
+      "slug": "club-esgrima-templarios-carabobo",
+      "nombre": "Club de Esgrima Templarios de Carabobo",
+      "estado": "Carabobo",
+      "estado_slug": "carabobo",
+      "ciudad": "Valencia",
+      "ciudad_slug": "valencia",
+      "direccion": "Gran Base Por la Paz Hugo Chavez, Lomas de Funval",
+      "coordenadas": {
+        "lat": 10.1283, 
+        "lng": -68.0194
+      },
+      "especialidad": "Espada y Sable",
+      "edades": "Infantil, Juvenil, Adulto",
+      "fundador": "Cnel Franklin Gutierrez",
+      "contacto": " ",
+      "email": "lostemplariosdecarabobo@gmail.com",
+      "telefono": "0424-4066153",
+      "instagram": "https://www.instagram.com/clubtemplariosdecarabobo/",
+      "whatsapp": " ",
+      "web": " ",
+      "horarios": "Lunes a Viernes 2:00pm - 5:30pm",
+      "logo": "/images/clubes/templarios/templarios-logo.png",
+      "imagen_portada": "/images/clubes/templarios/templarios-portada.png",
+      "galeria": [
+        "/images/clubes/templarios/templarios-1.png",
+        "/images/clubes/templarios/templarios-2.png",
+        "/images/clubes/templarios/templarios-3.png"
+      ],
+      "entrenadores": [
+        {
+          "nombre": "Cnel Franklin Gutierrez",
+          "especialidad": "Entrenador Principal - Espada",
+          "experiencia": "+30 años de experiencia - Ex miembro del equipo nacional de espada",
+          "foto": "/images/clubes/templarios/templarios-logo.png"
+        }
+      ],
+      "descripcion": "Club especializado en espada y sable, afiliado a la asociación de esgrima de Carabobo. Su entrenador principal es el Coronel Franklin Gutierrez quien fue equipo nacional de espada y presidente de FEDOFA, ademas cuenta con más de 30 años de experiencia tanto como atleta asi como en la enseñanza de la esgrima. El club ofrece clases para todas las edades y niveles, promoviendo el desarrollo de habilidades técnicas y valores como la disciplina y el respeto.",
+      "destacado": true,
+      "visitas": 0,
+      "fecha_actualizacion": "2026-01-15"
+    }
+  
+  ]
+}

@@ -1,0 +1,240 @@
+---
+// src/components/layout/Nav.astro
+import navigationData from '../data/navigation.json';
+import { 
+  FiHome, FiMapPin, FiBookOpen, FiFileText, 
+  FiShoppingBag, FiFile, FiMail, FiChevronDown,
+  FiMenu, FiSearch, FiShield
+} from 'react-icons/fi';
+
+const menuItems = navigationData.menu;
+const logoHeight = 60;
+
+// Mapeo de iconos
+const iconMap = {
+  FiHome, FiMapPin, FiBookOpen, FiFileText,
+  FiShoppingBag, FiFile, FiMail
+};
+---
+
+<nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-999">
+  <div class="container mx-auto px-4 py-2">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo -->
+      <a href="/" class="shrink-0 flex items-center gap-3 group">
+        <img 
+          src="/images/logo-esgrima.png" 
+          alt="Esgrima Cerca de Mí" 
+          height={logoHeight}
+          width="auto"
+          class="h-15 w-auto transition-transform duration-300 group-hover:scale-105 rounded-sm"
+        />
+         
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-1">
+        {
+          menuItems.map((item) => {
+            const IconComponent = iconMap[item.icon] || FiHome;
+            return (
+              <>
+                <div class="relative group">
+                  {item.submenu ? (
+                    <>
+                      <button 
+                        class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 group-hover:bg-gray-50"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        {item.label}
+                        <FiChevronDown className="w-3.5 h-3.5 ml-0.5 transition-transform duration-200 group-hover:rotate-180" />
+                      </button>
+                      
+                      {/* Submenú desplegable */}
+                      <div class="absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left scale-95 group-hover:scale-100">
+                        <div class="py-2">
+                          {
+                            item.submenu.map((sub) => (
+                              <a
+                                href={sub.href}
+                                class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-150"
+                              >
+                                {sub.label}
+                              </a>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200"
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      {item.label}
+                    </a>
+                  )}
+                </div>
+              </>
+            );
+          })
+        }
+      </div>
+
+      <!-- Acciones Desktop -->
+      <div class="hidden lg:flex items-center gap-3">
+         
+        <a 
+          href="/admin" 
+          class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-light transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+        >
+          Admin
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobileMenuButton"
+        class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <FiMenu className="w-6 h-6 text-gray-700" />
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div 
+      id="mobileMenu"
+      class="lg:hidden hidden bg-white border-t border-gray-100 py-4 max-h-[calc(100vh-80px)] overflow-y-auto"
+      role="navigation"
+      aria-label="Menú móvil"
+    >
+      {
+        menuItems.map((item) => {
+          const IconComponent = iconMap[item.icon] || FiHome;
+          return (
+            <>
+              <div class="border-b border-gray-50 last:border-0">
+                {item.submenu ? (
+                  <>
+                    <button 
+                      class="mobile-submenu-toggle w-full flex items-center justify-between px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
+                      data-target={`submenu-${item.label}`}
+                    >
+                      <span class="flex items-center gap-2">
+                        <IconComponent className="w-5 h-5" />
+                        {item.label}
+                      </span>
+                      <FiChevronDown className="w-5 h-5 transition-transform duration-200" />
+                    </button>
+                    <div 
+                      id={`submenu-${item.label}`}
+                      class="mobile-submenu hidden pl-8 space-y-1 pb-2"
+                    >
+                      {
+                        item.submenu.map((sub) => (
+                          <a
+                            href={sub.href}
+                            class="block px-4 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
+                          >
+                            {sub.label}
+                          </a>
+                        ))
+                      }
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
+                  >
+                    <IconComponent className="w-5 h-5" />
+                    {item.label}
+                  </a>
+                )}
+              </div>
+            </>
+          );
+        })
+      }
+      
+      <div class="mt-4 px-4 flex flex-col gap-2">
+        <a 
+          href="/clubes" 
+          class="flex items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-primary-light transition-all duration-200"
+        >
+          <FiSearch className="w-4 h-4" />
+          Buscar Club
+        </a>
+        <a 
+          href="/admin" 
+          class="text-center text-sm text-gray-600 hover:text-primary py-2 transition-colors duration-150"
+        >
+          Admin
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Script para Mobile Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('hidden');
+        menuButton.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+
+    // Toggle de submenús en móvil
+    document.querySelectorAll('.mobile-submenu-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.dataset.target;
+        const submenu = document.getElementById(targetId);
+        if (submenu) {
+          submenu.classList.toggle('hidden');
+          const icon = button.querySelector('svg:last-child');
+          if (icon) {
+            icon.classList.toggle('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style is:global>
+  .group:hover .group-hover\:visible {
+    visibility: visible !important;
+  }
+  
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+  
+  .group:hover .group-hover\:scale-100 {
+    transform: scale(1) !important;
+  }
+  
+  #mobileMenu::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  #mobileMenu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  #mobileMenu::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 9999px;
+  }
+</style>

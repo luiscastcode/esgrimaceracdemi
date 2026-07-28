@@ -1,0 +1,870 @@
+---
+// src/pages/guias/trajes.astro
+import Layout from '../../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight, FiStar } from 'react-icons/fi';
+
+// ============================================
+// 1. DATOS DE LA GUÍA
+// ============================================
+const guia = {
+  titulo: 'Guía de Compra: Uniformes de Esgrima',
+  descripcion: 'Encuentra el uniforme perfecto para tu nivel. Compara los diferentes niveles de protección (350N, 800N y 1600N), materiales y marcas para elegir con confianza.',
+  fecha: '21 de julio, 2026',
+  autor: 'Esgrima Cerca de Mí',
+  imagen: '/images/guias/trajes-hero.jpg'
+};
+
+// ============================================
+// 2. COMPARATIVA DE UNIFORMES 350N (Principiantes)
+// ============================================
+const comparativa350N = [
+  {
+    id: 'absolute-350n',
+    nombre: 'Absolute Fencing Comfort 350N',
+    marca: 'Absolute Fencing',
+    pais: 'USA',
+    imagen: '/images/guias/uniformes/af_comfort_jacket.jpg',
+    imagen_ampliada: '/images/guias/uniformes/af_comfort_jacket.jpg',
+    precio: '~$49USD',
+    tipo: 'Entrenamiento/Principiante',
+    material: 'Poliester (65%) / Algodon (35%)',
+    peso: 'Ligero',
+    ajuste: 'Regular, para hombres',
+    proteccion: '350N (Nivel básico)',
+    durabilidad: 'Buena para uso regular, cierre YYK Zipper',
+    transpirabilidad: 'Buena',
+    pros: ['Económico', 'Ligero', 'Ideal para empezar', 'Cómodo'],
+    contras: ['Menor protección que 800N/1600N', 'No válido para competiciones FIE'],
+    destacado: true,
+    recomendacion: 'Perfecto para principiantes y entrenamiento diario, con un peto de 800N puedes competir en Venezuela. La opción más económica y funcional.',
+    enlace: 'https://www.absolutefencinggear.com/af-male-jacket-350n-comfort.html'
+  },
+  {
+    id: 'pbt-350n',
+    nombre: 'PBT 350N Chaqueta Hombres',
+    marca: 'PBT',
+    pais: 'Hungría',
+    imagen: '/images/guias/uniformes/pbt-350n.jpg',
+    imagen_ampliada: '/images/guias/uniformes/pbt-350n-large.jpg',
+    precio: '~$110 USD',
+    tipo: 'Entrenamiento/Principiante',
+    material: 'Poliester con elastano',
+    peso: 'Ligero',
+    ajuste: 'Ajuste moderno, más entallado',
+    proteccion: '350N (Nivel básico)',
+    durabilidad: 'Buena',
+    transpirabilidad: 'Muy buena',
+    pros: ['Cómodo', 'Buen ajuste', 'Bien ventilado', 'Calidad europea'],
+    contras: ['No válido para FIE', 'Precio ligeramente superior'],
+    destacado: false,
+    recomendacion: 'Excelente opción para entrenamientos intensos. Mayor comodidad que Absolute.',
+    enlace: 'https://shop.pbtfencing.com/fencing-jacket-350-n-elastic-for-men228?lang=euro_foreign'
+  },
+  {
+    id: 'allstar-350n',
+    nombre: 'Allstar 350N Chaqueta Hombres',
+    marca: 'Allstar',
+    pais: 'Alemania',
+    imagen: '/images/guias/uniformes/alpha-350n.jpg',
+    imagen_ampliada: '/images/guias/uniformes/alpha-350n.jpg',
+    precio: '~$130 USD',
+    tipo: 'Entrenamiento/Principiante',
+    material: 'Poliester de alta calidad',
+    peso: 'Medio',
+    ajuste: 'Confort de uso optimizado y alta libertad de movimiento ',
+    proteccion: '350N (Nivel básico)',
+    durabilidad: 'Muy buena, materiales duraderos de alta calidad',
+    transpirabilidad: 'Buena, cómodo forro Coolmax ',
+    pros: ['Durabilidad superior', 'Marca de prestigio', 'Buena protección básica'],
+    contras: ['Más caro que otros 350N', 'No válido para FIE'],
+    destacado: false,
+    recomendacion: 'La mejor opción en 350N si buscas durabilidad y una marca reconocida.',
+    enlace: 'https://www.allstar.de'
+  }
+];
+
+// ============================================
+// 3. COMPARATIVA DE UNIFORMES 1600N (Profesional/FIE)
+// ============================================
+const comparativa1600N = [
+  {
+    id: 'leon-paul-apex',
+    nombre: 'Leon Paul Apex 800N Chaqueta Hombres',
+    marca: 'Leon Paul',
+    pais: 'Reino Unido',
+    imagen: '/images/guias/uniformes/leon-paul-apex.jpg',
+    imagen_ampliada: '/images/guias/uniformes/leon-paul-apex.jpg',
+    precio: '~$560 USD',
+    tipo: 'Competencia FIE / Profesional',
+    material: 'Dyneema con tecnología de compresión',
+    peso: 'Ultra-ligero 37% más ligero que otras marcas',
+    ajuste: 'Ajuste ergonómico, compresión',
+    proteccion: '800N (Nivel FIE)',
+    durabilidad: 'Excepcional',
+    transpirabilidad: 'Excelente',
+    pros: ['Máxima protección FIE', 'Ultra-ligero', 'Tecnología de compresión', 'Diseño ergonómico'],
+    contras: ['Precio elevado', 'Ajuste muy ceñido'],
+    destacado: false,
+    recomendacion: 'El uniforme de referencia para competidores de élite. Tecnología de vanguardia.',
+    enlace: 'https://www.leonpaulusa.com/mens-apex-fie-jacket.html'
+  },
+  {
+    id: 'allstar-ecoflex',
+    nombre: 'Allstar Startex 800N Chaqueta Hombres',
+    marca: 'Allstar',
+    pais: 'Alemania',
+    imagen: '/images/guias/uniformes/allstar-startex.jpg',
+    imagen_ampliada: '/images/guias/uniformes/allstar-startex.jpg',
+    precio: '~$320 USD',
+    tipo: 'Competencia FIE / Profesional',
+    material: 'Dyneema con tejido Ecoflex',
+    peso: 'Ligero',
+    ajuste: 'Ajuste anatómico',
+    proteccion: '800N (Nivel FIE)',
+    durabilidad: 'Excelente, no se vuelve amarillo',
+    transpirabilidad: 'Muy buena asegura una perfecta regulación del sudor',
+    pros: ['Protección FIE', 'Buena relación calidad-precio', 'Marca de prestigio', 'Durable, el Startex no se vuelve amarillo'],
+    contras: ['Menos ligero que Apex', 'Precio elevado'],
+    destacado: true,
+    recomendacion: 'La chaqueta favorita de los esgrimistas elites a nivel mundial.',
+    enlace: 'https://allstar.de/en/startex-fie-fencing-jacket-men/9500h-44-rh'
+  },
+  {
+    id: 'af-800n',
+    nombre: 'AF Eurofencing FIE Dry-Pro',
+    marca: 'Absolute Fencing',
+    pais: 'USA',
+    imagen: '/images/guias/uniformes/af.jpg',
+    imagen_ampliada: '/images/guias/uniformes/af.jpg',
+    precio: '~$429 USD',
+    tipo: 'Competencia FIE / Profesional',
+    material: 'Dyneema y poliester',
+    peso: 'Ligero',
+    ajuste: 'Regular',
+    proteccion: '800N (Nivel FIE)',
+    durabilidad: 'Muy buena',
+    transpirabilidad: 'Buena',
+    pros: ['Protección FIE', 'Precio elevado', 'Calidad europea', 'Cómodo'],
+    contras: ['Menos transpirable que modelos europeos'],
+    destacado: false,
+    recomendacion: 'La opción FIE no europea de alto rendimiento. Ideal si buscas protección internacional a precio competitivo.',
+    enlace: 'https://www.absolutefencinggear.com/eurofencing-fie-dry-pro-top-dyneema-men-s-fencing-jacket.html'
+  }
+];
+
+// ============================================
+// 4. Niveles de Protección (Explicación)
+// ============================================
+const nivelesProteccion = [
+  {
+    nombre: '350N',
+    icono: 'fa-solid fa-shield',
+    descripcion: 'Nivel básico de protección. Fabricado con poliester de alta resistencia. Ideal para entrenamiento, escuelas y competiciones nacionales. No es válido para competiciones FIE.',
+    uso: 'Entrenamiento, competiciones nacionales, principiantes',
+    precio: 'Económico',
+    recomendado: 'Principiantes y entrenamiento diario',
+    color: 'bg-green-50 border-green-200'
+  },
+  {
+    nombre: '800N',
+    icono: 'fa-solid fa-shield-halved',
+    descripcion: 'Alto Nivel de protección. Cumple con los estándares FIE para competiciones internacionales con un peto de 800N. Ofrece mayor seguridad que 350N con materiales más resistentes como Kevlar o Dyneema.',
+    uso: 'Competiciones FIE, entrenamiento avanzado',
+    precio: 'Alto',
+    recomendado: 'Competidores de nivel intermedio y avanzado',
+    color: 'bg-blue-50 border-blue-200'
+  },
+  {
+    nombre: '1600N',
+    icono: 'fa-solid fa-shield-halved',
+    descripcion: 'Máximo nivel de protección. Obligatorio en competiciones FIE para la barbada de la careta y recomendado para el resto del uniforme. Fabricado con materiales de última generación como Dyneema y tejidos balísticos.',
+    uso: 'Competiciones FIE de élite, alto rendimiento',
+    precio: 'Alto',
+    recomendado: 'Competidores de élite y profesionales',
+    color: 'bg-gold/10 border-gold/30'
+  }
+];
+
+// ============================================
+// 5. Materiales Destacados
+// ============================================
+const materiales = [
+  {
+    nombre: 'Dyneema',
+    descripcion: 'Fibra de ultra-alta resistencia molecular. Es el material más ligero y resistente del mercado. No degrada su forma con el tiempo, manteniendo la protección y comodidad.',
+    icono: 'fa-solid fa-gem',
+    uso: 'Uniformes 800N y 1600N'
+  },
+  {
+    nombre: 'Kevlar',
+    descripcion: 'Fibra balística conocida por su alta resistencia a la perforación. Más rígido que el Dyneema pero igual de efectivo. Usado en uniformes de alta protección.',
+    icono: 'fa-solid fa-shield',
+    uso: 'Uniformes 800N y 1600N'
+  },
+  {
+    nombre: 'Poliester de Alta Resistencia',
+    descripcion: 'Material básico para uniformes 350N. Ofrece una protección adecuada para entrenamiento y es más económico que los materiales balísticos.',
+    icono: 'fa-solid fa-vest',
+    uso: 'Uniformes 350N'
+  }
+];
+
+// ============================================
+// 6. Marcas Destacadas
+// ============================================
+const marcas = [
+  { nombre: 'Leon Paul', descripcion: 'La marca más prestigiosa del mundo. Innovación constante y materiales de última generación. Referencia en competiciones FIE.', icono: 'fa-solid fa-crown' },
+  { nombre: 'Allstar', descripcion: 'Marca alemana con décadas de experiencia. Ofrece uniformes de alta calidad para todos los niveles, desde 350N hasta 1600N.', icono: 'fa-solid fa-star' },
+  { nombre: 'PBT', descripcion: 'Marca húngara con excelente relación calidad-precio. Ideal para quienes buscan protección FIE sin pagar el precio máximo.', icono: 'fa-solid fa-flag' },
+  { nombre: 'Absolute Fencing', descripcion: 'Marca americana con opciones económicas para principiantes y entrenamiento. Buena opción para empezar.', icono: 'fa-solid fa-flag-usa' }
+];
+
+// ============================================
+// 7. Tipos de Uniformes
+// ============================================
+const tipos = [
+  {
+    nombre: 'Entrenamiento',
+    icono: 'fa-solid fa-dumbbell',
+    descripcion: 'Diseñados para el uso diario. Son más económicos, ligeros y cómodos. Perfectos para principiantes y entrenamiento regular. Generalmente 350N.',
+    ventajas: ['Económicos', 'Ligeros', 'Cómodos', 'Ideales para principiantes']
+  },
+  {
+    nombre: 'Competición Nacional',
+    icono: 'fa-solid fa-flag',
+    descripcion: 'Uniformes de 350N o 800N que cumplen con los estándares para competiciones nacionales. Ofrecen un equilibrio entre protección y precio.',
+    ventajas: ['Buena relación calidad-precio', 'Adecuados para competir', 'Protección intermedia']
+  },
+  {
+    nombre: 'Competición FIE',
+    icono: 'fa-solid fa-trophy',
+    descripcion: 'Uniformes de 800N o 1600N que cumplen con los estándares internacionales. Son más caros pero ofrecen la máxima protección y durabilidad.',
+    ventajas: ['Máxima protección', 'Válidos para FIE', 'Materiales de última generación']
+  }
+];
+
+// ============================================
+// 8. Características Clave
+// ============================================
+const caracteristicas = [
+  {
+    nombre: 'Nivel de Protección (Newtons)',
+    icono: 'fa-solid fa-shield-halved',
+    descripcion: 'La resistencia a la perforación medida en Newtons (N). 350N para entrenamiento, 800N para competición FIE y 1600N para máxima protección. La FIE exige 800N para chaquetilla y pantalón, y 1600N para la barbada de la careta.'
+  },
+  {
+    nombre: 'Material',
+    icono: 'fa-solid fa-layer-group',
+    descripcion: 'Los materiales balísticos como Dyneema y Kevlar ofrecen la máxima protección y durabilidad. El poliester de alta resistencia es más económico pero igualmente funcional para entrenamiento.'
+  },
+  {
+    nombre: 'Transpirabilidad',
+    icono: 'fa-solid fa-wind',
+    descripcion: 'La capacidad de ventilación del uniforme. Los materiales modernos como Dyneema son muy transpirables, manteniendo al tirador fresco durante entrenamientos intensos y competiciones.'
+  },
+  {
+    nombre: 'Ajuste y Comodidad',
+    icono: 'fa-solid fa-ruler',
+    descripcion: 'Un buen ajuste es esencial para la movilidad. Los uniformes modernos ofrecen cortes ergonómicos que no restringen el movimiento durante estocadas y desplazamientos.'
+  },
+  {
+    nombre: 'Durabilidad',
+    icono: 'fa-solid fa-clock',
+    descripcion: 'Los materiales balísticos como Dyneema son extremadamente duraderos y no degradan su forma con el tiempo. Los uniformes 350N de poliester también ofrecen buena durabilidad para uso regular.'
+  }
+];
+
+// ============================================
+// 9. Reglamento FIE
+// ============================================
+const reglamentoFIE = {
+  chaquetilla: '800N mínimo para competiciones FIE',
+  pantalon: '800N mínimo para competiciones FIE',
+  caretaBarbada: '1600N obligatorio para la barbada de la careta en FIE',
+  peto: '800N mínimo para competiciones FIE',
+  material: 'Debe ser de un tejido resistente a la perforación, con costuras reforzadas'
+};
+---
+
+<Layout title={guia.titulo} description={guia.descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <a href="/guias" class="hover:text-primary transition-colors">Guías</a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Trajes</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 text-sm text-gold mb-2">
+            <FiStar className="w-4 h-4" />
+            <span>Guía de Compra</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            {guia.titulo}
+          </h1>
+          <p class="text-gray-300 text-lg max-w-2xl">
+            {guia.descripcion}
+          </p>
+          <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
+            <span><i class="fa-regular fa-calendar"></i> {guia.fecha}</span>
+            <span>•</span>
+            <span><i class="fa-regular fa-user"></i> {guia.autor}</span>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <div class="bg-white/10 rounded-2xl p-6 text-center">
+            <i class="fa-solid fa-vest text-5xl text-gold"></i>
+            <p class="text-sm text-gray-300 mt-2">Uniformes de Esgrima</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📋 Índice Rápido -->
+    <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-200">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3">En esta guía:</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#niveles" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Niveles de Protección</a>
+        <a href="#comparativa350" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">350N (Principiantes)</a>
+        <a href="#comparativa1600" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">800N (Profesional)</a>
+        <a href="#materiales" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Materiales</a>
+        <a href="#reglamento" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Reglamento FIE</a>
+        <a href="#recomendacion" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">¿Cuál elegir?</a>
+      </div>
+    </div>
+
+    <!-- 🛡️ Niveles de Protección -->
+    <section id="niveles" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-shield-halved text-primary mr-2"></i>
+        Niveles de Protección: 350N, 800N y 1600N
+      </h2>
+      <p class="text-gray-600 mb-6">
+        La resistencia a la perforación se mide en Newtons (N). Estos son los estándares internacionales para uniformes de esgrima:
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {nivelesProteccion.map((nivel) => (
+          <div class={`rounded-xl p-5 border-2 ${nivel.color} bg-white transition hover:shadow-md`}>
+            <div class="flex items-center gap-2 mb-2">
+              <i class={`${nivel.icono} text-2xl text-primary`}></i>
+              <h3 class="text-xl font-bold text-primary">{nivel.nombre}</h3>
+            </div>
+            <p class="text-sm text-gray-600">{nivel.descripcion}</p>
+            <div class="mt-3 space-y-1 text-xs">
+              <p><span class="font-semibold">Uso:</span> {nivel.uso}</p>
+              <p><span class="font-semibold">Precio:</span> {nivel.precio}</p>
+              <p><span class="font-semibold">Recomendado para:</span> {nivel.recomendado}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+        <p class="text-sm text-blue-700">
+          <i class="fa-solid fa-circle-info mr-2"></i>
+          <strong>Importante:</strong> La FIE exige un mínimo de <strong>800N</strong> para chaquetilla y pantalón en competiciones internacionales, y <strong>1600N</strong> para la barbada de la careta.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📊 Comparativa 350N (Principiantes) -->
+    <section id="comparativa350" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <h2 class="text-2xl font-bold font-heading">
+          <i class="fa-solid fa-seedling text-green-500 mr-2"></i>
+          Comparativa 350N - Principiantes
+        </h2>
+        <span class="bg-green-50 text-green-600 text-xs px-3 py-1 rounded-full font-semibold">Económicos</span>
+        <span class="bg-gray-100 text-gray-500 text-xs px-3 py-1 rounded-full">Entrenamiento</span>
+      </div>
+      <p class="text-gray-600 mb-6">Los uniformes 350N son la opción más económica y popular para principiantes y entrenamiento diario. Ofrecen protección básica sin el coste de los materiales balísticos.</p>
+
+      <div class="space-y-6">
+        {comparativa350N.map((modelo) => (
+          <div class={`bg-gray-50 rounded-xl p-6 border-2 transition hover:shadow-lg ${
+            modelo.destacado ? 'border-green-500 shadow-md' : 'border-gray-200 hover:border-primary'
+          }`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <!-- Columna Izquierda: Imagen -->
+              <div class="md:w-64 shrink-0">
+                {modelo.destacado && (
+                  <div class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Mejor Opción
+                  </div>
+                )}
+                
+                <div class="flex items-center gap-2 mb-3">
+                  <span class={`text-xs px-2 py-0.5 rounded-full ${
+                    modelo.pais === 'China' 
+                      ? 'bg-red-50 text-red-600 border border-red-200' 
+                      : 'bg-blue-50 text-blue-600 border border-blue-200'
+                  }`}>
+                    <i class="fa-solid fa-flag mr-1"></i>
+                    {modelo.pais}
+                  </span>
+                  <span class="text-sm font-bold text-green-600 ml-auto">{modelo.precio}</span>
+                </div>
+                
+                <div class="relative group cursor-pointer" 
+                     data-lightbox-id={modelo.id}
+                     data-lightbox-img={modelo.imagen_ampliada || modelo.imagen}
+                     data-lightbox-name={modelo.nombre}
+                     data-lightbox-marca={modelo.marca}
+                     data-lightbox-tipo={modelo.tipo}>
+                  {modelo.imagen ? (
+                    <div class="relative overflow-hidden rounded-xl bg-gray-100">
+                      <img 
+                        src={modelo.imagen} 
+                        alt={modelo.nombre} 
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl"></i>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center text-6xl">👕</div>
+                  )}
+                </div>
+                
+                <div class="mt-3">
+                  <a 
+                    href={modelo.enlace} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-center text-sm bg-primary text-white py-2.5 rounded-lg hover:bg-primary-light transition"
+                  >
+                    <i class="fa-solid fa-cart-shopping mr-2"></i>
+                    Ver en tienda
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Información -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">{modelo.nombre}</h3>
+                    <span class="text-sm text-gray-500">{modelo.marca}</span>
+                  </div>
+                  <span class="text-lg font-bold text-green-600">{modelo.precio}</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div><span class="font-semibold">Tipo:</span> {modelo.tipo}</div>
+                  <div><span class="font-semibold">Material:</span> {modelo.material}</div>
+                  <div><span class="font-semibold">Peso:</span> {modelo.peso}</div>
+                  <div><span class="font-semibold">Ajuste:</span> {modelo.ajuste}</div>
+                  <div><span class="font-semibold">Protección:</span> {modelo.proteccion}</div>
+                  <div><span class="font-semibold">Transpirabilidad:</span> {modelo.transpirabilidad}</div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                  <p class="text-sm font-semibold text-primary">
+                    <i class="fa-solid fa-circle-check text-green-500 mr-1"></i>
+                    Pros:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.pros.map((pro) => (
+                      <span class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-check text-green-500 mr-0.5"></i>
+                        {pro}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-sm font-semibold text-red-500 mt-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i>
+                    Contras:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.contras.map((contra) => (
+                      <span key={contra} class="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-xmark text-red-500 mr-0.5"></i>
+                        {contra}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-xs text-gray-600 italic">
+                    <i class="fa-solid fa-quote-left text-primary mr-1"></i>
+                    {modelo.recomendacion}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 📊 Comparativa 1600N (Profesional) -->
+    <section id="comparativa1600" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <h2 class="text-2xl font-bold font-heading">
+          <i class="fa-solid fa-trophy text-gold mr-2"></i>
+          Comparativa 800N/1600N - Profesional FIE
+        </h2>
+        <span class="bg-gold/20 text-gold-dark text-xs px-3 py-1 rounded-full font-semibold">Máxima Protección</span>
+        <span class="bg-blue-50 text-blue-600 text-xs px-3 py-1 rounded-full">Competición FIE</span>
+      </div>
+      <p class="text-gray-600 mb-6">Los uniformes 1600N son el estándar para competiciones internacionales FIE. Fabricados con materiales de última generación como Dyneema, ofrecen la máxima protección y durabilidad.</p>
+
+      <div class="space-y-6">
+        {comparativa1600N.map((modelo) => (
+          <div class={`bg-gray-50 rounded-xl p-6 border-2 transition hover:shadow-lg ${
+            modelo.destacado ? 'border-gold shadow-md' : 'border-gray-200 hover:border-primary'
+          }`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <!-- Columna Izquierda: Imagen -->
+              <div class="md:w-64 shrink-0">
+                {modelo.destacado && (
+                  <div class="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Top Pick
+                  </div>
+                )}
+                
+                <div class="flex items-center gap-2 mb-3">
+                  <span class={`text-xs px-2 py-0.5 rounded-full ${
+                    modelo.pais === 'China' 
+                      ? 'bg-red-50 text-red-600 border border-red-200' 
+                      : 'bg-blue-50 text-blue-600 border border-blue-200'
+                  }`}>
+                    <i class="fa-solid fa-flag mr-1"></i>
+                    {modelo.pais}
+                  </span>
+                  <span class="text-sm font-bold text-gold-dark ml-auto">{modelo.precio}</span>
+                </div>
+                
+                <div class="relative group cursor-pointer" 
+                     data-lightbox-id={modelo.id}
+                     data-lightbox-img={modelo.imagen_ampliada || modelo.imagen}
+                     data-lightbox-name={modelo.nombre}
+                     data-lightbox-marca={modelo.marca}
+                     data-lightbox-tipo={modelo.tipo}>
+                  {modelo.imagen ? (
+                    <div class="relative overflow-hidden rounded-xl bg-gray-100">
+                      <img 
+                        src={modelo.imagen} 
+                        alt={modelo.nombre} 
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl"></i>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center text-6xl">👕</div>
+                  )}
+                </div>
+                
+                <div class="mt-3">
+                  <a 
+                    href={modelo.enlace} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-center text-sm bg-primary text-white py-2.5 rounded-lg hover:bg-primary-light transition"
+                  >
+                    <i class="fa-solid fa-cart-shopping mr-2"></i>
+                    Ver en tienda
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Información -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">{modelo.nombre}</h3>
+                    <span class="text-sm text-gray-500">{modelo.marca}</span>
+                  </div>
+                  <span class="text-lg font-bold text-gold-dark">{modelo.precio}</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div><span class="font-semibold">Tipo:</span> {modelo.tipo}</div>
+                  <div><span class="font-semibold">Material:</span> {modelo.material}</div>
+                  <div><span class="font-semibold">Peso:</span> {modelo.peso}</div>
+                  <div><span class="font-semibold">Ajuste:</span> {modelo.ajuste}</div>
+                  <div><span class="font-semibold">Protección:</span> {modelo.proteccion}</div>
+                  <div><span class="font-semibold">Transpirabilidad:</span> {modelo.transpirabilidad}</div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                  <p class="text-sm font-semibold text-primary">
+                    <i class="fa-solid fa-circle-check text-green-500 mr-1"></i>
+                    Pros:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.pros.map((pro) => (
+                      <span key={pro} class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-check text-green-500 mr-0.5"></i>
+                        {pro}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-sm font-semibold text-red-500 mt-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i>
+                    Contras:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.contras.map((contra) => (
+                      <span class="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-xmark text-red-500 mr-0.5"></i>
+                        {contra}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-xs text-gray-600 italic">
+                    <i class="fa-solid fa-quote-left text-primary mr-1"></i>
+                    {modelo.recomendacion}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 text-xs text-gray-400 text-center">
+        <i class="fa-solid fa-info-circle mr-1"></i>
+        Precios aproximados en USD. Pueden variar según el distribuidor y la región.
+      </div>
+    </section>
+
+    <!-- 🧵 Materiales -->
+    <section id="materiales" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-layer-group text-primary mr-2"></i>
+        Materiales de los Uniformes
+      </h2>
+      <p class="text-gray-600 mb-6">Los materiales determinan la protección, durabilidad y comodidad del uniforme. Estos son los más comunes:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {materiales.map((material) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
+            <i class={`${material.icono} text-3xl text-primary mb-2`}></i>
+            <h3 class="font-bold text-primary">{material.nombre}</h3>
+            <p class="text-sm text-gray-600 mt-1">{material.descripcion}</p>
+            <span class="inline-block mt-2 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+              {material.uso}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 📜 Reglamento FIE -->
+    <section id="reglamento" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-regular fa-file-lines text-primary mr-2"></i>
+        Reglamento FIE para Uniformes
+      </h2>
+      <p class="text-gray-600 mb-6">La Federación Internacional de Esgrima (FIE) establece los siguientes requisitos para competiciones internacionales:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-shirt text-primary"></i>
+            <span class="font-semibold">Chaquetilla</span>
+          </div>
+          <p class="text-sm text-gray-600">{reglamentoFIE.chaquetilla}</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-vest text-primary"></i>
+            <span class="font-semibold">Pantalón</span>
+          </div>
+          <p class="text-sm text-gray-600">{reglamentoFIE.pantalon}</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-mask text-primary"></i>
+            <span class="font-semibold">Careta - Barbada</span>
+          </div>
+          <p class="text-sm text-gray-600">{reglamentoFIE.caretaBarbada}</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-chest text-primary"></i>
+            <span class="font-semibold">Peto</span>
+          </div>
+          <p class="text-sm text-gray-600">{reglamentoFIE.peto}</p>
+        </div>
+      </div>
+      
+      <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+        <p class="text-sm text-blue-700">
+          <i class="fa-regular fa-circle-lightbulb mr-2"></i>
+          <strong>Tip:</strong> Para competiciones nacionales, los requisitos pueden ser menos estrictos. La FVE permite competir con uniformes de 350NW siempre y cuando el peto sea de 800NW.
+        </p>
+      </div>
+    </section>
+
+    <!-- 🎯 ¿Cuál elegir? -->
+    <section id="recomendacion" class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl font-bold font-heading mb-4 text-center">
+        <i class="fa-solid fa-bullseye mr-2"></i>
+        ¿Cuál uniforme elegir según tu perfil?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-seedling text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Principiante</h3>
+          <p class="text-sm text-gray-300 mt-2">Empieza con un uniforme 350N. Es económico, cómodo y suficiente para entrenamiento y competiciones locales.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">350N como Absolute Fencing</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-person-running text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Nivel FIE</h3>
+          <p class="text-sm text-gray-300 mt-2">Si compites a nivel internacional y entrenas intensamente, un 800N te ofrece mejor protección.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">800N de Allstar</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-trophy text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Materiales De Ultima Generacion</h3>
+          <p class="text-sm text-gray-300 mt-2">Invierte en 800N si compites internacionalmente. Máxima protección y materiales de última generación.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">800N como Leon Paul Apex</span>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <p class="text-sm text-gray-300">
+          <i class="fa-regular fa-circle-lightbulb mr-2"></i>
+          <strong>Tip:</strong> Si no estás seguro, empieza con 350N. Cuando crezcas en el deporte, podrás invertir en un uniforme de mayor protección.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📝 Consejos Finales -->
+    <section class="bg-white rounded-2xl shadow-md p-6 md:p-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+        Consejos Finales
+      </h2>
+      <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Prueba el uniforme</strong> antes de comprar. Debe ser cómodo y no restringir el movimiento.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Lava el uniforme</strong> siguiendo las instrucciones del fabricante. La mayoría se lava en frío y sin suavizante.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Revisa el reglamento</strong> de tu federación antes de comprar para asegurarte de que cumple con los requisitos de competición.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Invierte en calidad</strong> si entrenas regularmente. Un buen uniforme dura más y ofrece mejor protección.</span>
+        </li>
+      </ul>
+      
+      <div class="mt-6 p-4 bg-gold/10 border border-gold rounded-xl text-center">
+        <p class="text-sm text-gray-700">
+          <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+          <strong>Recuerda:</strong> El uniforme es tu principal protección en esgrima. No escatimes en seguridad. ¡Invierte en tu protección y rendimiento!
+        </p>
+      </div>
+    </section>
+
+    <!-- 📢 Llamada a la acción -->
+    <section class="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center">
+      <h3 class="text-xl font-bold font-heading mb-2">
+        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+        ¿Tienes dudas sobre qué uniforme elegir?
+      </h3>
+      <p class="text-gray-600 mb-4">Contácta proveedores nacionales que ayudarán a encontrar la opción perfecta para ti.</p>
+      <a 
+        href="/proveedores" 
+        class="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary-light transition"
+      >
+        <i class="fa-solid fa-eye mr-2"></i>
+        Ver proveedores
+      </a>
+    </section>
+  </div>
+</Layout>
+
+ 
+
+<!-- 🔥 LIGHTBOX JAVASCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Crear el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox-overlay';
+    lightbox.className = 'fixed inset-0 z-[999] bg-black/90 hidden flex items-center justify-center p-4';
+    lightbox.innerHTML = `
+      <div class="relative max-w-4xl w-full">
+        <button id="lightbox-close" class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="" class="w-full h-auto rounded-xl max-h-[80vh] object-contain" />
+        <div id="lightbox-caption" class="text-white text-center mt-4 text-lg font-semibold"></div>
+        <div id="lightbox-subcaption" class="text-gray-400 text-center text-sm"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const overlay = document.getElementById('lightbox-overlay');
+    const image = document.getElementById('lightbox-image');
+    const caption = document.getElementById('lightbox-caption');
+    const subcaption = document.getElementById('lightbox-subcaption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    function closeLightbox() {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // 🔥 ASIGNAR EVENTOS A LAS IMÁGENES
+    document.querySelectorAll('[data-lightbox-id]').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        const imgSrc = this.dataset.lightboxImg;
+        const name = this.dataset.lightboxName;
+        const marca = this.dataset.lightboxMarca;
+        const tipo = this.dataset.lightboxTipo;
+
+        if (imgSrc) {
+          image.src = imgSrc;
+          image.alt = name || 'Uniforme';
+          caption.textContent = name || 'Uniforme';
+          subcaption.textContent = `${marca || ''} ${tipo ? '- ' + tipo : ''}`;
+          overlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>

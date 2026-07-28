@@ -1,0 +1,39 @@
+{
+  "company": {
+    "name": "Esgrima Cerca de Mí",
+    "description": "El directorio más completo de clubes de esgrima en Venezuela. Conectamos a atletas, padres y clubes para fomentar el deporte de la esgrima en todo el país.",
+    "founded": "2026"
+  },
+  "social": [
+    { "name": "Instagram", "icon": "📱", "url": "https://instagram.com/esgrimacercademi" },
+    { "name": "Twitter", "icon": "🐦", "url": "https://twitter.com/esgrimacercademi" },
+    { "name": "YouTube", "icon": "▶️", "url": "https://youtube.com/esgrimacercademi" },
+    { "name": "WhatsApp", "icon": "💬", "url": "https://wa.me/584121234567" }
+  ],
+  "links": {
+    "clubes": [
+      { "label": "Todos los clubes", "href": "/clubes" },
+      { "label": "Clubes en Caracas", "href": "/clubes/caracas/caracas" },
+      { "label": "Clubes en Valencia", "href": "/clubes/carabobo/valencia" },
+      { "label": "Clubes en Maracaibo", "href": "/clubes/zulia/maracaibo" }
+    ],
+    "guias": [
+      { "label": "Trajes de esgrima", "href": "/guias/trajes" },
+      { "label": "Guantes de esgrima", "href": "/guias/guantes" },
+      { "label": "Caretas de esgrima", "href": "/guias/caretas" },
+      { "label": "Armas de esgrima", "href": "/guias/armas" }
+    ],
+    "reglamento": [
+      { "label": "Reglas del Florete", "href": "/reglamento/armas#florete" },
+      { "label": "Reglas de la Espada", "href": "/reglamento/armas#espada" },
+      { "label": "Reglas del Sable", "href": "/reglamento/armas#sable" },
+      { "label": "Competencias FIE", "href": "/reglamento/competencias" }
+    ],
+    "legal": [
+      { "label": "Política de Privacidad", "href": "/privacidad" },
+      { "label": "Aviso Legal", "href": "/aviso-legal" },
+      { "label": "Política de Cookies", "href": "/cookies" },
+      { "label": "Contacto", "href": "/contacto" }
+    ]
+  } 
+}

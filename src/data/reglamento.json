@@ -1,0 +1,54 @@
+{
+  "armas": [
+    {
+      "nombre": "Florete",
+      "slug": "florete",
+      "zona_valida": "Torso (pecho y espalda)",
+      "tipo_golpe": "Estocada (punta)",
+      "prioridad": true,
+      "tactica": "Precisión y estrategia. El ataque que comienza primero tiene prioridad.",
+      "peso_maximo": "500g",
+      "longitud_maxima": "110cm",
+      "imagen": "/images/reglamento/florete.jpg"
+    },
+    {
+      "nombre": "Espada",
+      "slug": "espada",
+      "zona_valida": "Cuerpo completo (pies a cabeza)",
+      "tipo_golpe": "Estocada (punta)",
+      "prioridad": false,
+      "tactica": "Paciencia y gestión de distancia. Los toques simultáneos son válidos.",
+      "peso_maximo": "770g",
+      "longitud_maxima": "110cm",
+      "imagen": "/images/reglamento/espada.jpg"
+    },
+    {
+      "nombre": "Sable",
+      "slug": "sable",
+      "zona_valida": "Cintura para arriba (incluye brazos y cabeza)",
+      "tipo_golpe": "Corte y estocada (punta y filo)",
+      "prioridad": true,
+      "tactica": "Rapidez y agresividad. El ataque más rápido tiene prioridad.",
+      "peso_maximo": "500g",
+      "longitud_maxima": "105cm",
+      "imagen": "/images/reglamento/sable.jpg"
+    }
+  ],
+  "competencias": {
+    "copas_mundo": [
+      {
+        "nombre": "Copa del Mundo de Espada",
+        "ciudades": ["Lima (Perú)", "El Cairo (Egipto)", "Saint-Maur (Francia)", "Berna (Suiza)"],
+        "fecha": "Mayo 2026"
+      }
+    ],
+    "panamericanos": "Juegos Panamericanos - Próxima edición 2027",
+    "bolivarianos": "Juegos Bolivarianos 2025 - Venezuela obtuvo medallas en florete",
+    "mundial_juvenil": "Campeonato Mundial Juvenil - Venezuela participa activamente"
+  },
+  "proceso_participacion": {
+    "autorizacion": "Federación Venezolana de Esgrima (FVE)",
+    "plazo": "Mínimo 18 días antes del evento",
+    "informes": "Informe post-competencia obligatorio"
+  }
+}

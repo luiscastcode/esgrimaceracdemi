@@ -1,0 +1,39 @@
+{
+  "estados": [
+    {
+      "nombre": "Caracas",
+      "slug": "caracas",
+      "ciudades": ["Caracas", "El Hatillo", "Baruta", "Chacao", "Sucre"]
+    },
+    {
+      "nombre": "Miranda",
+      "slug": "miranda",
+      "ciudades": ["Los Teques", "Guarenas", "Guatire", "Ocumare del Tuy"]
+    },
+    {
+      "nombre": "Carabobo",
+      "slug": "carabobo",
+      "ciudades": ["Valencia", "Puerto Cabello", "Guacara", "Naguanagua"]
+    },
+    {
+      "nombre": "Zulia",
+      "slug": "zulia",
+      "ciudades": ["Maracaibo", "Cabimas", "Ciudad Ojeda", "Los Puertos de Altagracia"]
+    },
+    {
+      "nombre": "Lara",
+      "slug": "lara",
+      "ciudades": ["Barquisimeto", "Cabudare", "Quíbor"]
+    },
+    {
+      "nombre": "Aragua",
+      "slug": "aragua",
+      "ciudades": ["Maracay", "Turmero", "El Limón", "La Victoria"]
+    },
+    {
+      "nombre": "Bolívar",
+      "slug": "bolivar",
+      "ciudades": ["Ciudad Guayana", "Ciudad Bolívar", "Upata"]
+    }
+  ]
+}

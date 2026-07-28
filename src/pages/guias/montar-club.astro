@@ -1,0 +1,605 @@
+---
+// src/pages/guias/montar-club.astro
+import Layout from '../../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight, FiStar } from 'react-icons/fi';
+
+// ============================================
+// 1. DATOS DE LA GUÍA
+// ============================================
+const guia = {
+  titulo: 'Cómo Montar un Club de Esgrima en Venezuela',
+  descripcion: 'Guía completa paso a paso para fundar tu propio club de esgrima en Venezuela. Aspectos legales, materiales, local y accesorios recomendados.',
+  fecha: '21 de julio, 2026',
+  autor: 'Esgrima Cerca de Mí',
+  imagen: '/images/guias/montar-club-hero.jpg'
+};
+
+// ============================================
+// 2. ACCESORIOS RECOMENDADOS (TRANSACCIONAL)
+// ============================================
+const accesorios = [
+  {
+    id: 'aparato-electrico',
+    nombre: 'Aparato Eléctrico para Esgrima - Favero FT-50',
+    marca: 'Favero',
+    imagen: '/images/guias/accesorios/favero-ft50.jpg',
+    imagen_ampliada: '/images/guias/accesorios/favero-ft50-large.jpg',
+    precio: '~$1,200 USD',
+    descripcion: 'El marcador eléctrico más utilizado en clubes de todo el mundo. Registra tocados con precisión y es compatible con florete, espada y sable.',
+    categoria: 'Equipamiento de Club',
+    enlace: 'https://www.amazon.com/dp/B00XXX?tag=esgrimacercademi-20',
+    destacado: true
+  },
+  {
+    id: 'pista-esgrima',
+    nombre: 'Pista de Esgrima Portátil - Leon Paul',
+    marca: 'Leon Paul',
+    imagen: '/images/guias/accesorios/pista-leon-paul.jpg',
+    imagen_ampliada: '/images/guias/accesorios/pista-leon-paul-large.jpg',
+    precio: '~$2,500 USD',
+    descripcion: 'Pista portátil de 14 metros con sistema de anclaje rápido. Ideal para clubes que necesitan montar y desmontar la pista con frecuencia.',
+    categoria: 'Equipamiento de Club',
+    enlace: 'https://www.amazon.com/dp/B00YYY?tag=esgrimacercademi-20',
+    destacado: false
+  },
+  {
+    id: 'rulos-cables',
+    nombre: 'Set de Rulos y Cables - PBT',
+    marca: 'PBT',
+    imagen: '/images/guias/accesorios/rulos-pbt.jpg',
+    imagen_ampliada: '/images/guias/accesorios/rulos-pbt-large.jpg',
+    precio: '~$250 USD',
+    descripcion: 'Set completo de rulos y cables para conectar el aparato eléctrico a las pistas. Incluye cables para florete, espada y sable.',
+    categoria: 'Equipamiento de Club',
+    enlace: 'https://www.amazon.com/dp/B00ZZZ?tag=esgrimacercademi-20',
+    destacado: false
+  },
+  {
+    id: 'armero-portatil',
+    nombre: 'Armero Portátil para Esgrima - 8 armas',
+    marca: 'Absolute Fencing',
+    imagen: '/images/guias/accesorios/armero-absolute.jpg',
+    imagen_ampliada: '/images/guias/accesorios/armero-absolute-large.jpg',
+    precio: '~$180 USD',
+    descripcion: 'Armero portátil con capacidad para 8 armas. Ideal para transportar el material a competiciones y entrenamientos.',
+    categoria: 'Almacenamiento',
+    enlace: 'https://www.amazon.com/dp/B00AAA?tag=esgrimacercademi-20',
+    destacado: false
+  },
+  {
+    id: 'kit-primeros-auxilios',
+    nombre: 'Kit de Primeros Auxilios Deportivo',
+    marca: 'MediSports',
+    imagen: '/images/guias/accesorios/kit-primeros-auxilios.jpg',
+    imagen_ampliada: '/images/guias/accesorios/kit-primeros-auxilios-large.jpg',
+    precio: '~$45 USD',
+    descripcion: 'Kit completo de primeros auxilios para deportes. Incluye vendas, apósitos, hielo instantáneo y material para lesiones comunes en esgrima.',
+    categoria: 'Seguridad',
+    enlace: 'https://www.amazon.com/dp/B00BBB?tag=esgrimacercademi-20',
+    destacado: false
+  },
+  {
+    id: 'conos-entrenamiento',
+    nombre: 'Set de Conos para Entrenamiento - 10 unidades',
+    marca: 'Pro Training',
+    imagen: '/images/guias/accesorios/conos-entrenamiento.jpg',
+    imagen_ampliada: '/images/guias/accesorios/conos-entrenamiento-large.jpg',
+    precio: '~$30 USD',
+    descripcion: 'Set de conos de entrenamiento para marcar distancias y ejercicios de agilidad. Ideales para calentamientos y drills de esgrima.',
+    categoria: 'Material de Entrenamiento',
+    enlace: 'https://www.amazon.com/dp/B00CCC?tag=esgrimacercademi-20',
+    destacado: false
+  }
+];
+
+// ============================================
+// 3. PASOS LEGALES
+// ============================================
+const pasosLegales = [
+  {
+    paso: 1,
+    titulo: 'Acta Constitutiva y Estatutos',
+    descripcion: 'Elabora un acta constitutiva y unos estatutos que definan la misión, estructura y normas de funcionamiento del club. El club se constituye como una asociación civil sin fines de lucro.',
+    icono: 'fa-solid fa-file-lines'
+  },
+  {
+    paso: 2,
+    titulo: 'Registro Nacional del Deporte',
+    descripcion: 'Inscribe el club en el Registro Nacional del Deporte, Actividad Física y Educación Física. Esto se hace en cada municipio y es fundamental para la personalidad jurídica del club.',
+    icono: 'fa-solid fa-registered'
+  },
+  {
+    paso: 3,
+    titulo: 'Aval Municipal',
+    descripcion: 'Obtén el aval del Instituto Municipal de Deportes o presenta una carta de exposición de motivos comprometiéndote a legalizar el club.',
+    icono: 'fa-solid fa-building-columns'
+  },
+  {
+    paso: 4,
+    titulo: 'Fichaje ante la Asociación y la Federación',
+    descripcion: 'Afíliate a la Asociación de tu estado y a la Federación Venezolana de Esgrima (FVE). Este proceso incluye la revisión de documentos y el reconocimiento oficial.',
+    icono: 'fa-solid fa-handshake'
+  }
+];
+
+// ============================================
+// 4. REQUISITOS DEL LOCAL
+// ============================================
+const requisitosLocal = [
+  {
+    nombre: 'Dimensiones',
+    icono: 'fa-solid fa-ruler',
+    descripcion: 'Al menos una pista reglamentaria de 14 metros de largo por 1.5 a 2 metros de ancho. Se recomienda un espacio adicional de 2 metros en cada extremo para la zona de seguridad.'
+  },
+  {
+    nombre: 'Suelo',
+    icono: 'fa-solid fa-layer-group',
+    descripcion: 'El suelo ideal es metálico o de aluminio para aislar eléctricamente y proporcionar un buen agarre. Las pistas portátiles son una opción flexible para clubes que comparten espacio.'
+  },
+  {
+    nombre: 'Iluminación',
+    icono: 'fa-solid fa-lightbulb',
+    descripcion: 'Buena iluminación uniforme sin deslumbramientos. Se recomienda una intensidad de al menos 500 lux en el área de la pista.'
+  },
+  {
+    nombre: 'Ventilación',
+    icono: 'fa-solid fa-wind',
+    descripcion: 'Espacio bien ventilado para la comodidad de los tiradores. La esgrima es un deporte de alta intensidad y la ventilación es esencial para prevenir el sobrecalentamiento.'
+  },
+  {
+    nombre: 'Almacenamiento',
+    icono: 'fa-solid fa-boxes-stacked', 
+    descripcion: 'Espacio para guardar el material (carretes, rollos), elementos de entrenamiento (conos, colchonetas) y un área de mantenimiento para las armas.'
+  }
+];
+
+// ============================================
+// 5. TIPOS DE LOCAL
+// ============================================
+const tiposLocal = [
+  {
+    nombre: 'Base de Misiones Llamados Verticales',
+    icono: 'fa-solid fa-building',
+    descripcion: 'Compartir espacio con otros deportes. Es la opción más económica al inicio, pero requiere coordinar horarios con los encargados.',
+    ventajas: ['Menor costo', 'Excelente para masificar', 'Aprovechamiento de espacios']
+  },
+  {
+    nombre: 'Local Alquilado',
+    icono: 'fa-solid fa-store',
+    descripcion: 'Alquilar un espacio exclusivo para el club. Es la opción ideal para clubes consolidados con alto volumen de socios.',
+    ventajas: ['Espacio fijo', 'Tú llevas el control', 'Mayor profesionalismo']
+  },
+  {
+    nombre: 'Sala de Armas De Tu Estado',
+    icono: 'fa-solid fa-warehouse',
+    descripcion: 'Un espacio diseñado específicamente para la esgrima en tu estado.  Permite tener las pistas fijas y un ambiente más controlado y profesional.',
+    ventajas: ['Objetivo es el alto rendimiento', 'Mejor experiencia para atletas', 'Posibilidad de múltiples pistas']
+  }
+];
+
+// ============================================
+// 6. MATERIAL OBLIGATORIO DEL TIRADOR
+// ============================================
+const materialTirador = [
+  { nombre: 'Chaquetilla', descripcion: 'Protege el torso y los brazos. Fabricada con materiales resistentes como Kevlar o Dyneema.', icono: 'fa-solid fa-shirt' },
+  { nombre: 'Pantalón', descripcion: 'Protege la parte inferior del cuerpo. Se usa con la chaquetilla.', icono: 'fa-solid fa-vest' },
+  { nombre: 'Careta', descripcion: 'Protege el rostro y la cabeza. Fabricada con malla metálica de alta resistencia.', icono: 'fa-solid fa-mask' },
+  { nombre: 'Guante', descripcion: 'Protege la mano del brazo armado y mejora el agarre.', icono: 'fa-solid fa-hand' },
+  { nombre: 'Peto Interior', descripcion: 'Protección adicional para el torso, obligatoria en competición.', icono: 'fa-solid fa-user-shield' }, 
+  { nombre: 'Medias de Esgrima', descripcion: 'Largas y resistentes, cubren las piernas hasta debajo del pantalón.', icono: 'fa-solid fa-socks' },
+  { nombre: 'Zapatillas', descripcion: 'Específicas para esgrima, con suela de agarre y soporte lateral.', icono: 'fa-solid fa-shoe-prints' }
+];
+
+// ============================================
+// 7. CONSEJOS PRÁCTICOS
+// ============================================
+const consejos = [
+  {
+    titulo: 'Empieza con lo básico',
+    descripcion: 'No necesitas una sala de 6 pistas para empezar. Una pista bien montada y el material básico son suficientes para iniciar con éxito.'
+  },
+  {
+    titulo: 'Ofrece material de alquiler',
+    descripcion: 'Proporciona material de alquiler (chaquetillas, caretas, guantes) para los nuevos alumnos, ya que el costo del equipamiento completo puede ser una barrera de entrada.'
+  },
+  {
+    titulo: 'Busca colaboraciones',
+    descripcion: 'Crea sinergias con otros clubes o con el instituto municipal de deportes para compartir espacios o material.'
+  },
+  {
+    titulo: 'Invierte en formación',
+    descripcion: 'Tanto los entrenadores como los directivos deben estar en constante formación y actualización.'
+  },
+  {
+    titulo: 'Crea comunidad',
+    descripcion: 'Una comunidad fuerte y unida alrededor de tu club es la clave del éxito. Organiza eventos y fomenta el compañerismo.'
+  }
+];
+---
+
+<Layout title={guia.titulo} description={guia.descripcion}>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <a href="/guias" class="hover:text-primary transition-colors">Guías</a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Montar un Club</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 text-sm text-gold mb-2">
+            <FiStar className="w-4 h-4" />
+            <span>Guía para Emprendedores</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            {guia.titulo}
+          </h1>
+          <p class="text-gray-300 text-lg max-w-2xl">
+            {guia.descripcion}
+          </p>
+          <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
+            <span><i class="fa-regular fa-calendar"></i> {guia.fecha}</span>
+            <span>•</span>
+            <span><i class="fa-regular fa-user"></i> {guia.autor}</span>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <div class="bg-white/10 rounded-2xl p-6 text-center">
+            <i class="fa-solid fa-flag-checkered text-5xl text-gold"></i>
+            <p class="text-sm text-gray-300 mt-2">Guía Paso a Paso</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📋 Índice Rápido -->
+    <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-200">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3">En esta guía:</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#legales" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Aspectos Legales</a>
+        <a href="#local" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Requisitos del Local</a>
+        <a href="#material" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Material Necesario</a>
+        <a href="#accesorios" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Accesorios Recomendados</a>
+        <a href="#consejos" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Consejos Prácticos</a>
+      </div>
+    </div>
+
+    <!-- 🏛️ Aspectos Legales -->
+    <section id="legales" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-scale-balanced text-primary mr-2"></i>
+        Aspectos Legales: Registro y Fichaje
+      </h2>
+      <p class="text-gray-600 mb-6">El primer paso para constituir un club deportivo en Venezuela es su inscripción y reconocimiento oficial. Este proceso es fundamental para que tu club pueda participar en competiciones, acceder a beneficios y tener personalidad jurídica.</p>
+      
+      <div class="space-y-4">
+        {pasosLegales.map((paso) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition flex gap-4">
+            <div class="shrink-0">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl font-bold">
+                {paso.paso}
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-primary flex items-center gap-2">
+                <i class={`${paso.icono} text-gold`}></i>
+                {paso.titulo}
+              </h3>
+              <p class="text-sm text-gray-600 mt-1">{paso.descripcion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+        <p class="text-sm text-blue-700">
+          <i class="fa-regular fa-circle-lightbulb mr-2"></i>
+          <strong>Tip:</strong> La Asociación de Derecho Deportivo de Venezuela organiza talleres sobre aspectos legales, constitución y funcionamiento de clubes. ¡Aprovecha estas formaciones!
+        </p>
+      </div>
+    </section>
+
+    <!-- 🏢 Requisitos del Local -->
+    <section id="local" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-building text-primary mr-2"></i>
+        Requisitos del Local
+      </h2>
+      <p class="text-gray-600 mb-6">La sala de armas debe cumplir con ciertas características para ser funcional y segura.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {requisitosLocal.map((req) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-2">
+              <i class={`${req.icono} text-2xl text-primary`}></i>
+              <h3 class="font-bold text-primary">{req.nombre}</h3>
+            </div>
+            <p class="text-sm text-gray-600">{req.descripcion}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold font-heading mt-6 mb-4">Tipos de Local</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {tiposLocal.map((tipo) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
+            <i class={`${tipo.icono} text-3xl text-primary mb-2`}></i>
+            <h4 class="font-bold text-primary">{tipo.nombre}</h4>
+            <p class="text-sm text-gray-600 mt-1">{tipo.descripcion}</p>
+            <div class="mt-2">
+              {tipo.ventajas.map((ventaja) => (
+                <span class="inline-block text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full mr-1 mb-1">
+                  <i class="fa-solid fa-check text-green-500 mr-0.5"></i>
+                  {ventaja}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ⚔️ Material Necesario -->
+    <section id="material" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-helmet-safety text-primary mr-2"></i>
+        Material Necesario
+      </h2>
+      
+      <h3 class="text-xl font-bold font-heading mt-4 mb-3">Indumentaria del Tirador</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        {materialTirador.map((item) => (
+          <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center hover:border-primary transition">
+            <i class={`${item.icono} text-2xl text-primary mb-2`}></i>
+            <p class="text-xs font-semibold text-primary">{item.nombre}</p>
+            <p class="text-[10px] text-gray-500 mt-1 line-clamp-2">{item.descripcion}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold font-heading mt-6 mb-3">Material del Club (Sala de Armas)</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center hover:border-primary transition">
+          <i class="fa-solid fa-grip-lines text-2xl text-primary mb-2"></i> 
+          <p class="text-xs font-semibold text-primary">Pista(s)</p>
+          <p class="text-[10px] text-gray-500">14m x 1.5-2m</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center hover:border-primary transition">
+          <i class="fa-solid fa-display text-2xl text-primary mb-2"></i>
+          <p class="text-xs font-semibold text-primary">Aparato Eléctrico</p>
+          <p class="text-[10px] text-gray-500">Marcador de tocados</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center hover:border-primary transition">
+          <i class="fa-solid fa-cable-car text-2xl text-primary mb-2"></i>
+          <p class="text-xs font-semibold text-primary">Rulos y Cables</p>
+          <p class="text-[10px] text-gray-500">Conexiones eléctricas</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center hover:border-primary transition">
+          <i class="fa-solid fa-screwdriver-wrench text-2xl text-primary mb-2"></i> 
+          <p class="text-xs font-semibold text-primary">Armeria</p>
+          <p class="text-[10px] text-gray-500">Herramientas de reparación</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🛒 Accesorios Recomendados (TRANSACCIONAL) -->
+    <section id="accesorios" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <h2 class="text-2xl font-bold font-heading">
+          <i class="fa-solid fa-cart-shopping text-gold mr-2"></i>
+          Accesorios Recomendados
+        </h2>
+        <span class="bg-green-50 text-green-600 text-xs px-3 py-1 rounded-full font-semibold">
+          <i class="fa-solid fa-tag mr-1"></i>
+          Enlaces de afiliado
+        </span>
+      </div>
+      <p class="text-gray-600 mb-6">Equipamiento esencial para montar tu club. Haz clic en los productos para verlos ampliados y comprarlos en Amazon.</p>
+
+      <!-- 🔥 UNA COLUMNA, VARIAS FILAS -->
+      <div class="space-y-6">
+        {accesorios.map((item) => (
+          <div class={`bg-gray-50 rounded-xl p-6 border-2 transition hover:shadow-lg ${
+            item.destacado ? 'border-gold shadow-md' : 'border-gray-200 hover:border-primary'
+          }`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <!-- Columna Izquierda: Imagen -->
+              <div class="md:w-64 shrink-0">
+                {item.destacado && (
+                  <div class="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Más Vendido
+                  </div>
+                )}
+                
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full border border-blue-200">
+                    {item.categoria}
+                  </span>
+                  <span class="text-sm font-bold text-gold-dark ml-auto">{item.precio}</span>
+                </div>
+                
+                <div class="relative group cursor-pointer" 
+                     data-lightbox-id={item.id}
+                     data-lightbox-img={item.imagen_ampliada || item.imagen}
+                     data-lightbox-name={item.nombre}
+                     data-lightbox-marca={item.marca}
+                     data-lightbox-tipo={item.categoria}>
+                  {item.imagen ? (
+                    <div class="relative overflow-hidden rounded-xl bg-gray-100">
+                      <img 
+                        src={item.imagen} 
+                        alt={item.nombre} 
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl"></i>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center text-6xl">🛒</div>
+                  )}
+                </div>
+                
+                <div class="mt-3">
+                  <a 
+                    href={item.enlace} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-center text-sm bg-green-600 text-white py-2.5 rounded-lg hover:bg-green-700 transition"
+                  >
+                    <i class="fa-brands fa-amazon mr-2"></i>
+                    Ver en Amazon
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Información -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">{item.nombre}</h3>
+                    <span class="text-sm text-gray-500">{item.marca}</span>
+                  </div>
+                  <span class="text-lg font-bold text-gold-dark">{item.precio}</span>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4">
+                  {item.descripcion}
+                </p>
+                
+                <div class="mt-4 pt-4 border-t border-gray-200 flex items-center gap-4 text-sm text-gray-400">
+                  <span><i class="fa-regular fa-circle-check text-green-500"></i> Envío internacional</span>
+                  <span><i class="fa-regular fa-star text-gold"></i> 4.5/5 estrellas</span>
+                  <span class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full text-xs">Disponible</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 text-xs text-gray-400 text-center">
+        <i class="fa-solid fa-info-circle mr-1"></i>
+        Los precios son aproximados y pueden variar. Como asociado de Amazon, ganamos una comisión por las compras realizadas a través de estos enlaces.
+      </div>
+    </section>
+
+    <!-- 💡 Consejos Prácticos -->
+    <section id="consejos" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+        Consejos Prácticos para Empezar
+      </h2>
+      <p class="text-gray-600 mb-6">Estos consejos te ayudarán a evitar errores comunes y a construir un club exitoso desde el principio.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {consejos.map((consejo) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
+            <h3 class="font-bold text-primary flex items-center gap-2">
+              <i class="fa-regular fa-circle-check text-gold"></i>
+              {consejo.titulo}
+            </h3>
+            <p class="text-sm text-gray-600 mt-1">{consejo.descripcion}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 p-4 bg-gold/10 border border-gold rounded-xl text-center">
+        <p class="text-sm text-gray-700">
+          <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+          <strong>Recuerda:</strong> El éxito de un club no solo depende de las instalaciones, sino de la comunidad que construyas alrededor de la esgrima. ¡El compañerismo y la pasión son la clave!
+        </p>
+      </div>
+    </section>
+
+    <!-- 📢 Llamada a la acción -->
+    <section class="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center">
+      <h3 class="text-xl font-bold font-heading mb-2">
+        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+        ¿Necesitas equipar tu club?
+      </h3>
+      <p class="text-gray-600 mb-4">Contácta proveedores nacionales con stock disponible en Venezuela.</p>
+      <a 
+        href="/proveedores" 
+        class="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary-light transition"
+      >
+        <i class="fa-regular fa-envelope mr-2"></i>
+        Contactar ahora
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<!-- 🔥 LIGHTBOX JAVASCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Crear el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox-overlay';
+    lightbox.className = 'fixed inset-0 z-[999] bg-black/90 hidden flex items-center justify-center p-4';
+    lightbox.innerHTML = `
+      <div class="relative max-w-4xl w-full">
+        <button id="lightbox-close" class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="" class="w-full h-auto rounded-xl max-h-[80vh] object-contain" />
+        <div id="lightbox-caption" class="text-white text-center mt-4 text-lg font-semibold"></div>
+        <div id="lightbox-subcaption" class="text-gray-400 text-center text-sm"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const overlay = document.getElementById('lightbox-overlay');
+    const image = document.getElementById('lightbox-image');
+    const caption = document.getElementById('lightbox-caption');
+    const subcaption = document.getElementById('lightbox-subcaption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    function closeLightbox() {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // 🔥 ASIGNAR EVENTOS A LAS IMÁGENES
+    document.querySelectorAll('[data-lightbox-id]').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        const imgSrc = this.dataset.lightboxImg;
+        const name = this.dataset.lightboxName;
+        const marca = this.dataset.lightboxMarca;
+        const tipo = this.dataset.lightboxTipo;
+
+        if (imgSrc) {
+          image.src = imgSrc;
+          image.alt = name || 'Producto';
+          caption.textContent = name || 'Producto';
+          subcaption.textContent = `${marca || ''} ${tipo ? '- ' + tipo : ''}`;
+          overlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>

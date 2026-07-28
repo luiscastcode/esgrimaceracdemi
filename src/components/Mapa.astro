@@ -1,0 +1,60 @@
+---
+// src/components/Mapa.astro
+interface Props {
+  lat: number;
+  lng: number;
+  nombre: string;
+  zoom?: number;
+}
+
+const { lat, lng, nombre, zoom = 15 } = Astro.props;
+---
+
+<div class="mapa-container">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <div 
+    id="mapa-{String(lat).replace('.', '-')}" 
+    class="w-full h-64 md:h-72 rounded-xl overflow-hidden border border-gray-200"
+    data-lat={lat}
+    data-lng={lng}
+    data-nombre={nombre}
+    data-zoom={zoom}
+  ></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector(`#mapa-${String(${lat}).replace('.', '-')}`);
+      if (!container) return;
+      
+      const lat = parseFloat(container.dataset.lat);
+      const lng = parseFloat(container.dataset.lng);
+      const nombre = container.dataset.nombre;
+      const zoom = parseInt(container.dataset.zoom) || 15;
+      
+      // Esperar a que Leaflet esté cargado
+      if (typeof L !== 'undefined') {
+        const map = L.map(container).setView([lat, lng], zoom);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        L.marker([lat, lng])
+          .addTo(map)
+          .bindPopup(`<strong>${nombre}</strong>`);
+      }
+    });
+  </script>
+</div>
+
+<style>
+  .mapa-container {
+    position: relative;
+    z-index: 1;
+  }
+  .leaflet-control-zoom {
+    z-index: 10;
+  }
+</style>

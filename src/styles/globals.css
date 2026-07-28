@@ -1,0 +1,267 @@
+@import "tailwindcss";
+/* src/styles/globals.css */
+ 
+
+/* ========================================
+   CONFIGURACIÓN DE TEMA (Tailwind v4)
+   ======================================== */
+
+@theme {
+  /* --- COLORES --- */
+  --color-primary: #1a1a2e;
+  --color-primary-light: #2d2d44;
+  --color-primary-dark: #0f0f1a;
+  
+  --color-secondary: #c0c0c0;
+  --color-secondary-light: #e0e0e0;
+  --color-secondary-dark: #8a8a8a;
+  
+  --color-gold: #ffd700;
+  --color-gold-light: #ffe44d;
+  --color-gold-dark: #cc9900;
+  
+  --color-background: #f8f9fa;
+  --color-background-dark: #e9ecef;
+  
+  /* --- TIPOGRAFÍA --- */
+  --font-family-sans: 'Monserrat', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Montserrat', 'Roboto', sans-serif;
+  
+  /* --- TAMAÑOS DE TEXTO --- */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  
+  /* --- BORDES --- */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  
+  /* --- SOMBRAS --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* --- ANIMACIONES --- */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+}
+
+/* ========================================
+   ANIMACIONES PERSONALIZADAS
+   ======================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   UTILIDADES PERSONALIZADAS
+   ======================================== */
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  
+  @media (width >= 640px) {
+    padding-inline: 1.5rem;
+  }
+  
+  @media (width >= 1024px) {
+    padding-inline: 2rem;
+    max-width: 1280px;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility gradient-primary {
+  @apply bg-gradient-to-r from-primary to-primary-light;
+}
+
+@utility card-hover {
+  @apply transition duration-200 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* ========================================
+   ESTILOS BASE
+   ======================================== */
+
+@layer base {
+  /* Reset y estilos base */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-family-sans);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Selectores para enfoque de accesibilidad */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+/* ========================================
+   CLASES DE COMPONENTES REUTILIZABLES
+   ======================================== */
+
+@layer components {
+  /* Botones */
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-weight: 600;
+    border: 2px solid var(--color-primary);
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Tarjetas */
+  .card {
+    background-color: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    transition: all 0.2s;
+  }
+  
+  .card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+
+  .card-club {
+    background-color: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+  }
+  
+  .card-club:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  
+  .badge-primary {
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    color: var(--color-primary);
+  }
+  
+  .badge-gold {
+    background-color: color-mix(in srgb, var(--color-gold) 20%, transparent);
+    color: var(--color-gold-dark);
+  }
+  
+  .badge-gray {
+    background-color: #f3f4f6;
+    color: #6b7280;
+  }
+}

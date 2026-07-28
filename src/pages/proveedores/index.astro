@@ -1,0 +1,364 @@
+---
+// src/pages/proveedores/index.astro
+import Layout from '../../layouts/LayoutBase.astro';
+import proveedoresData from '../../data/proveedores.json';
+import { 
+  FiMapPin, FiHome, FiChevronRight, FiUsers,
+  FiBriefcase, FiTag, FiPhone, FiMail,
+  FiExternalLink, FiStar, FiSearch
+} from 'react-icons/fi';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+
+// 🔥 Configuración de paginación
+const PROVEEDORES_POR_PAGINA = 12;
+const proveedores = proveedoresData.proveedores || [];
+const totalProveedores = proveedores.length;
+const totalPaginas = Math.ceil(totalProveedores / PROVEEDORES_POR_PAGINA);
+
+// 🔥 Obtener página actual
+const url = new URL(Astro.request.url);
+const page = parseInt(url.searchParams.get('page') || '1', 10);
+const paginaActual = Math.max(1, Math.min(page, totalPaginas || 1));
+
+// 🔥 Calcular índices para la página actual
+const inicio = (paginaActual - 1) * PROVEEDORES_POR_PAGINA;
+const fin = Math.min(inicio + PROVEEDORES_POR_PAGINA, totalProveedores);
+const proveedoresPagina = proveedores.slice(inicio, fin);
+
+// 🔥 Obtener categorías únicas
+const categorias = [...new Set(proveedores.map(p => p.categoria))];
+
+// 🔥 Estadísticas
+const tipos = [...new Set(proveedores.map(p => p.tipo))];
+const totalDestacados = proveedores.filter(p => p.destacado).length;
+
+const titulo = 'Proveedores de Esgrima en Venezuela';
+const descripcion = `Encuentra los mejores proveedores de material, servicios y equipamiento para esgrima en todo el país. ${totalProveedores} proveedores disponibles.`;
+---
+
+<Layout title={titulo} description={descripcion}>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Proveedores</span>
+    </nav>
+
+    <!-- Hero / Header -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            Proveedores de Esgrima
+          </h1>
+          <p class="text-gray-300 text-lg">
+            {totalProveedores} proveedores especializados en esgrima en todo el país
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4 mt-4 md:mt-0">
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <p class="text-2xl font-bold">{totalProveedores}</p>
+            <p class="text-xs text-gray-300">Proveedores</p>
+          </div>
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <p class="text-2xl font-bold">{tipos.length}</p>
+            <p class="text-xs text-gray-300">Tipos</p>
+          </div>
+          <div class="bg-white/10 rounded-lg px-4 py-2 text-center">
+            <p class="text-2xl font-bold">{totalDestacados}</p>
+            <p class="text-xs text-gray-300">Destacados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros rápidos por categoría -->
+    <div class="mb-8">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3 flex items-center gap-2">
+        <FiTag className="w-4 h-4" />
+        Categorías
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        <a 
+          href="/proveedores"
+          class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            !url.searchParams.get('categoria') 
+              ? 'bg-primary text-white' 
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          }`}
+        >
+          Todos
+        </a>
+        {categorias.map((categoria) => (
+          <a
+             
+            href={`/proveedores?categoria=${encodeURIComponent(categoria)}`}
+            class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              url.searchParams.get('categoria') === categoria
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            {categoria}
+          </a>
+        ))}
+      </div>
+    </div>
+
+   
+
+    <!-- Banner Publicitario -->
+    <div class="bg-linear-to-r from-blue-500 to-purple-600 rounded-2xl p-6 md:p-8 mb-8 text-white text-center">
+      <p class="text-sm opacity-80 mb-2">Espacio publicitario</p>
+      <h4 class="text-xl md:text-2xl font-bold font-heading mb-2">
+        ¿Quieres que tu marca llegue a todos los esgrimistas de Venezuela?
+      </h4>
+      <p class="text-white/80 text-sm mb-4">
+        Publica aquí y conecta con miles de atletas, clubes y entrenadores.
+      </p>
+      <a 
+        href="/contacto"
+        class="inline-block bg-white text-primary font-semibold px-6 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
+      >
+        Contacta con nosotros
+      </a>
+    </div>
+
+    <!-- Grid de Proveedores -->
+    {proveedoresPagina.length > 0 ? (
+      <>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {proveedoresPagina.map((proveedor) => (
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group overflow-hidden">
+              {/* Imagen de portada */}
+              {proveedor.imagen_portada && (
+                <div class="h-40 bg-gray-200 overflow-hidden">
+                  <img 
+                    src={proveedor.imagen_portada} 
+                    alt={proveedor.nombre} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              
+              <div class="p-6">
+                {/* Logo y header */}
+                <div class="flex items-start gap-4">
+                  {proveedor.logo && (
+                    <img 
+                      src={proveedor.logo} 
+                      alt={proveedor.nombre} 
+                      class="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shrink-0"
+                      loading="lazy"
+                    />
+                  )}
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-primary group-hover:text-gold transition-colors line-clamp-2">
+                        {proveedor.nombre}
+                      </h3>
+                      {proveedor.destacado && (
+                        <span class="flex items-center gap-1 text-xs bg-gold/20 text-gold-dark px-2 py-1 rounded-full font-semibold whitespace-nowrap">
+                          <FiStar className="w-3 h-3" />
+                          Destacado
+                        </span>
+                      )}
+                    </div>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                        {proveedor.tipo}
+                      </span>
+                      <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                        {proveedor.categoria}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Descripción */}
+                <p class="text-sm text-gray-600 mt-3 line-clamp-3">
+                  {proveedor.descripcion}
+                </p>
+
+                {/* Servicios */}
+                {proveedor.servicios && proveedor.servicios.length > 0 && (
+                  <div class="flex flex-wrap gap-1 mt-3">
+                    {proveedor.servicios.slice(0, 3).map((servicio) => (
+                      <span   class="text-xs bg-gray-50 text-gray-500 px-2 py-0.5 rounded-full border border-gray-100">
+                        {servicio}
+                      </span>
+                    ))}
+                    {proveedor.servicios.length > 3 && (
+                      <span class="text-xs text-gray-400">+{proveedor.servicios.length - 3}</span>
+                    )}
+                  </div>
+                )}
+
+                {/* Datos de contacto */}
+                <div class="mt-4 space-y-1.5 text-sm border-t border-gray-100 pt-4">
+                  {proveedor.direccion && proveedor.direccion !== 'Online' && (
+                    <p class="text-gray-500 flex items-start gap-2">
+                      <FiMapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{proveedor.direccion}</span>
+                    </p>
+                  )}
+                  {proveedor.telefono && (
+                    <p class="text-gray-500 flex items-center gap-2">
+                      <FiPhone className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`tel:${proveedor.telefono}`} class="hover:text-primary transition-colors">
+                        {proveedor.telefono}
+                      </a>
+                    </p>
+                  )}
+                  {proveedor.email && (
+                    <p class="text-gray-500 flex items-center gap-2">
+                      <FiMail className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`mailto:${proveedor.email}`} class="hover:text-primary transition-colors truncate">
+                        {proveedor.email}
+                      </a>
+                    </p>
+                  )}
+                </div>
+
+                {/* Acciones */}
+                <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-2">
+                  <div class="flex gap-2">
+                    {proveedor.instagram && (
+                      <a 
+                        href={proveedor.instagram} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="w-8 h-8 flex items-center justify-center bg-pink-50 text-pink-600 rounded-lg hover:bg-pink-100 transition-colors"
+                        title="Instagram"
+                      >
+                        <FaInstagram className="w-4 h-4" />
+                      </a>
+                    )}
+                    {proveedor.whatsapp && (
+                      <a 
+                        href={proveedor.whatsapp} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="w-8 h-8 flex items-center justify-center bg-green-50 text-green-600 rounded-lg hover:bg-green-100 transition-colors"
+                        title="WhatsApp"
+                      >
+                        <FaWhatsapp className="w-4 h-4" />
+                      </a>
+                    )}
+                    {proveedor.web && (
+                      <a 
+                        href={proveedor.web} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                        title="Sitio web"
+                      >
+                        <FiExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>                   
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Paginación CORREGIDA -->
+        {totalPaginas > 1 && (
+          <div class="mt-8 flex justify-center items-center gap-2 flex-wrap">
+            {/* Botón Anterior */}
+            {paginaActual > 1 && (
+              <a
+                href={`/proveedores?page=${paginaActual - 1}${url.searchParams.get('categoria') ? `&categoria=${url.searchParams.get('categoria')}` : ''}`}
+                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              >
+                ← Anterior
+              </a>
+            )}
+
+            {/* Números de página */}
+            {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((p) => {
+              const isFirst = p === 1;
+              const isLast = p === totalPaginas;
+              const isCurrent = p === paginaActual;
+              const isNearCurrent = Math.abs(p - paginaActual) < 2;
+              const shouldShow = isFirst || isLast || isCurrent || isNearCurrent;
+
+              if (!shouldShow) {
+                if (p === paginaActual - 3 || p === paginaActual + 3) {
+                  return <span class="px-2 text-gray-400">…</span>;
+                }
+                return null;
+              }
+
+              return (
+                <a
+                  href={`/proveedores?page=${p}${url.searchParams.get('categoria') ? `&categoria=${url.searchParams.get('categoria')}` : ''}`}
+                  class={`px-4 py-2 rounded-lg transition-colors ${
+                    isCurrent
+                      ? 'bg-primary text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {p}
+                </a>
+              );
+            })}
+
+            {/* Botón Siguiente */}
+            {paginaActual < totalPaginas && (
+              <a
+                href={`/proveedores?page=${paginaActual + 1}${url.searchParams.get('categoria') ? `&categoria=${url.searchParams.get('categoria')}` : ''}`}
+                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              >
+                Siguiente →
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Total de proveedores */}
+        <div class="mt-6 text-center text-sm text-gray-500">
+          Mostrando {inicio + 1} - {Math.min(fin, totalProveedores)} de {totalProveedores} proveedores
+        </div>
+      </>
+    ) : (
+      <div class="bg-white rounded-xl shadow-md p-12 text-center border-2 border-dashed border-gray-200">
+        <FiSearch className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+        <h3 class="text-xl font-bold text-gray-600 mb-2">No hay proveedores</h3>
+        <p class="text-gray-500">No se encontraron proveedores para esta categoría.</p>
+        <a href="/proveedores" class="text-primary hover:underline mt-4 inline-block">
+          Ver todos los proveedores
+        </a>
+      </div>
+    )}
+
+     <!-- CALL TO ACTION - Contrata publicidad -->
+    <div class="bg-gold/10 border-2 border-gold rounded-2xl p-6 md:p-8 mb-8 mt-8 text-center">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-left">
+          <h3 class="text-xl font-bold font-heading text-primary flex items-center gap-2">
+            <FiStar className="w-6 h-6 text-gold" />
+            ¿Tienes un negocio de esgrima?
+          </h3>
+          <p class="text-gray-600 text-sm mt-1">
+            Llega a miles de atletas y clubes en todo el país. Publicita tu negocio aquí.
+          </p>
+        </div>
+        <a 
+          href="/contacto"
+          class="bg-gold text-primary font-semibold px-8 py-3 rounded-xl hover:bg-gold-light hover:shadow-lg transition-all duration-200 whitespace-nowrap flex items-center gap-2"
+        >
+          <FiBriefcase className="w-4 h-4" />
+          Contrata publicidad
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</Layout>

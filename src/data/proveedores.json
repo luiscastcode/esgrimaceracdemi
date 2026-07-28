@@ -1,0 +1,47 @@
+{
+  "proveedores": [
+    {
+      "id": "la-casa-de-la-esgrima",
+      "slug": "la-casa-de-la-esgrima",
+      "nombre": "La Casa de la Esgrima",
+      "tipo": "Importador",
+      "categoria": "Venta de material",
+      "logo": "/images/proveedores/casa-esgrima/casa-esgrima-logo.jpg",
+      "imagen_portada": "/images/proveedores/casa-esgrima/casa-esgrima-portada.png",
+      "descripcion": " Distribuidora oficial de la marca PBT fencing en Venezuela. La tienda de referencia en Caracas para material de esgrima. Ofrecemos asesoría personalizada para cada nivel.",
+      "direccion": "San Bernardino, Caracas",
+      "estado": "Caracas",
+      "ciudad": "Caracas",
+      "email": "Visitar su Instagram",
+      "telefono": "Sin información",
+      "whatsapp": " ",
+      "instagram": "https://www.instagram.com/lacasadelaesgrima/",
+      "web": " ",
+      "horarios": "Lunes a Viernes 9am-6pm, Sábados 9am-1pm",
+      "destacado": true,
+      "servicios": ["Venta de material nuevo", "Importación directa", "Asesoría técnica"]
+    },
+    {
+      "id": "fencing-miyer",
+      "slug": "fencing-miyer",
+      "nombre": "Fencing Miyer",
+      "tipo": "Taller",
+      "categoria": "Reparación y mantenimiento",
+      "logo": "/images/proveedores/miyer/miyer-logo.jpg",
+      "imagen_portada": "/images/proveedores/miyer/miyer-portada.png",
+      "descripcion": "Especialistas en reparación y mantenimiento de uniformes, caretas y todo tipo de material de esgrima. Servicio rápido y de calidad.",
+      "direccion": "Av Paseo Venezuela, Urbanización la Granja, Naguanagua 2005",
+      "estado": "Carabobo",
+      "ciudad": "Naguanagua",
+      "email": "Visitar su Instagram",
+      "telefono": "+58 04244241179",
+      "whatsapp": "https://wa.me/584244241179",
+      "instagram": "https://www.instagram.com/creacionesmiyer/",
+      "web": " ",
+      "horarios": "Lunes a Sábado 8am-5pm",
+      "destacado": true,
+      "servicios": ["Venta de material nuevo y usado","Alquiler de material", "Mantenimiento de caretas", "Reparación de trajes"]
+    }
+   
+  ]
+}

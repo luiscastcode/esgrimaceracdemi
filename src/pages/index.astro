@@ -1,17 +1,283 @@
 ---
+import Layout from '../layouts/LayoutBase.astro'; 
+import Buscador from '../components/react/Buscador.jsx';
+import ClubCard from '../components/clubes/ClubCard.astro';
+import { 
+  getTodosClubes, 
+  getProveedores,
+  getClubesDestacados
+} from '../utils/dataLoader';
+import { 
+  FiMapPin, FiUsers, FiShoppingBag, FiBookOpen, 
+  FiFileText, FiAward, FiTrendingUp, FiChevronRight,
+  FiStar, FiShield, FiZap, FiTarget
+} from 'react-icons/fi';
 
+// 🔥 Cargar datos
+const clubes = await getTodosClubes();
+const proveedores = await getProveedores();
+const clubesDestacados = await getClubesDestacados(6);
+
+// 🔥 Estadísticas
+const totalClubes = clubes.length;
+const totalProveedores = proveedores.length;
+const totalItems = totalClubes + totalProveedores;
+
+// 🔥 Datos para las secciones de valor
+const seccionesValor = [
+  {
+    titulo: 'Directorio de Clubes',
+    descripcion: 'Encuentra el club de esgrima más cercano a ti. Filtra por estado, ciudad y especialidad para encontrar tu lugar ideal.',
+    icono: 'fa-solid fa-lightbulb',
+    enlace: '/clubes',
+    enlaceTexto: 'Ver clubes →',
+    color: 'bg-blue-50 border-blue-200'
+  },
+  {
+    titulo: 'Proveedores y Material',
+    descripcion: 'Conecta con los mejores proveedores de material de esgrima. Desde tiendas físicas hasta talleres de reparación.',
+    icono: 'fa-solid fa-shopping-bag',
+    enlace: '/proveedores',
+    enlaceTexto: 'Ver proveedores →',
+    color: 'bg-green-50 border-green-200'
+  },
+  {
+    titulo: 'Guías de Compra',
+    descripcion: 'Elige el equipo perfecto con nuestras guías comparativas. Zapatillas, caretas, trajes y más.',
+    icono: 'fa-solid fa-book-open',
+    enlace: '/guias',
+    enlaceTexto: 'Ver guías →',
+    color: 'bg-gold/10 border-gold/30'
+  },
+  {
+    titulo: 'Como Crear un Club de Esgrima',
+    descripcion: 'Conoce los requisitos más importantes y necesarios para montar un club de esgrima en Venezuela.',
+    icono: 'fa-solid fa-file-text',
+    enlace: '/guias/montar-club',
+    enlaceTexto: 'Ver info →',
+    color: 'bg-purple-50 border-purple-200'
+  }
+];
+
+// 🔥 Datos para el banner
+const banner = {
+  titulo: '¿Quieres promocionar tu club o negocio de esgrima?',
+  descripcion: 'Llega a miles de esgrimistas, entrenadores y clubes en todo el país. Publicita tu negocio en el directorio más completo de esgrima en Venezuela.',
+  imagen: '/images/banner-publicidad.jpg'
+};
+
+// 🔥 Datos para la CTA final
+const cta = {
+  titulo: '¿Listo para empezar tu entrenamiento de esgrima?',
+  descripcion: 'Encuentra clubes, proveedores y todo el equipamiento que necesitas para practicar este deporte apasionante.',
+  boton1: 'Buscar clubes',
+  enlace1: '/clubes',
+  boton2: 'No sabes? Contactanos!',
+  enlace2: '/contacto'
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Encuentra escuelas de esgrima en Venezuela">
+  <main>
+    <!-- Hero Section con Buscador -->
+    <section class="bg-linear-to-r from-indigo-800 to-primary-light text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 font-heading">
+          Clubes de Esgrima Cerca de Mí
+        </h1>
+        <p class="text-xl md:text-2xl mb-4 opacity-90 max-w-2xl mx-auto">
+          El directorio más completo de clubes de esgrima en Venezuela
+        </p>
+        <p class="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
+          Encuentra escuelas de esgrima, proveedores de equipamiento y todo lo que necesitas para practicar esgrima cerca de ti.
+        </p>
+        
+        <!-- 🔥 BUSCADOR GLOBAL -->
+        <Buscador 
+          client:load
+          clubes={clubes}
+          proveedores={proveedores}
+          placeholder="Buscar clubes, proveedores, ciudades, materiales..."
+          className="max-w-3xl mx-auto"
+        />
+        
+        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm opacity-80">
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            {totalClubes} clubes
+          </span>
+          <span class="w-px h-4 bg-white/20"></span>
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            {totalProveedores} proveedores
+          </span>
+          <span class="w-px h-4 bg-white/20"></span>
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            {totalItems} resultados disponibles
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔥 SECCIÓN: Lo que ofrecemos (Valor) -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold font-heading mb-3">
+            Todo lo que necesitas para la esgrima
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Un ecosistema completo para conectar esgrimistas, clubes y proveedores en un solo lugar.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {seccionesValor.map((seccion) => (
+            <div class={`rounded-xl p-6 border-2 transition hover:shadow-lg hover:-translate-y-1 duration-300 ${seccion.color} bg-white`}>
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <i class={`${seccion.icono} text-2xl text-primary`}></i>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-primary mb-2">
+                {seccion.titulo}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {seccion.descripcion}
+              </p>
+              <a 
+                href={seccion.enlace} 
+                class="text-sm font-semibold text-primary hover:text-gold transition-colors inline-flex items-center gap-1"
+              >
+                {seccion.enlaceTexto}
+                <FiChevronRight className="w-4 h-4" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔥 SECCIÓN: Banner Publicitario -->
+    <section class="py-12 bg-background">
+      <div class="container mx-auto px-4">
+        <div class="bg-linear-to-r from-primary to-primary-light rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
+          <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 text-gold mb-2">
+                <FiStar className="w-5 h-5" />
+                <span class="text-sm font-semibold">Espacio Publicitario</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold font-heading mb-3">
+                {banner.titulo}
+              </h3>
+              <p class="text-gray-300 text-sm md:text-base max-w-lg">
+                {banner.descripcion}
+              </p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a 
+                  href="/contacto" 
+                  class="inline-block bg-gold text-primary font-semibold px-6 py-2.5 rounded-lg hover:bg-gold-light transition shadow-lg"
+                >
+                  <FiTrendingUp className="w-4 h-4 inline mr-2" />
+                  Contrata aquí
+                </a>
+                <a 
+                  href="/proveedores" 
+                  class="inline-block bg-white/10 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition border border-white/20"
+                >
+                  Ver proveedores
+                </a>
+              </div>
+            </div>
+            <div class="shrink-0">
+              <div class="bg-white/10 rounded-2xl p-6 text-center w-32 md:w-40 mx-auto">
+                <FiTarget className="w-12 h-12 text-gold mx-auto" />
+                <p class="text-xs text-gray-300 mt-2">Llega a miles</p>
+                <p class="text-lg font-bold text-gold">+{totalItems}</p>
+                <p class="text-[10px] text-gray-400">usuarios potenciales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clubes Destacados -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold font-heading mb-3">
+            Clubes Destacados
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Los clubes más reconocidos de Venezuela. Encuentra el tuyo y empieza a practicar esgrima.
+          </p>
+        </div>
+        
+        {clubesDestacados.length > 0 ? (
+          <>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {clubesDestacados.map((club) => (
+                <ClubCard club={club} />
+              ))}
+            </div>
+            <div class="text-center mt-8">
+              <a href="/clubes" class="inline-block px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-light transition">
+                Ver todos los clubes <FiChevronRight className="w-4 h-4 inline" />
+              </a>
+            </div>
+          </>
+        ) : (
+          <p class="text-center text-gray-500">No hay clubes destacados disponibles.</p>
+        )}
+      </div>
+    </section>
+
+    <!-- 🔥 SECCIÓN: Llamada a la acción final (CTA) -->
+    <section class="py-10 bg-background">
+      <div class="container mx-auto px-4 text-center">
+        <div class="bg-linear-to-r from-slate-200 to-indigo-100 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <FiAward className="w-8 h-8 text-primary" />
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold font-heading mb-3">
+            {cta.titulo}
+          </h2>
+          <p class="text-gray-600 mb-6">
+            {cta.descripcion}
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href={cta.enlace1} 
+              class="px-8 py-3 bg-primary text-white rounded-xl hover:bg-primary-light transition shadow-md hover:shadow-lg inline-flex items-center gap-2"
+            >
+              <FiMapPin className="w-5 h-5" />
+              {cta.boton1}
+            </a>
+            <a 
+              href={cta.enlace2} 
+              class="px-8 py-3 bg-gray-100 text-primary rounded-xl hover:bg-gray-200 transition inline-flex items-center gap-2 border border-primary/20"
+            >
+              <FiShield className="w-5 h-5" />
+              {cta.boton2}
+            </a>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-100 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+            <span class="flex items-center gap-1">
+              <FiZap className="w-4 h-4 text-gold" />
+              Gratis para clubes
+            </span>
+            <span class="flex items-center gap-1">
+              <FiUsers className="w-4 h-4 text-gold" />
+              {totalClubes} clubes
+            </span>
+            <span class="flex items-center gap-1">
+              <FiShoppingBag className="w-4 h-4 text-gold" />
+              {totalProveedores} proveedores
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,55 @@
+{
+  "menu": [
+    
+    {
+      "label": "Clubes",
+      "href": "/clubes",
+      "icon": "FiMapPin",
+      "submenu": [
+        { "label": "Todos los clubes", "href": "/clubes" },
+        { "label": "Esgrima en Caracas", "href": "/clubes/caracas" },
+        { "label": "Esgrima en Miranda", "href": "/clubes/miranda" },
+        { "label": "Esgrima en Carabobo", "href": "/clubes/carabobo" },
+        { "label": "Esgrima en Zulia", "href": "/clubes/zulia" }
+      ]
+    },
+    {
+      "label": "Guías",
+      "href": "/guias",
+      "icon": "FiBookOpen",
+      "submenu": [
+        { "label": "Uniformes  de Esgrima", "href": "/guias/trajes-esgrima" },
+        { "label": "Guantes", "href": "/guias/guantes" },
+        { "label": "Caretas", "href": "/guias/caretas" },
+        { "label": "Armas", "href": "/guias/armas" },
+        { "label": "Calzado", "href": "/guias/zapatillas" },
+        { "label": "Armería", "href": "/guias/armeria" }
+      ]
+    },
+    {
+      "label": "Reglamento",
+      "href": "/reglamento",
+      "icon": "FiFileText",
+      "submenu": [
+        { "label": "Cómo Montar un Club", "href": "/guias/montar-club" },
+        { "label": "Competencias", "href": "/reglamento/competencias" },
+        { "label": "Venezuela", "href": "/reglamento/venezuela" }
+      ]
+    },
+    {
+      "label": "Proveedores",
+      "href": "/proveedores",
+      "icon": "FiShoppingBag"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog",
+      "icon": "FiFile"
+    },
+    {
+      "label": "Contacto",
+      "href": "/contacto",
+      "icon": "FiMail"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+---
+import "../styles/globals.css";
+import { generateMeta } from "../utils/seo.js";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+}
+
+const { title, description, image, noIndex } = Astro.props;
+const meta = generateMeta(title, description, Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título y Descripción -->
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    
+  <!-- 🔥 FONTAWESOME CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={meta.openGraph.title} />
+    <meta property="og:description" content={meta.openGraph.description} />
+    <meta property="og:url" content={meta.openGraph.url} />
+    <meta property="og:site_name" content={meta.openGraph.siteName} />
+    <meta property="og:locale" content={meta.openGraph.locale} />
+    <meta property="og:type" content={meta.openGraph.type} />
+    {image && <meta property="og:image" content={image} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content={meta.twitter.card} />
+    <meta name="twitter:title" content={meta.twitter.title} />
+    <meta name="twitter:description" content={meta.twitter.description} />
+    {image && <meta name="twitter:image" content={image} />}
+
+    <!-- Robots -->
+    {noIndex && <meta name="robots" content="noindex" />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/logo.png" />
+
+    <!-- Schema.org -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Esgrima Cerca de Mí",
+        url: "https://esgrimacercademi.vercel.app",
+        description:
+          "Directorio de clubes de esgrima, guías de compra y reglamento técnico en Venezuela.",
+        potentialAction: {
+          "@type": "SearchAction",
+          target:
+            "https://esgrimacercademi.vercel.app/clubes/buscar?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      })}
+    />
+
+    <!-- Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

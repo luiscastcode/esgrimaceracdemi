@@ -1,0 +1,368 @@
+---
+// src/pages/contacto.astro
+import Layout from '../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight } from 'react-icons/fi';
+
+const titulo = 'Contacto - Esgrima Cerca de Mí';
+const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (gratis) o tu negocio de proveedores. Resolvemos tus dudas y te ayudamos a formar parte de la comunidad.';
+---
+
+<Layout title={titulo} description={descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Contacto</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="flex-1">
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            <i class="fa-regular fa-envelope mr-3 text-gold"></i>
+            Contacto
+          </h1>
+          <p class="text-gray-300 text-lg max-w-2xl">
+            ¿Tienes un club de esgrima o un negocio relacionado? 
+             
+          </p>
+          <p class="text-gray-300 text-lg max-w-2xl">
+             
+            <span class="text-gold font-semibold">Agrégalo gratis</span> a nuestro directorio.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <div class="bg-white/10 rounded-2xl p-6 text-center">
+            <i class="fa-regular fa-handshake text-5xl text-gold"></i>
+            <p class="text-sm text-gray-300 mt-2">¡Te esperamos!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔥 Grid: Información + Formulario -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      
+      <!-- Columna Izquierda: Información -->
+      <div class="lg:w-1/3 space-y-6">
+        <!-- Tarjeta: Clubes -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-house text-xl text-indigo-800"></i>
+            </div>
+            <h3 class="font-bold text-indigo-600 text-lg">Clubes</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-3">
+            Agrega tu club de esgrima al directorio. 
+            <span class="text-green-600 font-semibold">¡Completamente gratis!</span>
+          </p>
+          <ul class="space-y-1.5 text-sm text-gray-500">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Visibilidad para tu club
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Conexión con nuevos esgrimistas
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Sin costo de registro
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta: Proveedores -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-store text-xl text-blue-600"></i>
+            </div>
+            <h3 class="font-bold text-blue-600 text-lg">Proveedores</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-3">
+            ¿Vendes material, reparas o importas? Llega a miles de esgrimistas.
+          </p>
+          <ul class="space-y-1.5 text-sm text-gray-500">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Escaparate para tu negocio
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Conexión con clubes y atletas
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              Opción de destacar tu perfil
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta: Información de contacto -->
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+          <h4 class="font-semibold text-gray-700 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-primary"></i>
+            Información
+          </h4>
+          <div class="space-y-2 text-sm text-gray-600">
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-envelope text-primary mt-0.5"></i>
+              <span>info@esgrimacercademi.com</span>
+            </p>
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-clock text-primary mt-0.5"></i>
+              <span>Respuesta en menos de 48 horas</span>
+            </p>
+            <p class="flex items-start gap-3">
+              <i class="fa-regular fa-circle-check text-primary mt-0.5"></i>
+              <span>100% gratuito para clubes</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario -->
+      <div class="lg:w-2/3">
+        <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 h-full">
+          <h2 class="text-2xl font-bold font-heading text-primary mb-2">
+            <i class="fa-regular fa-pen-to-square text-gold mr-2"></i>
+            Envíanos un mensaje
+          </h2>
+          <p class="text-gray-600 text-sm mb-6">
+            Cuéntanos sobre tu club o negocio y te agregaremos al directorio.
+            <span class="text-green-600 font-semibold"> Los clubes son gratuitos.</span>
+          </p>
+
+          <!-- 🔥 FORMULARIO FORMSPREE -->
+          <form 
+            action="https://formspree.io/f/mwvgyndo"
+            method="POST"
+            class="space-y-5 w-full"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Nombre -->
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
+                  Nombre completo <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  required
+                  placeholder="Ej: Carlos Méndez"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                  Correo electrónico <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  placeholder="Ej: carlos@club.com"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                />
+              </div>
+            </div>
+
+            <!-- Teléfono (opcional) -->
+            <div>
+              <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
+                Teléfono <span class="text-gray-400 text-xs">(opcional)</span>
+              </label>
+              <input 
+                type="tel" 
+                id="telefono" 
+                name="telefono" 
+                placeholder="Ej: +58 412-1234567"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+              />
+            </div>
+
+            <!-- Tipo de solicitud -->
+            <div>
+              <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">
+                Tipo de solicitud <span class="text-red-500">*</span>
+              </label>
+              <select 
+                id="tipo" 
+                name="tipo" 
+                required
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none bg-white"
+              >
+                <option value="">Selecciona una opción...</option>
+                <option value="club">Agregar mi club (gratis)</option>
+                <option value="proveedor">Agregar mi negocio como proveedor</option>
+                <option value="publicidad">Contratar publicidad</option>
+                <option value="sugerencia">Sugerencia o mejora</option>
+                <option value="otro">Otro motivo</option>
+              </select>
+            </div>
+
+            <!-- Mensaje -->
+            <div>
+              <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
+                Mensaje <span class="text-red-500">*</span>
+              </label>
+              <textarea 
+                id="mensaje" 
+                name="mensaje" 
+                rows="5" 
+                required
+                placeholder="Cuéntanos sobre tu club o negocio. ¿Qué servicios ofreces? ¿En qué ciudad estás? Pagina web o Instagram"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-y"
+              ></textarea>
+            </div>
+
+            <!-- Checkbox de consentimiento -->
+            <div class="flex items-start gap-3">
+              <input 
+                type="checkbox" 
+                id="consentimiento" 
+                name="consentimiento" 
+                required
+                class="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+              />
+              <label for="consentimiento" class="text-sm text-gray-600">
+                Acepto que mis datos sean utilizados para contactarme y gestionar mi solicitud según la 
+                <a href="/privacidad" class="text-primary hover:underline">Política de Privacidad</a>.
+                <span class="text-red-500">*</span>
+              </label>
+            </div>
+
+            <!-- Botón de envío -->
+            <button 
+              type="submit"
+              class="w-full bg-primary text-white font-semibold py-3.5 rounded-xl hover:bg-primary-light transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            >
+              <i class="fa-regular fa-paper-plane"></i>
+              Enviar mensaje
+            </button>
+
+            <!-- Mensaje de éxito -->
+            <div id="form-success" class="hidden p-4 bg-green-50 border border-green-200 rounded-xl text-center">
+              <i class="fa-regular fa-circle-check text-green-500 text-2xl mb-2"></i>
+              <p class="text-green-700 font-semibold">¡Mensaje enviado con éxito!</p>
+              <p class="text-sm text-green-600">Te responderemos en menos de 48 horas.</p>
+            </div>
+
+            <!-- Mensaje de error -->
+            <div id="form-error" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl text-center">
+              <i class="fa-regular fa-circle-xmark text-red-500 text-2xl mb-2"></i>
+              <p class="text-red-700 font-semibold">Error al enviar el mensaje</p>
+              <p class="text-sm text-red-600">Por favor, inténtalo de nuevo o contáctanos directamente.</p>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center mt-2">
+              <i class="fa-solid fa-lock mr-1"></i>
+              Tus datos están seguros. No compartimos tu información con terceros.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔥 Sección de preguntas frecuentes -->
+    <section class="mt-12 bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-200">
+      <h2 class="text-2xl font-bold font-heading text-center mb-6">
+        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+        Preguntas Frecuentes
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div>
+          <h4 class="font-semibold text-primary flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-gold"></i>
+            ¿Agregar mi club es realmente gratis?
+          </h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Sí. Todos los clubes de esgrima en Venezuela pueden aparecer en el directorio sin ningún costo.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-gold"></i>
+            ¿Cómo agrego mi club?
+          </h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Completa el formulario con los datos de tu club y lo agregaremos en menos de 48 horas.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-gold"></i>
+            ¿Qué incluye el perfil de mi club?
+          </h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Nombre, especialidad, ciudad, dirección, horarios, fundador, contacto y enlaces a redes sociales.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-primary flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-gold"></i>
+            ¿Los proveedores también son gratuitos?
+          </h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Los proveedores tienen un perfil básico gratuito. Ofrecemos opciones premium para destacar.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+ 
+<!-- 🔥 SCRIPT PARA MANEJAR EL FORMULARIO -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const successDiv = document.getElementById('form-success');
+    const errorDiv = document.getElementById('form-error');
+
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        successDiv.classList.add('hidden');
+        errorDiv.classList.add('hidden');
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            successDiv.classList.remove('hidden');
+            form.reset();
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            errorDiv.classList.remove('hidden');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          errorDiv.classList.remove('hidden');
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,101 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/LayoutBase.astro';
+
+const titulo = 'Página no encontrada';
+const descripcion = 'Lo sentimos, la página que buscas no existe. Vuelve al inicio o explora nuestro directorio.';
+---
+
+<Layout title={titulo} description={descripcion}>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="max-w-2xl w-full text-center">
+      <!-- 🔥 Icono grande -->
+      <div class="relative inline-block mb-8">
+        <div class="w-32 h-32 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-house text-6xl text-primary opacity-50"></i>
+        </div>
+        <div class=" w-12 h-12 bg-gold rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+          404
+        </div>
+      </div>
+
+      <!-- 🔥 Título y descripción -->
+      <h1 class="text-4xl md:text-5xl font-bold font-heading text-primary mb-4">
+        ¡Ups! Página no encontrada
+      </h1>
+      <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+        Lo sentimos, la página que estás buscando no existe, fue movida o está temporalmente fuera de servicio.
+      </p>
+
+      <!-- 🔥 Opciones de navegación -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-light transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+        >
+          <i class="fa-solid fa-house"></i>
+          Ir al inicio
+        </a>
+        <a 
+          href="/clubes" 
+          class="inline-flex items-center gap-2 bg-gray-100 text-primary px-6 py-3 rounded-xl hover:bg-gray-200 transition-all duration-200 border border-primary/20"
+        >
+          <i class="fa-solid fa-location-dot"></i>
+          Buscar clubes
+        </a>
+        <a 
+          href="/guias" 
+          class="inline-flex items-center gap-2 bg-gray-100 text-primary px-6 py-3 rounded-xl hover:bg-gray-200 transition-all duration-200 border border-primary/20"
+        >
+          <i class="fa-solid fa-book-open"></i>
+          Ver guías
+        </a>
+      </div>
+
+      <!-- 🔥 Separador decorativo -->
+      <div class="flex items-center gap-3 my-10 max-w-xs mx-auto">
+        <span class="flex-1 h-px bg-gray-200"></span>
+        <i class="fa-regular fa-fencing text-gray-300 text-sm"></i>
+        <span class="flex-1 h-px bg-gray-200"></span>
+      </div>
+
+      <!-- 🔥 Sugerencias -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:border-primary transition">
+          <div class="flex items-center gap-2 text-primary mb-1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="font-semibold text-sm">¿Qué buscabas?</span>
+          </div>
+          <p class="text-sm text-gray-500">
+            Puede que el enlace esté roto o la página haya sido eliminada.
+          </p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:border-primary transition">
+          <div class="flex items-center gap-2 text-primary mb-1">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="font-semibold text-sm">¿Necesitas ayuda?</span>
+          </div>
+          <p class="text-sm text-gray-500">
+            <a href="/contacto" class="text-primary hover:underline">Contáctanos</a> y te ayudaremos a encontrar lo que buscas.
+          </p>
+        </div>
+      </div>
+
+      <!-- 🔥 Estadísticas rápidas (opcional) -->
+      <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-400 border-t border-gray-100 pt-6">
+        <span class="flex items-center gap-1">
+          <i class="fa-regular fa-circle-check text-gold"></i>
+          Clubes en todo el país
+        </span>
+        <span class="flex items-center gap-1">
+          <i class="fa-regular fa-circle-check text-gold"></i>
+          Guías de compra
+        </span>
+        <span class="flex items-center gap-1">
+          <i class="fa-regular fa-circle-check text-gold"></i>
+          Proveedores de material
+        </span>
+      </div>
+    </div>
+  </div>
+</Layout>

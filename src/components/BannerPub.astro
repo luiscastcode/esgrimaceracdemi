@@ -1,0 +1,30 @@
+---
+
+interface Props {
+  titulo: String,
+  descripcion: String,
+  texto: String,
+  url: String,
+  target: String
+}
+
+const { titulo, descripcion, texto, url, target } = Astro.props;
+---
+  <!-- Banner Publicitario -->
+    <div class="bg-linear-to-r from-blue-500 to-purple-600 rounded-2xl p-6 md:p-8 my-8 text-white text-center">
+      <p class="text-sm opacity-80 mb-2">Espacio publicitario</p>
+      <h4 class="text-xl md:text-2xl font-bold font-heading mb-2">
+        {titulo}
+      </h4>
+      <p class="text-white/80 text-sm mb-4">
+        {descripcion}
+      </p>
+      <a 
+        href={`${url}`}
+        target={`${target}`}
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-primary font-semibold px-6 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
+      >
+        {texto}
+      </a>
+    </div>

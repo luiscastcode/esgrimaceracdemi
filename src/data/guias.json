@@ -1,0 +1,30 @@
+{
+  "categorias": [
+    {
+      "id": "trajes",
+      "slug": "trajes",
+      "nombre": "Trajes",
+      "descripcion": "Chaquetilla y pantalón de esgrima. Comparativa de materiales y resistencias.",
+      "productos": [
+        {
+          "nombre": "Traje 350N - Nivel Básico",
+          "material": "Kevlar 350N",
+          "precio_estimado": "$120-$200",
+          "uso": "Entrenamiento y competencias nacionales",
+          "ventajas": ["Económico", "Ligero", "Bueno para principiantes"],
+          "desventajas": ["Menor protección", "No válido para FIE"],
+          "imagen": "/images/guias/traje-350n.jpg"
+        },
+        {
+          "nombre": "Traje 800N - Competencia FIE",
+          "material": "Dyneema o Kevlar 800N",
+          "precio_estimado": "$300-$500",
+          "uso": "Competencias internacionales FIE",
+          "ventajas": ["Máxima protección", "Requerido para FIE", "Duradero"],
+          "desventajas": ["Más costoso", "Menos transpirable"],
+          "imagen": "/images/guias/traje-800n.jpg"
+        }
+      ]
+    }
+  ]
+}

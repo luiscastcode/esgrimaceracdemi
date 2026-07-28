@@ -1,0 +1,174 @@
+---
+// src/components/layout/Footer.astro
+import footerData from '../data/footer.json';
+
+const { company, links } = footerData;
+const currentYear = new Date().getFullYear();
+const logoHeight = 60;
+---
+
+<footer class="bg-primary text-white">
+  <!-- 🔥 SECCIÓN DE DONACIONES -->
+  <div class="border-b border-primary-light">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-heart text-gold text-2xl"></i>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-gold">
+              Apoya el Proyecto
+            </h3>
+          </div>
+          <p class="text-gray-300 mt-2 text-sm lg:text-base">
+            Este directorio es completamente gratuito para clubes y usuarios. 
+            Tu donación nos ayuda a mantener la web, agregar más contenido 
+            y seguir conectando a la comunidad de esgrima en Venezuela.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-4 text-sm text-gray-400">
+            <span class="flex items-center gap-1">
+              <i class="fa-solid fa-star text-gold text-xs"></i>
+              Contenido gratuito
+            </span>
+            <span class="w-px h-4 bg-gray-600"></span>
+            <span class="flex items-center gap-1">
+              <i class="fa-solid fa-star text-gold text-xs"></i>
+              Sin costo para clubes
+            </span>
+            <span class="w-px h-4 bg-gray-600"></span>
+            <span class="flex items-center gap-1">
+              <i class="fa-solid fa-star text-gold text-xs"></i>
+              Mejoras continuas
+            </span>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-end">
+          <!-- 🔥 BOTÓN DE DONACIÓN PAYPAL -->
+          <a 
+            href="https://www.paypal.com/donate?hosted_button_id=TU_BOTON_ID" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 bg-gold text-primary font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 shadow-md"
+          >
+            <i class="fa-brands fa-paypal text-2xl"></i>
+            <span>Donar con PayPal</span>
+          </a>         
+        </div>
+      </div>      
+    </div>
+  </div>
+
+  <!-- 🔥 MAIN FOOTER -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      
+      <!-- Columna 1: Logo y Descripción -->
+      <div>
+        <a href="/" class="block mb-4">
+          <img 
+            src="/images/logo-esgrima.png" 
+            alt={company.name}
+            height={logoHeight}
+            width="auto"
+            class="h-15 w-auto"
+          />
+        </a>        
+      </div>
+
+      <!-- Columna 2: Clubes -->
+      <div>
+        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-location-dot text-gold"></i>
+          Top Ciudades Con Esgrima 
+        </h4>
+        <ul class="space-y-2.5">
+          {
+            links.clubes.map((link) => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Columna 3: Guías y Reglamento -->
+      <div>
+        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-gold"></i>
+          Guías {currentYear}
+        </h4>
+        <ul class="space-y-2.5 mb-6">
+          {
+            links.guias.map((link) => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>       
+      </div>
+
+      <!-- Columna 4: Legal y Social -->
+      <div>
+        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-gold"></i>
+          Legal
+        </h4>
+        <ul class="space-y-2.5 mb-6">
+          {
+            links.legal.map((link) => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>    
+         
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-primary-light">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-gray-400">
+        <div class="flex items-center gap-4">
+          <span>{company.name}</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span>© {company.founded}</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <i class="fa-regular fa-envelope text-gold"></i>
+            <span>info@esgrimacercademi.com</span>
+          </div>
+        <div class="flex items-center gap-4 text-xs">
+          <span class="flex items-center gap-1">
+            <i class="fa-solid fa-heart text-gold"></i>
+            Hecho en Venezuela
+          </span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span>v1.0.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
