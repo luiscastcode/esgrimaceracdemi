@@ -63,26 +63,27 @@
       "fundador": "Joselina Pineda",
       "contacto": "Joselina Pineda",
       "email": "excalibur@club.com",
-      "telefono": "+58 412-7654321",
-      "instagram": " ",
-      "whatsapp": "https://wa.me/584127654321",
+      "telefono": "+58 424-4356970",
+      "instagram": "https://www.instagram.com/clubesgrimaexcalibur/",
+      "whatsapp": "https://wa.me/584244356970",
       "web": " ",
       "horarios": "Martes a Jueves 4pm-6pm",
-      "logo": "/images/clubes/valencia-logo.png",
-      "imagen_portada": "/images/clubes/valencia-portada.jpg",
+      "logo": "/images/clubes/excalibur/excalibur-logo.jpeg",
+      "imagen_portada": "/images/clubes/excalibur/excalibur-portada.jpg",
       "galeria": [
-        "/images/clubes/valencia-1.jpg",
-        "/images/clubes/valencia-2.jpg"
+        "/images/clubes/excalibur/excalibur-1.png",
+        "/images/clubes/excalibur/excalibur-2.png",
+        "/images/clubes/excalibur/excalibur-3.png"
       ],
       "entrenadores": [
         {
           "nombre": "Luis Castillo",
           "especialidad": "Entrenador Principal - Espada",
           "experiencia": "15 años de experiencia",
-          "foto": "/images/entrenadores/luis-castillo.jpg"
+          "foto": "/images/clubes/excalibur/excalibur-logo.jpeg"
         }
       ],
-      "descripcion": "Club especializado en espada. Contamos con instalaciones de primer nivel y un equipo de entrenadores altamente calificados.",
+      "descripcion": "Escuela de esgrima especializado en espada. Contamos con instalaciones de primer nivel en la sala de esgrima del Complejo Bicentenario de Naguagua y un equipo de entrenadores altamente calificados.",
       "destacado": true,
       "visitas": 0,
       "fecha_actualizacion": "2026-01-15"
