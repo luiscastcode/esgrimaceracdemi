@@ -62,28 +62,34 @@
       "edades": "Todas las edades",
       "fundador": "Joselina Pineda",
       "contacto": "Joselina Pineda",
-      "email": "excalibur@club.com",
+      "email": "clubesgrimaexcalibur@gmail.com",
       "telefono": "+58 424-4356970",
       "instagram": "https://www.instagram.com/clubesgrimaexcalibur/",
       "whatsapp": "https://wa.me/584244356970",
       "web": " ",
-      "horarios": "Martes a Jueves 4pm-6pm",
+      "horarios": "Martes a Jueves 4:00pm-6:00pm",
       "logo": "/images/clubes/excalibur/excalibur-logo.jpeg",
       "imagen_portada": "/images/clubes/excalibur/excalibur-portada.jpg",
       "galeria": [
-        "/images/clubes/excalibur/excalibur-1.png",
-        "/images/clubes/excalibur/excalibur-2.png",
-        "/images/clubes/excalibur/excalibur-3.png"
+        "/images/clubes/excalibur/excalibur-1.jpg",
+        "/images/clubes/excalibur/excalibur-2.jpg",
+        "/images/clubes/excalibur/excalibur-3.jpg"
       ],
       "entrenadores": [
         {
           "nombre": "Luis Castillo",
           "especialidad": "Entrenador Principal - Espada",
-          "experiencia": "15 años de experiencia",
+          "experiencia": "15 años de experiencia, ex equipo nacional de espada de Venezuela",
+          "foto": "/images/clubes/excalibur/excalibur-logo.jpeg"
+        },
+        {
+          "nombre": "Joselina Pineda",
+          "especialidad": "Entrenadora Principal - Florete",
+          "experiencia": "10 años de experiencia, ex equipo nacional de florete de Venezuela",
           "foto": "/images/clubes/excalibur/excalibur-logo.jpeg"
         }
       ],
-      "descripcion": "Escuela de esgrima especializado en espada. Contamos con instalaciones de primer nivel en la sala de esgrima del Complejo Bicentenario de Naguagua y un equipo de entrenadores altamente calificados.",
+      "descripcion": "Escuela de esgrima especializado en espada y florete. Contamos con instalaciones de primer nivel en la sala de esgrima del Complejo Bicentenario de Naguagua y un equipo de entrenadores altamente calificados.",
       "destacado": true,
       "visitas": 0,
       "fecha_actualizacion": "2026-01-15"
