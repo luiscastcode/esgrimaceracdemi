@@ -1,7 +1,7 @@
 
 // src/utils/seo.js
 export function generateMeta(title, description, url) {
-  const siteTitle = 'Esgrima Cerca de Mí';
+  const siteTitle = 'Escuelas de Esgrima en Venezuela';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const fullDescription = description || 'Directorio de Escuelas de Esgrima en Venezuela. Encuentra clubes de esgrima, guías de compra y más en Venezuela.';
 

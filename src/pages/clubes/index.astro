@@ -10,8 +10,8 @@ import BannerPub from '../../components/BannerPub.astro';
 const ESTADOS = estadosData.estados || [];
 
 const todosLosClubes = await getTodosClubes();
-const titulo = 'Todos los clubes de esgrima en Venezuela';
-const descripcion = 'Directorio completo de clubes de esgrima en todo el país.';
+const titulo = 'Clases de Esgrima Cerca de Mi';
+const descripcion = 'Directorio completo de clubes y escuelas de esgrima en Venezuela.';
 ---
 
 <Layout title={titulo} description={descripcion}>
@@ -47,7 +47,7 @@ const descripcion = 'Directorio completo de clubes de esgrima en todo el país.'
               {estado.nombre}
             </h2>
             <p class="text-sm text-gray-500 mt-1">
-              {clubesEnEstado.length} clubes
+              {clubesEnEstado.length} club(es)
             </p>
           </a>
         );
