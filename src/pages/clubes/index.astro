@@ -1,17 +1,18 @@
 ---
 // src/pages/clubes/index.astro
-import Layout from '../../layouts/LayoutBase.astro';
-import { getTodosClubes } from '../../utils/dataLoader';
-import estadosData from '../../data/estados.json';
-import { FiMapPin, FiHome, FiChevronRight } from 'react-icons/fi';
-import BannerPub from '../../components/BannerPub.astro';
+import Layout from "../../layouts/LayoutBase.astro";
+import { getTodosClubes } from "../../utils/dataLoader";
+import estadosData from "../../data/estados.json";
+import { FiMapPin, FiHome, FiChevronRight } from "react-icons/fi";
+import BannerPub from "../../components/BannerPub.astro";
 
 // 🔥 ESTADOS
 const ESTADOS = estadosData.estados || [];
 
 const todosLosClubes = await getTodosClubes();
-const titulo = 'Clases de Esgrima Cerca de Mi';
-const descripcion = 'Directorio completo de clubes y escuelas de esgrima en Venezuela.';
+const titulo = "Clases de Esgrima Cerca de Mi";
+const descripcion =
+  "Directorio completo de clubes y escuelas de esgrima en Venezuela.";
 ---
 
 <Layout title={titulo} description={descripcion}>
@@ -25,35 +26,69 @@ const descripcion = 'Directorio completo de clubes y escuelas de esgrima en Vene
       <span>Clubes</span>
     </nav>
 
-    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+    <div
+      class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8"
+    >
       <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">{titulo}</h1>
       <p class="text-gray-300 text-lg">{descripcion}</p>
+      <p class="text-gray-300 text-lg">
+        Sabemos que encontrar un club de esgrima con buena reputación y que esté
+        realmente "cerca de mí" puede ser complicado. Por eso, hemos filtrado
+        las mejores opciones en ciudades como Caracas, Valencia, Barquisimeto o
+        Maracay.
+      </p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {ESTADOS.map((estado) => {
-        const clubesEnEstado = todosLosClubes.filter(c => 
-          String(c.estado_slug || '').trim() === estado.slug
-        );
-        return (
-          <a
-            href={`/clubes/${estado.slug}`}
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 text-center group"
-          >
-            <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
-              <FiMapPin className="w-8 h-8 text-primary group-hover:text-orange-700 transition-colors" />
-            </div>
-            <h2 class="text-lg font-semibold text-primary group-hover:text-indigo-500 transition-colors">
-              {estado.nombre}
-            </h2>
-            <p class="text-sm text-gray-500 mt-1">
-              {clubesEnEstado.length} club(es)
-            </p>
-          </a>
-        );
-      })}
+      {
+        ESTADOS.map((estado) => {
+          const clubesEnEstado = todosLosClubes.filter(
+            (c) => String(c.estado_slug || "").trim() === estado.slug,
+          );
+          return (
+            <a
+              href={`/clubes/${estado.slug}`}
+              class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 text-center group"
+            >
+              <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                <FiMapPin className="w-8 h-8 text-primary group-hover:text-orange-700 transition-colors" />
+              </div>
+              <h2 class="text-lg font-semibold text-primary group-hover:text-indigo-500 transition-colors">
+                Esgrima En {estado.nombre}
+              </h2>
+              <p class="text-sm text-gray-500 mt-1">
+                {clubesEnEstado.length} club(es)
+              </p>
+            </a>
+          );
+        })
+      }
     </div>
-    <BannerPub 
+
+    <section
+      class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100"
+    >
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        Encuentra tu club en Venezuela
+      </h2>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        ¿Siempre has soñado con esgrimir un sable o dominar la florete? En
+        Venezuela, la esgrima no es solo un deporte olímpico; es una escuela de
+        vida que desarrolla reflejos, estrategia y disciplina. Si buscas clases
+        de esgrima cerca de mi ubicación, has llegado al directorio más completo
+        del país.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Navega por nuestro listado y descubre el club que te queda más cerca.
+        Desde Caracas hasta Maracaibo, tenemos la opción ideal para que empieces
+        tu viaje en este apasionante deporte. ¡Ponte la máscara y vive la
+        experiencia!
+      </p>
+      <p class="text-gray-700 leading-relaxed font-bold">
+        ¡Ponte la máscara y vive la experiencia!
+      </p>
+    </section>
+    <BannerPub
       titulo="¿Quieres que tu marca llegue a todos los esgrimistas de Venezuela?"
       descripcion="Publica aquí y conecta con miles de atletas, clubes y entrenadores."
       texto="Contacta con nosotros"
