@@ -1,0 +1,629 @@
+---
+import Layout from '../../layouts/LayoutBase.astro';
+import { FiHome, FiChevronRight, FiStar } from 'react-icons/fi';
+
+// ============================================
+// 1. DATOS DE LA GUÍA
+// ============================================
+const guia = {
+  titulo: 'Guía de Empuñaduras Anatómicas de Esgrima',
+  descripcion: 'Descubre las empuñaduras anatomicas de esgrima más avanzadas y raras del mercado.',
+  fecha: '21 de agosto, 2026',
+  autor: 'Esgrima Cerca de Mí',
+  imagen: '/images/guias/empunaduras-hero.jpg'
+};
+
+// ============================================
+// 2. EMPUÑADURAS DESTACADAS (MODERNAS Y AVANZADAS)
+// ============================================
+const empunaduras = [
+  {
+    id: 'leon-paul-magnetic',
+    nombre: 'Empuñadura Sub Zer0 2',
+    marca: 'Leon Paul',
+    pais: 'Reino Unido',
+    imagen: '/images/guias/empunaduras/lp_grip02.jpg',
+    imagen_ampliada: '/images/guias/empunaduras/lp_grip02.jpg',
+    precio: '~$170 USD',
+    tipo: 'Anatómica',
+    material: 'Aluminio',
+    peso: 'Ultra-ligero (38g)',
+    tecnologia: 'Elaborado con fusión selectiva por láser (SLM)',
+     
+    descripcion: 'La empuñadura más innovadora del mercado. Impreso con tecnologia 3D laser, eliminando la necesidad de una sujeción tradicional. Diseñada para maximizar la sensibilidad y el control.',
+    pros: ['Fijación magnética revolucionaria', 'Sensibilidad extrema', 'Ultra-ligera', 'Diseño vanguardista'],
+    contras: ['Precio elevado', 'Requiere adaptación', 'No apta para principiantes'],
+    destacado: true,
+    recomendacion: 'Para esgrimistas de élite que buscan la máxima innovación y no ser del montón.',
+    enlace: 'https://www.leonpaul.com/sub-zer0-2-pistol-grip.html'
+  },
+  {
+    id: 'allstar-ergo-pro',
+    nombre: 'Mag-Tec Ultralight',
+    marca: 'Leon Paul',
+    pais: 'Reino Unido',
+    imagen: '/images/guias/empunaduras/mag-tec.jpg',
+    imagen_ampliada: '/images/guias/empunaduras/mag-tec.jpg',
+    precio: '~$40 USD',
+    tipo: 'Anatómica Ergonómica',
+    material: 'Magnesio',
+    peso: 'Ligero (58g)',
+    tecnologia: 'Fundido de magnesio haciendolo 30% más ligero que el aluminio',
+     
+    descripcion: 'La empuñadura Mag-Tec es un producto innovador y una primicia mundial en esgrima. Esta empuñadura esta construido de magnesio fundido de alta presión en lugar del aluminio habitual, lo que lo hace un 30% más ligero e igual de fuerte',
+    pros: ['Ajuste anatómico perfecto', 'Distribución de peso óptima', 'Fundido de magnesio', 'Diseño ergonómico'],
+    contras: ['Precio medio-alto', 'Puede no adaptarse a todos los tipos de mano'],
+    destacado: false,
+    recomendacion: 'Ideal para competidores de alto nivel que buscan un ajuste personalizado.',
+    enlace: 'https://www.leonpaul.com/mag-tec-ultralight-pistol-grip1.html'
+  },
+  {
+    id: 'pbt-ortho-flex',
+    nombre: 'Empuñadura Pistola EXTRA Light',
+    marca: 'PBT',
+    pais: 'Hungría',
+    imagen: '/images/guias/empunaduras/3664.png',
+    imagen_ampliada: '/images/guias/empunaduras/3664.png',
+    precio: '~$15 USD',
+    tipo: 'Anatómica Flexible',
+    material: 'Aluminio',
+    peso: 'Ligero (88-90g)',
+    tecnologia: 'Aluminio con flexibilidad controlada',
+    
+    descripcion: 'Empuñadura que ofrece una flexibilidad controlada, absorbiendo vibraciones y reduciendo la fatiga en competiciones largas. Es extremadamente resistente.',
+    pros: ['Económica', 'Absorción de vibraciones', 'Ultra-ligera', 'Durabilidad excepcional'],
+    contras: ['Flexibilidad puede no gustar a todos'],
+    destacado: false,
+    recomendacion: 'Perfecta para esgrimistas que sufren de fatiga en la mano y el brazo.',
+    enlace: 'https://shop.pbtfencing.com/pistol-grip-epee-foil-extra-light3664'
+  },
+  {
+    id: 'azza-aero-grip',
+    nombre: 'Empuñadura Hugara',
+    marca: 'Standard',
+    pais: 'Hungria',
+    imagen: '/images/guias/empunaduras/hungara.webp',
+    imagen_ampliada: '/images/guias/empunaduras/hungara.webp',
+    precio: '~$10 USD',
+    tipo: 'Anatómica Hungara',
+    material: 'Aluminio',
+    peso: 'Ligero (92g)',
+    tecnologia: 'Diseño aerodinámico con canales de ventilación',
+    
+    descripcion: 'La empuñadura húngara es una variante de la empuñadura de pistola utilizada en esgrima, conocida por su diseño ergonómico que favorece una posición firme de la muñeca.',
+    pros: ['Reduce la fatiga', 'Muy economica', 'Buena relación calidad-precio', 'Ligera'],
+    contras: ['Viene en un único tamaño', 'Diseño menos refinado'],
+    destacado: false,
+    recomendacion: 'Excelente opción para esgrimistas que inician a un precio accesible.',
+    enlace: 'https://fencing.club/es/products/hungarian-grip-non-insulated'
+  },
+  {
+    id: 'prieur-exo-grip',
+    nombre: 'Empuñadura Visconti',
+    marca: 'Prieur',
+    pais: 'Francia',
+    imagen: '/images/guias/empunaduras/visconti.webp',
+    imagen_ampliada: '/images/guias/empunaduras/visconti.webp',
+    precio: '~$16 USD',
+    tipo: 'Anatómica',
+    material: 'Aluminio ligero',
+    peso: 'Ultra-ligero (83g)',
+    tecnologia: 'Acabado de aluminio crudo y sin recubrimiento, una opción de diseño deliberada que prioriza la funcionalidad sobre la apariencia',
+     
+    descripcion: 'Reconocido mundialmente por su ergonomía superior y rendimiento de nivel de élite, este agarre está hecho a mano de precisión de aluminio ligero de alta calidad, con un peso de solo 83 gramos. Su peso reducido ayuda a mejorar el control de puntos, reducir la fatiga de las manos y mejorar el equilibrio general de armas, dando a los esgrimistas una verdadera ventaja competitiva.',
+    pros: ['Ultra-ligera (83g)', 'Máxima transferencia de energía', 'Diseño único'],
+    contras: ['Requiere adaptación'],
+    destacado: false,
+    recomendacion: 'Para esgrimistas que valoran la practicidad, la precisión y la capacidad de respuesta.',
+    enlace: 'https://prieurusa.com/products/visconti-grip-foil-epee'
+  },
+  {
+    id: 'negrini-titanium',
+    nombre: 'Empuñadura Negrini',
+    marca: 'Negrini',
+    pais: 'Italia',
+    imagen: '/images/guias/empunaduras/negrini.webp',
+    imagen_ampliada: '/images/guias/empunaduras/negrini.webp',
+    precio: '~$25 USD',
+    tipo: 'Anatómica Italiana',
+    material: 'ALuminio',
+    peso: 'Ligero (80g)',
+    tecnologia: 'Aluminio ligero con diseño italiano de precisión',    
+    descripcion: 'Es la empuñadura italiana más ligera y resistente del mercado.',
+    pros: ['Resistente', 'Ligera (80g)', 'Diseño italiano'],
+    contras: ['Un poco rigida'],
+    destacado: false,
+    recomendacion: 'Para esgrimistas de élite conservadores.',
+    enlace: 'https://negrini.com/en/products/anatomical-grip-337'
+  }
+];
+
+ 
+
+// ============================================
+// 4. MARCAS DESTACADAS
+// ============================================
+const marcas = [
+  { nombre: 'Leon Paul', descripcion: 'Pionera en innovación con su sistema de impresion 3D. La marca más prestigiosa y con mayor inversión en I+D.', icono: 'fa-solid fa-crown' },
+  { nombre: 'Negrini', descripcion: 'Marca italiana de lujo. Conocida por sus ediciones limitadas y el uso de materiales premium como aluminio.', icono: 'fa-solid fa-gem' },
+  { nombre: 'Prieur', descripcion: 'Marca francesa con enfoque en la ligereza y el diseño exoesquelético. Innovación constante en materiales compuestos.', icono: 'fa-solid fa-flag' },
+  { nombre: 'Allstar', descripcion: 'Marca alemana con décadas de experiencia. Combina tradición con tecnología de escaneo 3D para un ajuste perfecto.', icono: 'fa-solid fa-star' },
+  { nombre: 'PBT Hungria', descripcion: 'Marca hungara que está revolucionando el mercado con diseños aerodinámicos y materiales como aleación de magnesio.', icono: 'fa-solid fa-rocket' }
+];
+
+// ============================================
+// 5. TIPOS DE EMPUÑADURAS
+// ============================================
+const tipos = [
+  {
+    nombre: 'Anatómicas Modernas',
+    icono: 'fa-solid fa-hand-fist',
+    descripcion: 'Diseñadas para adaptarse a la forma natural de la mano. Ofrecen un agarre más cómodo y reducen la tensión muscular. Las más avanzadas incorporan tecnología de escaneo 3D.',
+    ventajas: ['Comodidad superior', 'Menos fatiga', 'Mayor control', 'Diseño ergonómico']
+  },
+  {
+    nombre: 'De Alta Tecnología',
+    icono: 'fa-solid fa-microchip',
+    descripcion: 'Incorporan materiales avanzados como titanio, fibra de carbono y aleaciones de magnesio.',
+    ventajas: ['Ultra-ligeras', 'Máxima transferencia de energía', 'Durabilidad extrema', 'Innovación constante']
+  },
+  {
+    nombre: 'Ediciones Limitadas',
+    icono: 'fa-solid fa-crown',
+    descripcion: 'Empuñaduras producidas en cantidades muy reducidas, a menudo con materiales premium y diseños únicos. Son objetos de colección para esgrimistas apasionados.',
+    ventajas: ['Exclusividad', 'Materiales premium', 'Valor de colección', 'Diseño único']
+  }
+];
+
+// ============================================
+// 6. CARACTERÍSTICAS CLAVE
+// ============================================
+const caracteristicas = [
+  {
+    nombre: 'Material',
+    icono: 'fa-solid fa-flask',
+    descripcion: 'El material determina el peso, la resistencia y la sensación de la empuñadura. Los materiales modernos incluyen titanio, fibra de carbono, aleación de magnesio y polímeros de alta densidad.'
+  },
+  {
+    nombre: 'Peso',
+    icono: 'fa-solid fa-weight-scale',
+    descripcion: 'Las empuñaduras modernas buscan el peso mínimo sin sacrificar resistencia. Las más avanzadas pesan entre 35g y 40g, ofreciendo una ligereza extrema que mejora la velocidad y el control.'
+  },
+  {
+    nombre: 'Tecnología de Fabricación',
+    icono: 'fa-solid fa-gears',
+    descripcion: 'Desde la impresión 3D, las técnicas de fabricación avanzadas permiten geometrías complejas y diseños imposibles con métodos tradicionales.'
+  },
+  {
+    nombre: 'Ergonomía',
+    icono: 'fa-solid fa-user-check',
+    descripcion: 'El diseño ergonómico es clave para un agarre cómodo y eficiente. Las empuñaduras modernas se diseñan con software de simulación y escaneo biométrico para adaptarse a diferentes tipos de mano.'
+  }
+   
+];
+---
+
+<Layout title={guia.titulo} description={guia.descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <FiHome className="w-4 h-4 inline" />
+        <span class="ml-1">Inicio</span>
+      </a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <a href="/guias" class="hover:text-primary transition-colors">Guías</a>
+      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <span class="text-primary font-medium">Empuñaduras</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 text-sm text-gold mb-2">
+            <FiStar className="w-4 h-4" />
+            <span>Guía Especializada</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            {guia.titulo}
+          </h1>
+          <p class="text-gray-300 text-lg">
+            {guia.descripcion}  
+          </p>
+          <p class="text-gray-300 text-lg">
+             Tecnología de punta, diseños innovadores y las opciones más exclusivas para esgrimistas exigentes.
+          </p>
+          <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
+            <span><i class="fa-regular fa-calendar"></i> {guia.fecha}</span>
+            <span>•</span>
+            <span><i class="fa-regular fa-user"></i> {guia.autor}</span>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <div class="p-6 text-center">
+            <img 
+                  src="/images/guias/empunadura.jpg"
+                  alt="Empuñaduras de Esgrima"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 rounded-2xl"
+                  loading="lazy"
+                />          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📋 Índice Rápido -->
+    <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-200">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3">En esta guía:</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#tecnologias" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Tecnologías Avanzadas</a>
+        <a href="#marcas" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Marcas Destacadas</a>
+        <a href="#tipos" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Tipos de Empuñaduras</a>
+        <a href="#caracteristicas" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Características Clave</a>
+        <a href="#comparativa" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Comparativa</a>
+        <a href="#recomendacion" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">¿Cuál elegir?</a>
+      </div>
+    </div>
+
+     
+
+    <!-- 🏷️ Marcas Destacadas -->
+    <section id="marcas" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-trophy text-primary mr-2"></i>
+        Marcas Destacadas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {marcas.map((marca) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
+            <div class="flex items-center gap-3">
+              <i class={`${marca.icono} text-3xl text-primary`}></i>
+              <div>
+                <h3 class="font-bold text-primary">{marca.nombre}</h3>
+                <p class="text-sm text-gray-600">{marca.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 👊 Tipos de Empuñaduras -->
+    <section id="tipos" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">Tipos de Empuñaduras Anatómicas</h2>
+      <p class="text-gray-600 mb-6">Cada tipo de empuñadura está diseñado para un perfil de esgrimista diferente.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {tipos.map((tipo) => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-primary transition">
+            <i class={`${tipo.icono} text-4xl text-primary mb-3`}></i>
+            <h3 class="text-xl font-bold font-heading text-primary">{tipo.nombre}</h3>
+            <p class="text-sm text-gray-600 mt-2">{tipo.descripcion}</p>
+            <div class="mt-3">
+              {tipo.ventajas.map((ventaja) => (
+                <span key={ventaja} class="inline-block text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full mr-1 mb-1">
+                  <i class="fa-solid fa-check text-green-500 mr-1"></i>
+                  {ventaja}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 🔑 Características Clave -->
+    <section id="caracteristicas" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">Características Clave</h2>
+      <p class="text-gray-600 mb-6">Estos son los aspectos más importantes que debes considerar al elegir una empuñadura anatómica avanzada.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {caracteristicas.map((carac) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-2">
+              <i class={`${carac.icono} text-2xl text-primary`}></i>
+              <h3 class="font-bold text-primary">{carac.nombre}</h3>
+            </div>
+            <p class="text-sm text-gray-600">{carac.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 📊 Comparativa de Empuñaduras -->
+    <section id="comparativa" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <h2 class="text-2xl font-bold font-heading">
+          <i class="fa-solid fa-hand-fist text-primary mr-2"></i>
+          Comparativa de Empuñaduras Anatómicas
+        </h2>
+        <span class="bg-gold/20 text-gold-dark text-xs px-3 py-1 rounded-full font-semibold">Top 6</span>
+        <span class="bg-purple-50 text-purple-600 text-xs px-3 py-1 rounded-full font-semibold">
+          <i class="fa-solid fa-diamond mr-1"></i>
+          Incluye modelos raros
+        </span>
+      </div>
+      <p class="text-gray-600 mb-6">Compara las empuñaduras más avanzadas y exclusivas del mercado.</p>
+
+      <div class="space-y-6">
+        {empunaduras.map((modelo) => (
+          <div class={`bg-gray-50 rounded-xl p-6 border-2 transition hover:shadow-lg ${
+            modelo.destacado ? 'border-gold shadow-md' : 'border-gray-200 hover:border-primary'
+          }`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <!-- Columna Izquierda: Imagen -->
+              <div class="md:w-64 shrink-0">
+                {modelo.destacado && (
+                  <div class="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Top Innovation
+                  </div>
+                )}
+                
+                <div class="flex items-center gap-2 mb-3 flex-wrap">
+                  <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                    modelo.pais === 'China' 
+                      ? 'bg-red-50 text-red-600 border border-red-200' 
+                      : 'bg-blue-50 text-blue-600 border border-blue-200'
+                  }`}>
+                    <i class="fa-solid fa-flag mr-1"></i>
+                    {modelo.pais}
+                  </span>
+                   
+                  <span class="text-sm font-bold text-gold-dark ml-auto">{modelo.precio}</span>
+                </div>
+                
+                <div class="relative group cursor-pointer" 
+                     data-lightbox-id={modelo.id}
+                     data-lightbox-img={modelo.imagen_ampliada || modelo.imagen}
+                     data-lightbox-name={modelo.nombre}
+                     data-lightbox-marca={modelo.marca}
+                     data-lightbox-tipo={modelo.tipo}>
+                  {modelo.imagen ? (
+                    <div class="relative overflow-hidden rounded-xl bg-gray-100">
+                      <img 
+                        src={modelo.imagen} 
+                        alt={modelo.nombre} 
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl"></i>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center text-6xl">⚔️</div>
+                  )}
+                </div>
+                
+                <div class="mt-3">
+                  <a 
+                    href={modelo.enlace} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-center text-sm bg-primary text-white py-2.5 rounded-lg hover:bg-primary-light transition"
+                  >
+                    <i class="fa-solid fa-cart-shopping mr-2"></i>
+                    Ver en tienda
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Información -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">{modelo.nombre}</h3>
+                    <span class="text-sm font-bold text-white bg-blue-950 px-2 py-1 rounded-2xl">
+                      {modelo.marca}
+                    </span>
+                  </div>
+                  <span class="text-lg font-bold text-gold-dark">{modelo.precio}</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div><span class="font-semibold">Tipo:</span> {modelo.tipo}</div>
+                  <div><span class="font-semibold">Material:</span> {modelo.material}</div>
+                  <div><span class="font-semibold">Peso:</span> {modelo.peso}</div>
+                  <div><span class="font-semibold">Tecnología:</span> {modelo.tecnologia}</div>
+                </div>
+
+                <div class="mt-3 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-sm text-gray-600">{modelo.descripcion}</p>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                  <p class="text-sm font-semibold text-primary">
+                    <i class="fa-solid fa-circle-check text-green-500 mr-1"></i>
+                    Pros:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.pros.map((pro) => (
+                      <span key={pro} class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-check text-green-500 mr-0.5"></i>
+                        {pro}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-sm font-semibold text-red-500 mt-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i>
+                    Contras:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.contras.map((contra) => (
+                      <span key={contra} class="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-xmark text-red-500 mr-0.5"></i>
+                        {contra}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-xs text-gray-600 italic">
+                    <i class="fa-solid fa-quote-left text-primary mr-1"></i>
+                    {modelo.recomendacion}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 text-xs text-gray-400 text-center">
+        <i class="fa-solid fa-info-circle mr-1"></i>
+        Precios aproximados en USD. La rareza y exclusividad pueden influir en el precio final.
+      </div>
+    </section>
+
+    <!-- 🎯 ¿Cuál elegir? -->
+    <section id="recomendacion" class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl font-bold font-heading mb-4 text-center">
+        <i class="fa-solid fa-bullseye mr-2"></i>
+        ¿Cuál empuñadura elegir según tu perfil?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-seedling text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Principiante</h3>
+          <p class="text-sm text-gray-300 mt-2">Empieza con empuñaduras anatómicas básicas. No necesitas tecnología avanzada, busca comodidad y ajuste.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Empuñadura Hungara</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-person-running text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Intermedio / Competidor</h3>
+          <p class="text-sm text-gray-300 mt-2">Busca tecnología como escaneo 3D o materiales compuestos. Mejora tu control y precisión.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Leon Paul Mag-Tec</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-trophy text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Profesional / Coleccionista</h3>
+          <p class="text-sm text-gray-300 mt-2">Invierte en tecnología de punta y ediciones limitadas. Busca la máxima innovación y exclusividad.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Leon Paul Sub Zer0 2</span>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <p class="text-sm text-gray-300">
+          <i class="fa-regular fa-circle-lightbulb mr-2"></i>
+          <strong>Tip:</strong> Las empuñaduras raras y tecnológicamente avanzadas no son para todos. Asegúrate de que se adapte a tu estilo antes de invertir.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📝 Consejos Finales -->
+    <section class="bg-white rounded-2xl shadow-md p-6 md:p-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+        Consejos Finales
+      </h2>
+      <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Prueba antes de comprar</strong> si es posible. La sensación en la mano es muy personal.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Investiga la tecnología</strong> detrás de la empuñadura. No todas las innovaciones son adecuadas para todos los estilos.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Considera la rareza</strong> como un factor de valor, pero no sacrifiques la funcionalidad por la exclusividad.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Mantén tus empuñaduras</strong> limpias y revisa regularmente el ajuste de los tornillos.</span>
+        </li>
+      </ul>
+      
+      <div class="mt-6 p-4 bg-gold/10 border border-gold rounded-xl text-center">
+        <p class="text-sm text-gray-700">
+          <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+          <strong>Recuerda:</strong> La empuñadura es la conexión entre tú y el arma. Una buena empuñadura puede marcar la diferencia en tu rendimiento. ¡Elige sabiamente!
+        </p>
+      </div>
+    </section>
+
+     <!-- 📢 Llamada a la acción -->
+    <section class="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center">
+      <h3 class="text-xl font-bold font-heading mb-2">
+        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+        ¿Tienes dudas sobre qué empuñadura elegir?
+      </h3>
+      <p class="text-gray-600 mb-4">Contácta provedores nacionales que te ayudaran a encontrar la opción perfecta para ti al mejor precio.</p>
+      <a 
+        href="/proveedores" 
+        class="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary-light transition"
+      >
+        <i class="fa-regular fa-envelope mr-2"></i>
+        Contactar ahora
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<!-- 🔥 FONTAWESOME CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- 🔥 LIGHTBOX JAVASCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Crear el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox-overlay';
+    lightbox.className = 'fixed inset-0 z-[999] bg-black/90 hidden flex items-center justify-center p-4';
+    lightbox.innerHTML = `
+      <div class="relative max-w-4xl w-full">
+        <button id="lightbox-close" class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="" class="w-full h-auto rounded-xl max-h-[80vh] object-contain" />
+        <div id="lightbox-caption" class="text-white text-center mt-4 text-lg font-semibold"></div>
+        <div id="lightbox-subcaption" class="text-gray-400 text-center text-sm"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const overlay = document.getElementById('lightbox-overlay');
+    const image = document.getElementById('lightbox-image');
+    const caption = document.getElementById('lightbox-caption');
+    const subcaption = document.getElementById('lightbox-subcaption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    function closeLightbox() {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // 🔥 ASIGNAR EVENTOS A LAS IMÁGENES
+    document.querySelectorAll('[data-lightbox-id]').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        const imgSrc = this.dataset.lightboxImg;
+        const name = this.dataset.lightboxName;
+        const marca = this.dataset.lightboxMarca;
+        const tipo = this.dataset.lightboxTipo;
+
+        if (imgSrc) {
+          image.src = imgSrc;
+          image.alt = name || 'Empuñadura';
+          caption.textContent = name || 'Empuñadura';
+          subcaption.textContent = `${marca || ''} ${tipo ? '- ' + tipo : ''}`;
+          overlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>
