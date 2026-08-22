@@ -21,7 +21,7 @@
       { "label": "Trajes de esgrima", "href": "/guias/trajes-esgrima" },
       { "label": "Zapatos de esgrima", "href": "/guias/zapatillas" },
       { "label": "Caretas de esgrima", "href": "/guias" },
-      { "label": "Armas de esgrima", "href": "/guias" }
+      { "label": "Empuñaduras de esgrima", "href": "/guias/empunaduras" }
     ],
     "reglamento": [
       { "label": "Reglas del Florete", "href": "/reglamento/armas#florete" },

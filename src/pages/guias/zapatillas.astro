@@ -1,5 +1,4 @@
  ---
-// src/pages/guias/zapatillas.astro
 import Layout from '../../layouts/LayoutBase.astro';
 import { FiHome, FiChevronRight, FiStar } from 'react-icons/fi';
 
@@ -42,7 +41,7 @@ const comparativa = [
     imagen: '/images/guias/zapatos/kpa-2.jpg',
     imagen_ampliada: '/images/guias/zapatos/kpa-2.jpg',
     precio: '~$190 USD',
-    tipo: 'Entrenamiento/Intermedio',
+    tipo: 'Entrenamiento/Competición',
     peso: 'Medio',
     ajuste: 'Malla ultraligera y transpirable ofrece comodidad natural al usar y una gestión eficiente de la humedad',
     agarre: 'Excelente en todas las superficies',
@@ -62,7 +61,7 @@ const comparativa = [
     imagen: '/images/guias/zapatos/excalibur-2.webp',
     imagen_ampliada: '/images/guias/zapatos/excalibur-2.webp',
     precio: '~$125 USD',
-    tipo: 'Entrenamiento/Intermedio',
+    tipo: 'Entrenamiento/Competición',
     peso: 'Medio',
     ajuste: 'Similar a Excalibur 1',
     agarre: 'Excelente en todas las superficies',
@@ -82,7 +81,7 @@ const comparativa = [
     imagen: '/images/guias/zapatos/1514-tiger.webp',
     imagen_ampliada: '/images/guias/zapatos/1514-tiger.webp',
     precio: '~$190 USD',
-    tipo: 'Entrenamiento/Polivalente',
+    tipo: 'Competición/Polivalente',
     peso: 'Medio-Ligero',
     ajuste: 'La amortiguación de doble densidad absorbe el impacto evitando que sufran el tendón de Aquiles, los tobillos y las rodillas en sesiones de alta inetnsidad.',
     agarre: 'Suela de tracción direccional se bloquea en pistas metálicas',
@@ -93,6 +92,46 @@ const comparativa = [
     destacado: false,
     recomendacion: 'Ideal para alto redimiento y entrenamiento diario.',
     enlace: 'https://www.azzafencing.com/products/15-14-tiger-fencing-shoes'
+  },
+   {
+    id: 'pbt-fencera',
+    nombre: 'PBT Fencera',
+    marca: 'PBT Fencing',
+    pais: 'Hungria',
+    imagen: '/images/guias/zapatos/pbt_fencer_01.jpg',
+    imagen_ampliada: '/images/guias/zapatos/pbt_fencer_01.jpg',
+    precio: '~$130 USD',
+    tipo: 'Entrenamiento/Competición',
+    peso: 'Medio-Ligero',
+    ajuste: ' Con su amortiguación premium, la entresuela de espuma flexible protege el talón durante el entrenamiento intenso y la competición.',
+    agarre: 'Suela de tracción direccional se bloquea en pistas metálicas',
+    soporte: 'El talón redondeado y acolchado ofrece protección contra impactos y permite un trabajo de pies más rápido',
+    durabilidad: 'Muy resistente a la abrasión, especialmente en la punta y el talón que se desgastan más',
+    pros: ['Diseño ergonomico', 'Buena para empezar', 'Cómoda, previene lesiones', 'Ideal para entrenamiento'],
+    contras: ['Menos soporte que otras marcas'],
+    destacado: false,
+    recomendacion: 'Ideal para alto redimiento y entrenamiento diario en todos los niveles.',
+    enlace: 'https://shop.pbtfencing.com/fencing-shoes-pbt-fencera-35182'
+  },
+  {
+    id: 'jiang-fencing',
+    nombre: 'Zapatos Jiang Fengyun',
+    marca: 'Jiang Fencing',
+    pais: 'China',
+    imagen: '/images/guias/zapatos/jiang.jpg',
+    imagen_ampliada: '/images/guias/zapatos/jiang.jpg',
+    precio: 'Preguntar al proveedor',
+    tipo: 'Entrenamiento',
+    peso: 'Medio-Ligero',
+    ajuste: 'Entresuela de espuma flexible protege el talón durante el entrenamiento intenso ó la competición.',
+    agarre: 'Suela de tracción direccional se bloquea en pistas metálicas',
+    soporte: 'Ofrece protección contra impactos y permite un trabajo de pies más rápido',
+    durabilidad: 'Puede ser menos resistente a la abrasión, especialmente en la punta y el talón que se desgastan más',
+    pros: ['Económico', 'Buena para empezar', 'Cómoda, previene lesiones', 'Ideal para entrenamiento'],
+    contras: ['Menos soporte que otras marcas', 'No muy resistente', 'Parecido al Prieur Excalibur 2'],
+    destacado: false,
+    recomendacion: 'Ideal para atletas noveles y su entrenamiento diario.',
+    enlace: 'http://en.jiangfencing.com/product_details/1308840301838020608.html'
   }
 ];
 
@@ -107,7 +146,7 @@ const modelosPopulares = [
   },
   { 
     nombre: 'Azza 15/14', 
-    marca: 'Azza', 
+    marca: 'Azza Fencing', 
     tipo: 'Alto Rendimiento',
     imagen: '/images/guias/zapatos/1514-tiger.webp',
     pais: 'Francia'
@@ -144,12 +183,12 @@ const modelosPopulares = [
 
 // 🔥 Marcas destacadas
 const marcas = [
-  { nombre: 'Nike', descripcion: 'Líder mundial en calzado deportivo. Ofrece modelos como Ballestra y Air Zoom.', icono: 'fa-brands fa-nike' },
-  { nombre: 'Adidas', descripcion: 'Pionero en calzado para esgrima con modelos como D\'Artagnan y En Garde.', icono: 'fa-brands fa-adidas' },
-  { nombre: 'Azza', descripcion: 'Marca creada por la sablista olímpica Azza Besbes. Enfoque en biomecánica y rendimiento.', icono: 'fa-solid fa-sword' },
-  { nombre: 'Asics', descripcion: 'Conocida por su comodidad y amortiguación. Modelos como Gel-Bela y Gel-Domain.', icono: 'fa-solid fa-shoe-prints' },
-  { nombre: 'Prieur', descripcion: 'Marca francesa con modelos Excalibur de excelente relación calidad-precio.', icono: 'fa-solid fa-flag' },
-  { nombre: 'Do Win', descripcion: 'Marca china fundada en 1983, especializada en calzado deportivo de alto rendimiento.', icono: 'fa-solid fa-flag' }
+  { nombre: 'Nike', descripcion: 'Líder mundial en calzado deportivo. Ofrece modelos como Ballestra y Air Zoom.', icono: '/images/marcas/nike_logo.png' },
+  { nombre: 'Adidas', descripcion: 'Pionero en calzado para esgrima con modelos como D\'Artagnan y En Garde.', icono: '/images/marcas/adidas_logo.png' },
+  { nombre: 'Azza Fencing', descripcion: 'Marca creada por la sablista olímpica Azza Besbes. Enfoque en biomecánica y rendimiento.', icono: '/images/marcas/azza_logo.png' },
+  { nombre: 'Asics', descripcion: 'Conocida por su comodidad y amortiguación. Modelos como Gel-Bela y Gel-Domain.', icono: '/images/marcas/asics_logo.png' },
+  { nombre: 'Prieur', descripcion: 'Marca francesa con modelos Excalibur de excelente relación calidad-precio.', icono: '/images/marcas/logo_prieur.png' },
+  { nombre: 'Jiang Fencing', descripcion: 'Fabricante chino con 20+ años de experiencia. Equipo de esgrima de calidad y precio competitivo para competiciones nacionales e internacionales.', icono: '/images/marcas/logo_jiang.png' }
 ];
 
 // 🔥 Tipos de zapatillas
@@ -190,12 +229,7 @@ const caracteristicas = [
     nombre: 'Amortiguación',
     icono: 'fa-solid fa-person-running',
     descripcion: 'La amortiguación en el talón reduce el impacto al caer de una estocada. Una espuma de densidad dual protege las articulaciones sin hacer la zapatilla demasiado blanda. El talón redondeado y acolchado ofrece protección contra impactos.'
-  },
-  {
-    nombre: 'Ajuste y Comodidad',
-    icono: 'fa-solid fa-shoe-prints',
-    descripcion: 'La zapatilla debe ajustarse de forma ceñida en el mediopié para evitar que el pie se deslice, con un poco de espacio en los dedos. La parte superior transpirable mantiene los pies frescos y secos, previniendo ampollas.'
-  },
+  },   
   {
     nombre: 'Durabilidad',
     icono: 'fa-solid fa-clock',
@@ -320,9 +354,14 @@ const caracteristicas = [
       <h2 class="text-2xl font-bold font-heading mb-4">Marcas Destacadas</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {marcas.map((marca) => (
-          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
+          <div class="bg-gray-50 rounded-xl p-2 border border-gray-200 hover:border-primary transition">
             <div class="flex items-center gap-3">
-               
+                <img 
+                  src={marca.icono} 
+                  alt={marca.nombre}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               <div>
                 <h3 class="font-bold text-primary">{marca.nombre}</h3>
                 <p class="text-sm text-gray-600">{marca.descripcion}</p>
@@ -457,7 +496,7 @@ const caracteristicas = [
                 <div class="flex items-start justify-between mb-3">
                   <div>
                     <h3 class="text-2xl font-bold text-primary">{modelo.nombre}</h3>
-                    <span class="text-sm text-gray-500">{modelo.marca}</span>
+                    <span class="text-sm font-bold text-white bg-blue-950 px-2 py-1 rounded-2xl">{modelo.marca}</span>
                   </div>
                   <span class="text-lg font-bold text-gold-dark">{modelo.precio}</span>
                 </div>
@@ -527,13 +566,13 @@ const caracteristicas = [
           <i class="fa-solid fa-seedling text-5xl mb-2"></i>
           <h3 class="font-bold text-lg">Principiante</h3>
           <p class="text-sm text-gray-300 mt-2">Empieza con zapatillas de entrenamiento o polivalentes. Prioriza comodidad y ajuste sobre prestaciones avanzadas.</p>
-          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Azza 15/14 o Excalibur 1</span>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Do Win</span>
         </div>
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
           <i class="fa-solid fa-person-running text-5xl mb-2"></i>
           <h3 class="font-bold text-lg">Intermedio</h3>
           <p class="text-sm text-gray-300 mt-2">Busca un equilibrio entre durabilidad y rendimiento. Entrenas regularmente y necesitas zapatillas que aguanten.</p>
-          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Excalibur 2</span>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Azza 15/14</span>
         </div>
         <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
           <i class="fa-solid fa-trophy text-5xl mb-2"></i>
@@ -545,7 +584,7 @@ const caracteristicas = [
       <div class="mt-6 text-center">
         <p class="text-sm text-gray-300">
           <i class="fa-regular fa-circle-lightbulb mr-2"></i>
-          <strong>Tip:</strong> Si tienes un presupuesto ajustado, el modelo chino <strong>Azza 15/14</strong> es una excelente opción para empezar.
+          <strong>Tip:</strong> Si tienes un presupuesto ajustado, el modelo chino <strong>Do Win</strong> es una excelente opción para empezar.
         </p>
       </div>
     </section>

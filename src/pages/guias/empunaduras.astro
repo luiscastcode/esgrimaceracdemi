@@ -31,7 +31,7 @@ const empunaduras = [
     tecnologia: 'Elaborado con fusión selectiva por láser (SLM)',
      
     descripcion: 'La empuñadura más innovadora del mercado. Impreso con tecnologia 3D laser, eliminando la necesidad de una sujeción tradicional. Diseñada para maximizar la sensibilidad y el control.',
-    pros: ['Fijación magnética revolucionaria', 'Sensibilidad extrema', 'Ultra-ligera', 'Diseño vanguardista'],
+    pros: ['Diseño revolucionario', 'Sensibilidad extrema', 'Ultra-ligera', 'Innovación tecnológica'],
     contras: ['Precio elevado', 'Requiere adaptación', 'No apta para principiantes'],
     destacado: true,
     recomendacion: 'Para esgrimistas de élite que buscan la máxima innovación y no ser del montón.',
@@ -39,7 +39,7 @@ const empunaduras = [
   },
   {
     id: 'allstar-ergo-pro',
-    nombre: 'Mag-Tec Ultralight',
+    nombre: 'Empuñadura Mag-Tec Ultralight',
     marca: 'Leon Paul',
     pais: 'Reino Unido',
     imagen: '/images/guias/empunaduras/mag-tec.jpg',
@@ -126,7 +126,7 @@ const empunaduras = [
     imagen_ampliada: '/images/guias/empunaduras/negrini.webp',
     precio: '~$25 USD',
     tipo: 'Anatómica Italiana',
-    material: 'ALuminio',
+    material: 'Aluminio',
     peso: 'Ligero (80g)',
     tecnologia: 'Aluminio ligero con diseño italiano de precisión',    
     descripcion: 'Es la empuñadura italiana más ligera y resistente del mercado.',
@@ -135,6 +135,25 @@ const empunaduras = [
     destacado: false,
     recomendacion: 'Para esgrimistas de élite conservadores.',
     enlace: 'https://negrini.com/en/products/anatomical-grip-337'
+  },
+  {
+    id: 'jiang-fencing',
+    nombre: 'Empuñadura Jiang',
+    marca: 'Jiang Fencing',
+    pais: 'China',
+    imagen: '/images/guias/empunaduras/jiang.jpg',
+    imagen_ampliada: '/images/guias/empunaduras/jiang.jpg',
+    precio: 'Preguntar en web',
+    tipo: 'Anatómica',
+    material: 'Aluminio',
+    peso: 'Ligero (80g)',
+    tecnologia: 'Aluminio ligero con diseño italiano de precisión',    
+    descripcion: 'Es la empuñadura china más buscada.',
+    pros: ['Resistente', 'Ligera (80g)', 'Diseño italiano'],
+    contras: ['Un poco rigida'],
+    destacado: false,
+    recomendacion: 'Para esgrimistas que quieren arriesgarse a probar algo desconocido.',
+    enlace: 'http://en.jiangfencing.com/product/67.html'
   }
 ];
 
@@ -144,11 +163,12 @@ const empunaduras = [
 // 4. MARCAS DESTACADAS
 // ============================================
 const marcas = [
-  { nombre: 'Leon Paul', descripcion: 'Pionera en innovación con su sistema de impresion 3D. La marca más prestigiosa y con mayor inversión en I+D.', icono: 'fa-solid fa-crown' },
-  { nombre: 'Negrini', descripcion: 'Marca italiana de lujo. Conocida por sus ediciones limitadas y el uso de materiales premium como aluminio.', icono: 'fa-solid fa-gem' },
-  { nombre: 'Prieur', descripcion: 'Marca francesa con enfoque en la ligereza y el diseño exoesquelético. Innovación constante en materiales compuestos.', icono: 'fa-solid fa-flag' },
-  { nombre: 'Allstar', descripcion: 'Marca alemana con décadas de experiencia. Combina tradición con tecnología de escaneo 3D para un ajuste perfecto.', icono: 'fa-solid fa-star' },
-  { nombre: 'PBT Hungria', descripcion: 'Marca hungara que está revolucionando el mercado con diseños aerodinámicos y materiales como aleación de magnesio.', icono: 'fa-solid fa-rocket' }
+  { nombre: 'Leon Paul', descripcion: 'Pionera en innovación con su sistema de impresion 3D. La marca más prestigiosa y con mayor inversión en I+D.', icono: '/images/marcas/logo.svg' },
+  { nombre: 'Negrini Fencing Line', descripcion: 'Marca italiana desde 1897. Calidad y diseño en productos personalizados para campeones mundiales.', icono: '/images/marcas/logo_negrini.webp' },
+  { nombre: 'Prieur', descripcion: 'Fabricante francés de esgrima con tradición artesanal. Calidad premium, especialistas en equipamiento clásico y de competición.', icono: '/images/marcas/logo_prieur.png' },
+  { nombre: 'Allstar', descripcion: 'Nº1 mundial en esgrima. Empresa familiar alemana con 60 años de historia, innovación y calidad puntera para atletas de élite.', icono: '/images/marcas/logo_allstar.png' },
+  { nombre: 'PBT Hungria', descripcion: 'Fabricante húngaro desde 1991. Equipo FIE de alta competición, proveedor oficial de la federación húngara.', icono: '/images/marcas/logo_pbt.jpg' },
+  { nombre: 'Jiang Fencing', descripcion: 'Fabricante chino con 20+ años de experiencia. Equipo de esgrima de calidad y precio competitivo para competiciones nacionales e internacionales.', icono: '/images/marcas/logo_jiang.png' }
 ];
 
 // ============================================
@@ -278,7 +298,12 @@ const caracteristicas = [
         {marcas.map((marca) => (
           <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-primary transition">
             <div class="flex items-center gap-3">
-              <i class={`${marca.icono} text-3xl text-primary`}></i>
+              <img 
+                  src={marca.icono} 
+                  alt={marca.nombre}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               <div>
                 <h3 class="font-bold text-primary">{marca.nombre}</h3>
                 <p class="text-sm text-gray-600">{marca.descripcion}</p>

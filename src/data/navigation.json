@@ -18,7 +18,8 @@
       "icon": "FiBookOpen",
       "submenu": [
         { "label": "Trajes De Esgrima", "href": "/guias/trajes-esgrima" },         
-        { "label": "Calzados De Esgrima", "href": "/guias/zapatillas" }
+        { "label": "Calzados De Esgrima", "href": "/guias/zapatillas" },
+        { "label": "Empuñaduras De Esgrima", "href": "/guias/empunaduras" }
        
       ]
     },
