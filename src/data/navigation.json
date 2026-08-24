@@ -19,7 +19,8 @@
       "submenu": [
         { "label": "Trajes De Esgrima", "href": "/guias/trajes-esgrima" },         
         { "label": "Calzados De Esgrima", "href": "/guias/zapatillas" },
-        { "label": "Empuñaduras De Esgrima", "href": "/guias/empunaduras" }
+        { "label": "Empuñaduras De Esgrima", "href": "/guias/empunaduras" },
+        { "label": "Caretas De Esgrima", "href": "/guias/caretas-esgrima" }
        
       ]
     },
