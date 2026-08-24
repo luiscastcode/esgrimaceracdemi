@@ -1,0 +1,708 @@
+---
+import Layout from '../../layouts/LayoutBase.astro';
+
+// ============================================
+// 1. DATOS DE LA GUÍA
+// ============================================
+const guia = {
+  titulo: 'Guía de Guantes de Esgrima para Florete y Espada',
+  descripcion: 'Descubre los guantes más innovadores del mercado para Florete y Espada. Tecnología de punta, materiales avanzados y diseños ergonómicos para máximo rendimiento.',
+  fecha: '24 de agosto, 2026',
+  autor: 'Esgrima Cerca de Mí',
+  imagen: '/images/guias/guantes-hero.jpg'
+};
+
+// ============================================
+// 2. GUANTES DESTACADOS (INNOVADORES)
+// ============================================
+const guantes = [
+  {
+    id: 'leon-paul-ultra',
+    nombre: 'Guante Phoenix II',
+    marca: 'Leon Paul',
+    pais: 'Reino Unido',
+    imagen: '/images/guias/guantes/guante_lp.jpg',
+    imagen_ampliada: '/images/guias/guantes/guante_lp.jpg',
+    precio: '~$40 USD',
+    tipo: 'Competición',
+    material: 'Hecho a mano de un material elástico con una amplia gama de tamaños',
+    peso: 'Ultra-ligero',
+    tecnologia: 'Cuenta con un nuevo agarre estampado en la palma y los dedos',
+    descripcion: 'El guante Phoenix II es el más ligero del mercado. Su palma de microfibra con tratamiento antideslizante ofrece un agarre excepcional sin sacrificar sensibilidad.',
+    pros: ['Ultra-ligero', 'Agarre excepcional', 'Alta sensibilidad', 'Refuerzos acolchados en en el pulgar y la parte posterior de la mano'],
+    contras: ['Precio elevado'],
+    destacado: true,
+    recomendacion: 'Este guante es perfecto para esgrimistas competitivos y esgrimistas de club por igual.',
+    enlace: 'https://www.leonpaul.com/phoenix-ii-foil-epee-glove.html'
+  },
+  {
+    id: 'allstar-fie-pro',
+    nombre: 'Guante Allstar Gripstar',
+    marca: 'Allstar',
+    pais: 'Alemania',
+    imagen: '/images/guias/guantes/guante_allstar.jpg',
+    imagen_ampliada: '/images/guias/guantes/guante_allstar.jpg',
+    precio: '~$40 USD',
+    tipo: 'Competición FIE',
+    material: '60 % polyamide 40 % polyurethane',
+    peso: 'Ligero',
+    tecnologia: 'Certificación FIE con refuerzos de cuero en zonas de desgaste',
+    descripcion: 'El guante Gripstar de Allstar es el estándar de calidad para competiciones internacionales. Combina durabilidad y comodidad con una protección superior.',
+    pros: ['Certificación FIE', 'Durabilidad superior', 'Buena sensibilidad', 'Protección de muñeca'],
+    contras: ['Puede ser rígido al principio', 'Precio medio-alto'],
+    destacado: false,
+    recomendacion: 'Ideal para competidores de nivel FIE que buscan durabilidad.',
+    enlace: 'https://www.allstar.de'
+  },
+  {
+    id: 'pbt-hybrid',
+    nombre: 'PBT Guante Lavable 800N',
+    marca: 'PBT Fencing',
+    pais: 'Hungría',
+    imagen: '/images/guias/guantes/guante_pbt.jpg',
+    imagen_ampliada: '/images/guias/guantes/guante_pbt.jpg',
+    precio: '~$45 USD',
+    tipo: 'Entrenamiento/Competición',
+    material: 'Fabricado en tela fina con resistencia de 800N',
+    peso: 'Medio-ligero',
+    tecnologia: 'Piezas de cuero artificial en la zona de la palma para un mejor agarre',
+    descripcion: 'El guante lavable 800N de PBT ofrece un excelente equilibrio entre durabilidad y sensibilidad. Ideal para entrenamiento y competición sin gastar una fortuna.',
+    pros: ['Buena relación calidad-precio', 'Lavable', 'Cómodo', 'Buena durabilidad'],
+    contras: ['Menos sensibilidad que modelos premium', 'Aprobado por la FIE'],
+    destacado: false,
+    recomendacion: 'Perfecto para esgrimistas intermedios que entrenan regularmente.',
+    enlace: 'https://shop.pbtfencing.com/foil-ep-e-washable-glove-800n3138'
+  },
+  {
+    id: 'negrini-carbon',
+    nombre: 'Guante Negrini Infinity',
+    marca: 'Negrini Fencing Line',
+    pais: 'Italia',
+    imagen: '/images/guias/guantes/guante_negrini.webp',
+    imagen_ampliada: '/images/guias/guantes/guante_negrini.webp',
+    precio: '~$70 USD',
+    tipo: 'Competición Premium',
+    material: 'Su estructura está hecha con el nuevo tejido de alta resistencia Pro-Tex, que garantiza la protección 350N para el puño de doble capa',
+    peso: 'Ultra-ligero',
+    tecnologia: 'Diseñado para ser ligero, flexible, de alto rendimiento y duradero.',
+    descripcion: 'Guante con un diseño simple y elegante en el verdadero estilo Negrini, con soluciones innovadoras para los atletas modernos.',
+    pros: ['Doble capa de pro-Tex puño (350N)', 'Agarre antideslizante para una sujeción óptima', 'Diseño elegante', 'Flexibilidad excelente'],
+    contras: ['Precio elevado', 'Puede ser difícil de encontrar'],
+    destacado: false,
+    recomendacion: 'Para esgrimistas exigentes que buscan protección y estilo.',
+    enlace: 'https://negrini.com/en/products/infinity-glove-1015'
+  },
+  {
+    id: 'prieur-antislip',
+    nombre: 'Guante Antiresbalante',
+    marca: 'Prieur Sports',
+    pais: 'Francia',
+    imagen: '/images/guias/guantes/guante_prieur.webp',
+    imagen_ampliada: '/images/guias/guantes/guante_prieur.webp',
+    precio: '~$45 USD',
+    tipo: 'Competición FIE',
+    material: 'Cuero sintético de alta durabilidad',
+    peso: 'Ligero',
+    tecnologia: 'Diseño ergonómico con refuerzos en zonas de alta fricción',
+    descripcion: 'El guante antiresbalante está diseñado con un enfoque ergonómico que reduce la fatiga en la mano durante competiciones largas. La palma de microfibra ofrece un agarre superior.',
+    pros: ['Diseño ergonómico', 'Reduce fatiga', 'Agarre superior', 'En varios colores'],
+    contras: ['No garantizan por algunas razones el color solicitado'],
+    destacado: false,
+    recomendacion: 'Ideal para competidores que sufren fatiga en la mano.',
+    enlace: 'https://www.prieur-sports.com/en/product/epee-and-foil-anti-slip-glove/'
+  },
+  {
+    id: 'unic-fencing',
+    nombre: 'Guante Unic Fencing Anticover',
+    marca: 'UNIC Fencing',
+    pais: 'Ucrania',
+    imagen: '/images/guias/guantes/guante_unic.png',
+    imagen_ampliada: '/images/guias/guantes/guante_unic.png',
+    precio: '~$35 USD',
+    tipo: 'Competición FIE/Entrenamiento',
+    material: 'Breeze-Tech Fabric: Materiales que absorben la humedad para evitar una sensación de "pantano".',
+    peso: 'Ligero',
+    tecnologia: 'Tecnología antideslizante para una sujeción segura en cualquier condición',
+    descripcion: 'El guante ofrece la durabilidad necesaria para el entrenamiento diario, manteniendo la sensibilidad requerida para los torneos de alto nivel',
+    pros: ['Económico', 'Bueno para entrenamiento', 'Agarre decente', 'Durabilidad aceptable'],
+    contras: ['Los envios pueden ser lentos'],
+    destacado: false,
+    recomendacion: 'Perfecto para principiantes y entrenamiento diario.',
+    enlace: 'https://www.unicfencing.com/clothing-en/gloves-en/fencing-glove-anticover-purple-uf-ls-en'
+  }
+];
+
+// ============================================
+// 3. MODELOS POPULARES
+// ============================================
+const modelosPopulares = [
+  { 
+    nombre: 'Guante Phoenix II', 
+    marca: 'Leon Paul', 
+    tipo: 'Competición',
+    imagen: '/images/guias/guantes/guante_lp.jpg',
+    pais: 'Reino Unido'
+  },
+  { 
+    nombre: 'Allstar FIE Pro', 
+    marca: 'Allstar', 
+    tipo: 'Competición',
+    imagen: '/images/guias/guantes/guante_allstar.jpg',
+    pais: 'Alemania'
+  },
+  { 
+    nombre: 'Guante Anti resbaloso', 
+    marca: 'Prieur', 
+    tipo: 'FIE',
+    imagen: '/images/guias/guantes/guante_prieur.webp',
+    pais: 'Francia'
+  },
+  { 
+    nombre: 'PBT Lavable 800N', 
+    marca: 'PBT Fencing', 
+    tipo: 'Entrenamiento/Competición',
+    imagen: '/images/guias/guantes/guante_pbt.jpg',
+    pais: 'Hungría'
+  },
+  { 
+    nombre: 'Negrini Infinity', 
+    marca: 'Negrini Fencing Line', 
+    tipo: 'Premium',
+    imagen: '/images/guias/guantes/guante_negrini.webp',
+    pais: 'Italia'
+  },
+  { 
+    nombre: 'Guante Anticubierta', 
+    marca: 'UNIC Fencing', 
+    tipo: 'Entrenamiento/Competición',
+    imagen: '/images/guias/guantes/guante_unic.png',
+    pais: 'Ucrania'
+  }
+];
+
+// ============================================
+// 4. MARCAS DESTACADAS
+// ============================================
+const marcas = [
+  { nombre: 'Leon Paul', descripcion: 'Pionera en innovación con su sistema de impresion 3D. La marca más prestigiosa y con mayor inversión en I+D.', icono: '/images/marcas/logo.svg' },
+  { nombre: 'Negrini Fencing Line', descripcion: 'Marca italiana desde 1897. Calidad y diseño en productos personalizados para campeones mundiales.', icono: '/images/marcas/logo_negrini.webp' },
+  { nombre: 'Prieur Sports', descripcion: 'Fabricante francés de esgrima con tradición artesanal. Calidad premium, especialistas en equipamiento clásico y de competición.', icono: '/images/marcas/logo_prieur.png' },
+  { nombre: 'Allstar', descripcion: 'Nº1 mundial en esgrima. Empresa familiar alemana con 60 años de historia, innovación y calidad puntera para atletas de élite.', icono: '/images/marcas/logo_allstar.png' },
+  { nombre: 'PBT Fencing', descripcion: 'Fabricante húngaro desde 1991. Equipo FIE de alta competición, proveedor oficial de la federación húngara.', icono: '/images/marcas/logo_pbt.jpg' },
+  { nombre: 'UNIC Fencing', descripcion: 'Fabricante ucraniano con sede en Járkiv. Especialistas en hojas de esgrima forjadas a mano, con modelos FIE y no FIE de alta durabilidad.', icono: '/images/marcas/logo_unic.png' }
+];
+
+// ============================================
+// 5. TIPOS DE GUANTES
+// ============================================
+const tipos = [
+  {
+    nombre: 'Competición',
+    icono: 'fa-solid fa-trophy',
+    descripcion: 'Diseñados para máximo rendimiento. Son ultraligeros, ofrecen máxima sensibilidad y un agarre excepcional. Ideales para esgrimistas avanzados.',
+    ventajas: ['Máxima sensibilidad', 'Ultraligeros', 'Agarre superior', 'Alta precisión']
+  },
+  {
+    nombre: 'Entrenamiento',
+    icono: 'fa-solid fa-dumbbell',
+    descripcion: 'Más robustos y duraderos para el uso diario. Pesan un poco más pero ofrecen mayor protección. Perfectos para prácticas intensas.',
+    ventajas: ['Mayor durabilidad', 'Más protección', 'Cómodos', 'Económicos']
+  },
+  {
+    nombre: 'FIE Premium',
+    icono: 'fa-solid fa-shield-halved',
+    descripcion: 'Guantes con certificación FIE. Ofrecen la máxima protección y durabilidad para competiciones internacionales.',
+    ventajas: ['Certificación FIE', 'Protección superior', 'Durabilidad extrema', 'Materiales premium']
+  }
+];
+
+// ============================================
+// 6. CARACTERÍSTICAS CLAVE
+// ============================================
+const caracteristicas = [
+  {
+    nombre: 'Material de la Palma',
+    icono: 'fa-solid fa-hand',
+    descripcion: 'El material de la palma determina el agarre y la sensibilidad. El cuero de cabra es el estándar, mientras que la microfibra ofrece mayor durabilidad. Los modelos premium incluyen tratamientos antideslizantes.'
+  },
+  {
+    nombre: 'Refuerzos de Protección',
+    icono: 'fa-solid fa-shield',
+    descripcion: 'Los refuerzos en la parte superior de la mano y los dedos protegen contra impactos. Materiales como Kevlar o inserciones de carbono ofrecen la máxima protección.'
+  },
+  {
+    nombre: 'Ajuste y Comodidad',
+    icono: 'fa-solid fa-user-check',
+    descripcion: 'Un buen ajuste es esencial para la sensibilidad. Los guantes modernos ofrecen cierres de velcro ajustables y diseños ergonómicos que se adaptan a la forma de la mano.'
+  },
+  {
+    nombre: 'Certificación FIE',
+    icono: 'fa-solid fa-certificate',
+    descripcion: 'La certificación FIE garantiza que el guante cumple con los estándares internacionales de seguridad y durabilidad. Obligatoria en competiciones FIE.'
+  }
+];
+
+ 
+---
+
+<Layout title={guia.titulo} description={guia.descripcion}>
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors">
+        <i class="fa-solid fa-house w-4 h-4 inline"></i>
+        <span class="ml-1">Inicio</span>
+      </a>
+      <i class="fa-solid fa-chevron-right w-4 h-4 text-gray-300"></i>
+      <a href="/guias" class="hover:text-primary transition-colors">Guías</a>
+      <i class="fa-solid fa-chevron-right w-4 h-4 text-gray-300"></i>
+      <span class="text-primary font-medium">Guantes</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 text-sm text-gold mb-2">
+            <i class="fa-solid fa-star"></i>
+            <span>Guía Especializada</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
+            {guia.titulo}
+          </h1>
+          <p class="text-gray-300 text-lg">
+            {guia.descripcion}
+          </p>
+          <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
+            <span><i class="fa-regular fa-calendar"></i> {guia.fecha}</span>
+            <span>•</span>
+            <span><i class="fa-regular fa-user"></i> {guia.autor}</span>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <div class="p-6 text-center">
+            <img 
+              src="/images/guias/guantes.jpg"
+              alt="Guantes de Esgrima"
+              class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500 rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📋 Índice Rápido -->
+    <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-200">
+      <h2 class="text-sm font-semibold text-gray-600 mb-3">En esta guía:</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#tipos" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Tipos de Guantes</a>
+        <a href="#caracteristicas" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Características clave</a>         
+        <a href="#marcas" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Marcas destacadas</a>
+        <a href="#modelos" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Modelos populares</a>
+        <a href="#comparativa" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">Comparativa</a>
+        <a href="#recomendacion" class="text-sm bg-white px-4 py-2 rounded-full hover:bg-primary hover:text-white transition border border-gray-200">¿Cuál elegir?</a>
+      </div>
+    </div>
+
+    <!-- 👊 Tipos de Guantes -->
+    <section id="tipos" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-hand-fist text-primary mr-2"></i>
+        Tipos de Guantes de Esgrima
+      </h2>
+      <p class="text-gray-600 mb-6">Cada tipo de guante está diseñado para un perfil de esgrimista diferente. Elige el que mejor se adapte a tu nivel y necesidades.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {tipos.map((tipo) => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-primary transition">
+            <i class={`${tipo.icono} text-4xl text-primary mb-3`}></i>
+            <h3 class="text-xl font-bold font-heading text-primary">{tipo.nombre}</h3>
+            <p class="text-sm text-gray-600 mt-2">{tipo.descripcion}</p>
+            <div class="mt-3">
+              {tipo.ventajas.map((ventaja) => (
+                <span class="inline-block text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full mr-1 mb-1">
+                  <i class="fa-solid fa-check text-green-500 mr-1"></i>
+                  {ventaja}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 🔑 Características Clave -->
+    <section id="caracteristicas" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">Características Clave</h2>
+      <p class="text-gray-600 mb-6">Estos son los aspectos más importantes que debes considerar al elegir un guante de esgrima.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {caracteristicas.map((carac) => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-2">
+              <i class={`${carac.icono} text-2xl text-primary`}></i>
+              <h3 class="font-bold text-primary">{carac.nombre}</h3>
+            </div>
+            <p class="text-sm text-gray-600">{carac.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </section>     
+
+    <!-- 🏷️ Marcas Destacadas -->
+    <section id="marcas" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-trophy text-primary mr-2"></i>
+        Marcas Destacadas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {marcas.map((marca) => (
+          <div class="bg-gray-50 rounded-xl p-2 border border-gray-200 hover:border-primary transition">
+            <div class="flex items-center gap-3">
+              <img 
+                src={marca.icono} 
+                alt={marca.nombre}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div>
+                <h3 class="font-bold text-primary">{marca.nombre}</h3>
+                <p class="text-sm text-gray-600">{marca.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 📸 Modelos Populares -->
+    <section id="modelos" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-fire text-gold mr-2"></i>
+        Modelos Populares
+      </h2>
+      <p class="text-gray-600 mb-6">Los guantes más buscados y recomendados del mercado.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {modelosPopulares.map((modelo) => (
+          <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-primary hover:shadow-md transition text-center group">
+            {modelo.imagen ? (
+              <div class="relative overflow-hidden rounded-lg mt-2 mb-2">
+                <img 
+                  src={modelo.imagen} 
+                  alt={modelo.nombre} 
+                  class="w-full h-24 object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute top-0 right-1 text-[10px] bg-primary/80 text-white px-1.5 py-0.5 rounded-full">
+                  {modelo.pais}
+                </div>
+              </div>
+            ) : (
+              <div class="w-full h-24 bg-gray-200 rounded-lg flex items-center justify-center text-2xl mb-2">🧤</div>
+            )}
+            <p class="text-xs font-semibold text-primary line-clamp-1">{modelo.nombre}</p>
+            <p class="text-[10px] text-gray-400">{modelo.marca}</p>
+            <span class="inline-block text-[10px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full mt-1">
+              {modelo.tipo}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-4 text-xs text-gray-400 text-center">
+        <i class="fa-solid fa-info-circle mr-1"></i>
+        Esta lista puede variar según disponibilidad y región.
+      </div>
+    </section>
+
+    <!-- 📊 Comparativa de Guantes -->
+    <section id="comparativa" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <h2 class="text-2xl font-bold font-heading">
+          <i class="fa-solid fa-hand-fist text-primary mr-2"></i>
+          Comparativa de Guantes
+        </h2>
+        <span class="bg-gold/20 text-gold-dark text-xs px-3 py-1 rounded-full font-semibold">Top 6</span>
+        <span class="bg-purple-50 text-purple-600 text-xs px-3 py-1 rounded-full font-semibold">
+          <i class="fa-solid fa-diamond mr-1"></i>
+          Guantes innovadores
+        </span>
+      </div>
+      <p class="text-gray-600 mb-6">Compara los guantes más innovadores del mercado para Florete y Espada.</p>
+
+      <div class="space-y-6">
+        {guantes.map((modelo) => (
+          <div class={`bg-gray-50 rounded-xl p-6 border-2 transition hover:shadow-lg ${
+            modelo.destacado ? 'border-gold shadow-md' : 'border-gray-200 hover:border-primary'
+          }`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <!-- Columna Izquierda: Imagen -->
+              <div class="md:w-64 shrink-0">
+                {modelo.destacado && (
+                  <div class="bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Top Innovation
+                  </div>
+                )}
+                
+                <div class="flex items-center gap-2 mb-3 flex-wrap">
+                  <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                    modelo.pais === 'China' 
+                      ? 'bg-red-50 text-red-600 border border-red-200' 
+                      : 'bg-blue-50 text-blue-600 border border-blue-200'
+                  }`}>
+                    <i class="fa-solid fa-flag mr-1"></i>
+                    {modelo.pais}
+                  </span>
+                  <span class="text-sm font-bold text-gold-dark ml-auto">{modelo.precio}</span>
+                </div>
+                
+                <div class="relative group cursor-pointer" 
+                     data-lightbox-id={modelo.id}
+                     data-lightbox-img={modelo.imagen_ampliada || modelo.imagen}
+                     data-lightbox-name={modelo.nombre}
+                     data-lightbox-marca={modelo.marca}
+                     data-lightbox-tipo={modelo.tipo}>
+                  {modelo.imagen ? (
+                    <div class="relative overflow-hidden rounded-xl bg-gray-100">
+                      <img 
+                        src={modelo.imagen} 
+                        alt={modelo.nombre} 
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30">
+                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl"></i>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="w-full h-48 bg-gray-200 rounded-xl flex items-center justify-center text-6xl">🧤</div>
+                  )}
+                </div>
+                
+                <div class="mt-3">
+                  <a 
+                    href={modelo.enlace} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-center text-sm bg-primary text-white py-2.5 rounded-lg hover:bg-primary-light transition"
+                  >
+                    <i class="fa-solid fa-cart-shopping mr-2"></i>
+                    Ver en tienda
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Información -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">{modelo.nombre}</h3>
+                    <span class="text-sm font-bold text-white bg-blue-950 px-2 py-1 rounded-2xl">
+                      {modelo.marca}
+                    </span>
+                  </div>
+                  <span class="text-lg font-bold text-gold-dark">{modelo.precio}</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div><span class="font-semibold">Tipo:</span> {modelo.tipo}</div>
+                  <div><span class="font-semibold">Material:</span> {modelo.material}</div>
+                  <div><span class="font-semibold">Peso:</span> {modelo.peso}</div>
+                  <div><span class="font-semibold">Tecnología:</span> {modelo.tecnologia}</div>
+                </div>
+
+                <div class="mt-3 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-sm text-gray-600">{modelo.descripcion}</p>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                  <p class="text-sm font-semibold text-primary">
+                    <i class="fa-solid fa-circle-check text-green-500 mr-1"></i>
+                    Pros:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.pros.map((pro) => (
+                      <span class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-check text-green-500 mr-0.5"></i>
+                        {pro}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-sm font-semibold text-red-500 mt-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i>
+                    Contras:
+                  </p>
+                  <div class="flex flex-wrap gap-1 mt-1">
+                    {modelo.contras.map((contra) => (
+                      <span class="text-xs bg-red-50 text-red-500 px-2 py-0.5 rounded-full">
+                        <i class="fa-solid fa-xmark text-red-500 mr-0.5"></i>
+                        {contra}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-primary/5 rounded-lg">
+                  <p class="text-xs text-gray-600 italic">
+                    <i class="fa-solid fa-quote-left text-primary mr-1"></i>
+                    {modelo.recomendacion}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-6 text-xs text-gray-400 text-center">
+        <i class="fa-solid fa-info-circle mr-1"></i>
+        Precios aproximados en USD. Pueden variar según el distribuidor y la región.
+      </div>
+    </section>
+
+    <!-- 🎯 ¿Cuál elegir? -->
+    <section id="recomendacion" class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl font-bold font-heading mb-4 text-center">
+        <i class="fa-solid fa-bullseye mr-2"></i>
+        ¿Cuál guante elegir según tu perfil?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-seedling text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Principiante</h3>
+          <p class="text-sm text-gray-300 mt-2">Empieza con guantes de entrenamiento. Busca comodidad y protección básica sin gastar demasiado.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como PBT FEncing</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-person-running text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Intermedio / Competidor</h3>
+          <p class="text-sm text-gray-300 mt-2">Busca materiales premium como cuero de cabra o microfibra. Mejora tu sensibilidad y agarre.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como el Allstar Gripstar</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <i class="fa-solid fa-trophy text-5xl mb-2"></i>
+          <h3 class="font-bold text-lg">Profesional / FIE</h3>
+          <p class="text-sm text-gray-300 mt-2">Invierte en guantes FIE con tecnología avanzada. Busca ultraligereza y máxima sensibilidad.</p>
+          <span class="inline-block mt-3 text-xs bg-gold text-primary px-3 py-1 rounded-full font-semibold">Modelos como Leon Paul Phoenix II</span>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <p class="text-sm text-gray-300">
+          <i class="fa-regular fa-circle-lightbulb mr-2"></i>
+          <strong>Tip:</strong> La sensibilidad del guante es clave para el control de la hoja. No sacrifiques sensibilidad por protección excesiva.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📝 Consejos Finales -->
+    <section class="bg-white rounded-2xl shadow-md p-6 md:p-8 border border-gray-100">
+      <h2 class="text-2xl font-bold font-heading mb-4">
+        <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+        Consejos Finales
+      </h2>
+      <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Prueba antes de comprar</strong> si es posible. La sensación en la mano es muy personal.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Elige según tu arma</strong> Florete requiere más flexibilidad, Espada más protección en el talón.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Reemplaza tu guante</strong> cuando notes desgaste en la palma o los dedos. Un guante desgastado reduce el agarre.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i class="fa-solid fa-check-circle text-green-500 text-xl mt-0.5"></i>
+          <span><strong>Mantén tu guante limpio</strong> con un paño húmedo después de cada uso. El sudor puede deteriorar el cuero.</span>
+        </li>
+      </ul>
+      
+      <div class="mt-6 p-4 bg-gold/10 border border-gold rounded-xl text-center">
+        <p class="text-sm text-gray-700">
+          <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
+          <strong>Recuerda:</strong> El guante es la conexión entre tu mano y el arma. Un buen guante mejora tu control y reduce la fatiga. ¡Elige sabiamente!
+        </p>
+      </div>
+    </section>
+
+    <!-- 📢 Llamada a la acción -->
+    <section class="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center">
+      <h3 class="text-xl font-bold font-heading mb-2">
+        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+        ¿Tienes dudas sobre qué guante elegir?
+      </h3>
+      <p class="text-gray-600 mb-4">Contácta proveedores nacionales, te ayudarán a encontrar la opción perfecta para ti.</p>
+      <a 
+        href="/proveedores" 
+        class="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary-light transition"
+      >
+        <i class="fa-regular fa-eye mr-2"></i>
+        Te Mostramos Algunos
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<!-- 🔥 LIGHTBOX JAVASCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Crear el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox-overlay';
+    lightbox.className = 'fixed inset-0 z-[999] bg-black/90 hidden flex items-center justify-center p-4';
+    lightbox.innerHTML = `
+      <div class="relative max-w-4xl w-full">
+        <button id="lightbox-close" class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="" class="w-full h-auto rounded-xl max-h-[80vh] object-contain" />
+        <div id="lightbox-caption" class="text-white text-center mt-4 text-lg font-semibold"></div>
+        <div id="lightbox-subcaption" class="text-gray-400 text-center text-sm"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const overlay = document.getElementById('lightbox-overlay');
+    const image = document.getElementById('lightbox-image');
+    const caption = document.getElementById('lightbox-caption');
+    const subcaption = document.getElementById('lightbox-subcaption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    function closeLightbox() {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // 🔥 ASIGNAR EVENTOS A LAS IMÁGENES
+    document.querySelectorAll('[data-lightbox-id]').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        const imgSrc = this.dataset.lightboxImg;
+        const name = this.dataset.lightboxName;
+        const marca = this.dataset.lightboxMarca;
+        const tipo = this.dataset.lightboxTipo;
+
+        if (imgSrc) {
+          image.src = imgSrc;
+          image.alt = name || 'Guante';
+          caption.textContent = name || 'Guante';
+          subcaption.textContent = `${marca || ''} ${tipo ? '- ' + tipo : ''}`;
+          overlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>
