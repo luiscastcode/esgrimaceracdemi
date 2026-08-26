@@ -19,14 +19,19 @@ const meta = generateMeta(title, description, Astro.url.pathname);
 <html lang="es">
   <head>
     <!-- Google tag (gtag.js) -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0N6C79TWGX"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0N6C79TWGX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-0N6C79TWGX');
-</script>
+      gtag("config", "G-0N6C79TWGX");
+    </script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,9 +39,12 @@ const meta = generateMeta(title, description, Astro.url.pathname);
     <!-- Título y Descripción -->
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
-    
-  <!-- 🔥 FONTAWESOME CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- 🔥 FONTAWESOME CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- Open Graph -->
     <meta property="og:title" content={meta.openGraph.title} />
@@ -56,11 +64,12 @@ const meta = generateMeta(title, description, Astro.url.pathname);
     <!-- Robots -->
     {noIndex && <meta name="robots" content="noindex" />}
 
+    <link rel="canonical" href={meta.openGraph.url} />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/logo.png" />
 
     <!-- Schema.org -->
-    <script
+    <script is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
@@ -90,6 +99,6 @@ const meta = generateMeta(title, description, Astro.url.pathname);
   <body>
     <Header />
     <slot />
-    <Footer />
-  </body>
+    <Footer />    
+  </body> 
 </html>

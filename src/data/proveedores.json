@@ -8,7 +8,7 @@
       "categoria": "Venta de material",
       "logo": "/images/proveedores/casa-esgrima/casa-esgrima-logo.jpg",
       "imagen_portada": "/images/proveedores/casa-esgrima/casa-esgrima-portada.png",
-      "descripcion": " Distribuidora oficial de la marca PBT fencing en Venezuela. La tienda de referencia en Caracas para material de esgrima. Ofrecemos asesoría personalizada para cada nivel.",
+      "descripcion": "Distribuidora oficial de la marca PBT fencing en Venezuela. Ofrecemos asesoría personalizada para cada nivel.",
       "direccion": "San Bernardino, Caracas",
       "estado": "Caracas",
       "ciudad": "Caracas",
@@ -40,7 +40,7 @@
       "web": " ",
       "horarios": "Lunes a Sábado 8am-5pm",
       "destacado": true,
-      "servicios": ["Venta de material nuevo y usado","Alquiler de material", "Mantenimiento de caretas", "Reparación de trajes"]
+      "servicios": ["Venta de material nuevo y usado","Alquiler de material", "Reparación de trajes"]
     }
    
   ]
