@@ -87,8 +87,8 @@ if (slug) {
   if (estadoInfo) {
     mostrarEstado = true;
     estadoSlug = estadoInfo.slug;
-    titulo = `Clubes de esgrima en ${estadoInfo.nombre}`;
-    descripcion = `Encuentra los mejores clubes de esgrima en ${estadoInfo.nombre}.`;
+    titulo = `Esgrima en ${estadoInfo.nombre} | Horarios, Precios y Ubicación`;
+    descripcion = `¿Buscas una escuela de esgrima? Clases para niños, jóvenes y adultos en ${estadoInfo.nombre}. Reserva tu clase gratis.`;
     clubesMostrar = todosLosClubes.filter(
       (c) => String(c.estado_slug || "").trim() === estadoSlug,
     );
@@ -116,8 +116,8 @@ if (slug) {
       ciudadSlug = ciudadMatch.toLowerCase().replace(/\s+/g, "-");
       ciudadNombre = ciudadMatch;
 
-      titulo = `Clubes de esgrima en ${ciudadMatch}, ${estadoMatch.nombre}`;
-      descripcion = `Directorio de clubes de esgrima en ${ciudadMatch}, ${estadoMatch.nombre}.`;
+      titulo = `Esgrima en ${ciudadMatch}, ${estadoMatch.nombre} | Horarios, Precios y Ubicación`;
+      descripcion = `¿Buscas una escuela de esgrima? Clases para niños, jóvenes y adultos en ${ciudadMatch}, ${estadoMatch.nombre}. Reserva tu clase gratis.`;
       clubesMostrar = todosLosClubes.filter(
         (c) =>
           String(c.estado_slug || "").trim() === estadoSlug &&
@@ -195,11 +195,13 @@ function getMapsLink(lat, lng) {
             </span>
           </nav>
 
-          <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+          <div class="bg-linear-to-l from-indigo-950 via-indigo-900 to-violet-900 text-white rounded-2xl p-8 mb-8">
+            <div class="p-20">                            
             <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
               {titulo}
             </h1>
             <p class="text-gray-300 text-lg">{descripcion}</p>
+            </div>
           </div>
 
           {estadoInfo?.ciudades && estadoInfo.ciudades.length > 0 && (
@@ -335,11 +337,13 @@ function getMapsLink(lat, lng) {
             <span class="text-primary font-medium">{ciudadNombre}</span>
           </nav>
 
-          <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+          <div class="bg-linear-to-l from-indigo-950 via-indigo-900 to-violet-900 text-white rounded-2xl p-8 mb-8">
+            <div class="p-20"> 
             <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
               {titulo}
             </h1>
             <p class="text-gray-300 text-lg">{descripcion}</p>
+            </div>
           </div>
 
           {clubesMostrar.length > 0 ? (
