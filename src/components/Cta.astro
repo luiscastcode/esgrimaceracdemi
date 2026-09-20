@@ -1,8 +1,4 @@
----
-import { 
-   
-  FiBriefcase,   FiStar
-} from 'react-icons/fi';
+---  
 
 interface Props {
   titulo: String,
@@ -14,24 +10,24 @@ interface Props {
 const { titulo, descripcion, textobtn, url } = Astro.props;
 ---
 
- <!-- CALL TO ACTION - Contrata publicidad -->
-    <div class="bg-gold/10 border-2 border-gold rounded-2xl p-6 md:p-8 my-8 text-center">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-left">
-          <h3 class="text-xl font-bold font-heading text-primary flex items-center gap-2">
-            <FiStar className="w-6 h-6 text-gold" />
-            {titulo}
-          </h3>
-          <p class="text-gray-600 text-sm mt-1">
-            {descripcion}
-          </p>
-        </div>
-        <a 
-          href={`/${url}`}
-          class="bg-gold text-primary font-semibold px-8 py-3 rounded-xl hover:bg-gold-light hover:shadow-lg transition-all duration-200 whitespace-nowrap flex items-center gap-2"
-        >
-          <FiBriefcase className="w-4 h-4" />
-          {textobtn}
-        </a>
-      </div>
+  <!-- CALL TO ACTION - Contrata publicidad -->
+<div class="bg-surface-muted/30 border border-border rounded-3xl p-6 md:p-8 my-8 shadow-md shadow-primary/5">
+  <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-left">
+      <h3 class="text-xl font-bold font-heading text-text flex items-center gap-2">
+        <i class="fa-solid fa-star text-accent"></i>
+        {titulo}
+      </h3>
+      <p class="text-text-muted text-sm mt-1">
+        {descripcion}
+      </p>
     </div>
+    <a 
+      href={`/${url}`}
+      class="inline-flex items-center gap-2 bg-accent text-text-inverse font-semibold px-8 py-3 rounded-xl hover:bg-accent-light hover:shadow-lg hover:shadow-accent/30 transition-all duration-200 whitespace-nowrap shadow-md shadow-accent/20"
+    >
+      <i class="fa-solid fa-briefcase"></i>
+      {textobtn}
+    </a>
+  </div>
+</div>

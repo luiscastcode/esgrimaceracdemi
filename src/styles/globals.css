@@ -8,24 +8,35 @@
 
 @theme {
   /* --- COLORES --- */
-  --color-primary: #1a1a2e;
-  --color-primary-light: #2d2d44;
-  --color-primary-dark: #0f0f1a;
+    /* --- MARCA / PRIMARIO --- */
+  --color-primary: #1d3557;        /* Azul oscuro — marca, headers, textos fuertes */
+  --color-primary-light: #457b9d;  /* Azul medio — hover, textos secundarios */
+  --color-primary-dark: #142740;   /* Derivado más oscuro para pressed/dark mode */
   
-  --color-secondary: #c0c0c0;
-  --color-secondary-light: #e0e0e0;
-  --color-secondary-dark: #8a8a8a;
+  /* --- ACENTO / ACCIÓN --- */
+  --color-accent: #E63946;         /* Rojo — CTA, badges, alertas, destacados */
+  --color-accent-light: #f05663;   /* Hover del rojo */
+  --color-accent-dark: #c62d3a;    /* Active/pressed del rojo */
   
-  --color-gold: #ffd700;
-  --color-gold-light: #ffe44d;
-  --color-gold-dark: #cc9900;
+  /* --- SUPERFICIES --- */
+  --color-background: #F1FAEE;     /* Fondo principal (blanco hueso) */
+  --color-surface: #ffffff;        /* Superficie de cards */
+  --color-surface-muted: #a8dadc;  /* Fondos suaves, chips, hover states */
+  --color-surface-soft: #d6ecee;   /* Derivado más claro del celeste */
   
-  --color-background: #f8f9fa;
-  --color-background-dark: #e9ecef;
+  /* --- TEXTO --- */
+  --color-text: #1d3557;           /* Texto principal */
+  --color-text-muted: #457b9d;     /* Texto secundario */
+  --color-text-soft: #8aa5bd;      /* Derivado para placeholders/disabled */
+  --color-text-inverse: #F1FAEE;   /* Texto sobre fondos oscuros */
+  
+  /* --- BORDES --- */
+  --color-border: #a8dadc;         /* Borde sutil estándar */
+  --color-border-soft: #d6ecee;    /* Borde aún más suave */
   
   /* --- TIPOGRAFÍA --- */
-  --font-family-sans: 'Monserrat', system-ui, -apple-system, sans-serif;
-  --font-family-heading: 'Montserrat', 'Roboto', sans-serif;
+  --font-family-sans: 'Mulish', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Figtree', sans-serif;
   
   /* --- TAMAÑOS DE TEXTO --- */
   --text-xs: 0.75rem;

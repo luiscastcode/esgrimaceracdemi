@@ -7,36 +7,36 @@ const currentYear = new Date().getFullYear();
 const logoHeight = 60;
 ---
 
-<footer class="bg-primary text-white">
+ <footer class="bg-primary text-text-inverse">
   <!-- 🔥 SECCIÓN DE DONACIONES -->
-  <div class="border-b border-primary-light">
+  <div class="border-b border-primary-light/40">
     <div class="container mx-auto px-4 py-12">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
         <div>
           <div class="flex items-center gap-2 mb-2">
-            <i class="fa-solid fa-heart text-gold text-2xl"></i>
-            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-gold">
-              Apoya el Proyecto
+            <i class="fa-solid fa-heart text-accent text-2xl"></i>
+            <h3 class="text-2xl lg:text-3xl font-heading font-bold text-text-inverse">
+              Apoya el <span class="text-accent">Proyecto</span>
             </h3>
           </div>
-          <p class="text-gray-300 mt-2 text-sm lg:text-base">
+          <p class="text-surface-muted mt-2 text-sm lg:text-base">
             Este directorio es completamente gratuito para clubes y usuarios. 
             Tu donación nos ayuda a mantener la web, agregar más contenido 
             y seguir conectando a la comunidad de esgrima en Venezuela.
           </p>
-          <div class="flex flex-wrap gap-4 mt-4 text-sm text-gray-400">
-            <span class="flex items-center gap-1">
-              <i class="fa-solid fa-star text-gold text-xs"></i>
+          <div class="flex flex-wrap gap-4 mt-4 text-sm text-surface-muted/80">
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-accent text-xs"></i>
               Contenido gratuito
             </span>
-            <span class="w-px h-4 bg-gray-600"></span>
-            <span class="flex items-center gap-1">
-              <i class="fa-solid fa-star text-gold text-xs"></i>
+            <span class="w-px h-4 bg-primary-light/60"></span>
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-accent text-xs"></i>
               Sin costo para clubes
             </span>
-            <span class="w-px h-4 bg-gray-600"></span>
-            <span class="flex items-center gap-1">
-              <i class="fa-solid fa-star text-gold text-xs"></i>
+            <span class="w-px h-4 bg-primary-light/60"></span>
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-accent text-xs"></i>
               Mejoras continuas
             </span>
           </div>
@@ -48,7 +48,7 @@ const logoHeight = 60;
             href="https://www.paypal.com/donate?hosted_button_id=TU_BOTON_ID" 
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 bg-gold text-primary font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 shadow-md"
+            class="flex items-center gap-3 bg-accent text-text-inverse font-bold px-8 py-4 rounded-2xl hover:bg-accent-light transition-all duration-200 hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 shadow-md shadow-accent/20"
           >
             <i class="fa-brands fa-paypal text-2xl"></i>
             <span>Donar con PayPal</span>
@@ -70,15 +70,15 @@ const logoHeight = 60;
             alt={company.name}
             height={logoHeight}
             width="auto"
-            class="h-15 w-auto"
+            class="h-15 w-auto rounded-xl transition-transform duration-300 hover:scale-105"
           />
         </a>        
       </div>
 
       <!-- Columna 2: Clubes -->
       <div>
-        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-location-dot text-gold"></i>
+        <h4 class="text-lg font-heading font-semibold text-text-inverse mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-location-dot text-accent"></i>
           Top Ciudades Con Esgrima 
         </h4>
         <ul class="space-y-2.5">
@@ -87,9 +87,9 @@ const logoHeight = 60;
               <li>
                 <a 
                   href={link.href}
-                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                  class="text-surface-muted hover:text-accent hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent/60"></span>
                   {link.label}
                 </a>
               </li>
@@ -100,8 +100,8 @@ const logoHeight = 60;
 
       <!-- Columna 3: Guías y Reglamento -->
       <div>
-        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-book-open text-gold"></i>
+        <h4 class="text-lg font-heading font-semibold text-text-inverse mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-accent"></i>
           Guías {currentYear}
         </h4>
         <ul class="space-y-2.5 mb-6">
@@ -110,9 +110,9 @@ const logoHeight = 60;
               <li>
                 <a 
                   href={link.href}
-                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                  class="text-surface-muted hover:text-accent hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent/60"></span>
                   {link.label}
                 </a>
               </li>
@@ -123,8 +123,8 @@ const logoHeight = 60;
 
       <!-- Columna 4: Legal y Social -->
       <div>
-        <h4 class="text-lg font-heading font-semibold text-gold mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-shield-halved text-gold"></i>
+        <h4 class="text-lg font-heading font-semibold text-text-inverse mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-accent"></i>
           Legal
         </h4>
         <ul class="space-y-2.5 mb-6">
@@ -133,39 +133,38 @@ const logoHeight = 60;
               <li>
                 <a 
                   href={link.href}
-                  class="text-gray-300 hover:text-gold hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
+                  class="text-surface-muted hover:text-accent hover:pl-2 transition-all duration-200 text-sm flex items-center gap-2"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold/50"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent/60"></span>
                   {link.label}
                 </a>
               </li>
             ))
           }
         </ul>    
-         
       </div>
     </div>
   </div>
 
   <!-- Bottom Bar -->
-  <div class="border-t border-primary-light">
+  <div class="border-t border-primary-light/40">
     <div class="container mx-auto px-4 py-4">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-gray-400">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-surface-muted/80">
         <div class="flex items-center gap-4">
           <span>{company.name}</span>
-          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="w-1 h-1 rounded-full bg-primary-light"></span>
           <span>© {company.founded}</span>
         </div>
         <div class="flex items-center gap-2">
-            <i class="fa-regular fa-envelope text-gold"></i>
-            <span>info@esgrimacercademi.com</span>
-          </div>
+          <i class="fa-regular fa-envelope text-accent"></i>
+          <span>info@esgrimacercademi.com</span>
+        </div>
         <div class="flex items-center gap-4 text-xs">
           <span class="flex items-center gap-1">
-            <i class="fa-solid fa-heart text-gold"></i>
+            <i class="fa-solid fa-heart text-accent"></i>
             Hecho en Venezuela
           </span>
-          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="w-1 h-1 rounded-full bg-primary-light"></span>
           <span>v1.0.0</span>
         </div>
       </div>

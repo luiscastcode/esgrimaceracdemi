@@ -7,39 +7,37 @@ const titulo = 'Contacto - Esgrima Cerca de Mí';
 const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (gratis) o tu negocio de proveedores. Resolvemos tus dudas y te ayudamos a formar parte de la comunidad.';
 ---
 
-<Layout title={titulo} description={descripcion}>
+ <Layout title={titulo} description={descripcion}>
   <div class="container mx-auto px-4 py-8 max-w-6xl">
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8 flex-wrap">
-      <a href="/" class="hover:text-primary transition-colors">
-        <FiHome className="w-4 h-4 inline" />
-        <span class="ml-1">Inicio</span>
+    <nav class="flex items-center gap-2 text-sm text-text-muted mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors inline-flex items-center gap-1">
+        <i class="fa-solid fa-house text-xs"></i>
+        <span>Inicio</span>
       </a>
-      <FiChevronRight className="w-4 h-4 text-gray-300" />
+      <i class="fa-solid fa-chevron-right text-[10px] text-text-soft"></i>
       <span class="text-primary font-medium">Contacto</span>
     </nav>
 
     <!-- Hero -->
-    <div class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8">
+    <div class="bg-linear-to-r from-primary to-primary-light text-text-inverse rounded-3xl p-8 mb-8 shadow-lg shadow-primary/10">
       <div class="flex flex-col md:flex-row md:items-center gap-6">
         <div class="flex-1">
-          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
-            <i class="fa-regular fa-envelope mr-3 text-gold"></i>
+          <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2 flex items-center gap-3">
+            <i class="fa-regular fa-envelope text-accent"></i>
             Contacto
           </h1>
-          <p class="text-gray-300 text-lg max-w-2xl">
-            ¿Tienes un club de esgrima o un negocio relacionado? 
-             
+          <p class="text-surface-muted text-lg max-w-2xl">
+            ¿Tienes un club de esgrima o un negocio relacionado?
           </p>
-          <p class="text-gray-300 text-lg max-w-2xl">
-             
-            <span class="text-gold font-semibold">Agrégalo gratis</span> a nuestro directorio.
+          <p class="text-surface-muted text-lg max-w-2xl mt-2">
+            <span class="text-accent font-semibold">Agrégalo gratis</span> a nuestro directorio.
           </p>
         </div>
         <div class="shrink-0">
-          <div class="bg-white/10 rounded-2xl p-6 text-center">
-            <i class="fa-regular fa-handshake text-5xl text-gold"></i>
-            <p class="text-sm text-gray-300 mt-2">¡Te esperamos!</p>
+          <div class="bg-text-inverse/10 border border-text-inverse/10 rounded-2xl p-6 text-center">
+            <i class="fa-regular fa-handshake text-5xl text-accent"></i>
+            <p class="text-sm text-surface-muted mt-2">¡Te esperamos!</p>
           </div>
         </div>
       </div>
@@ -51,67 +49,67 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
       <!-- Columna Izquierda: Información -->
       <div class="lg:w-1/3 space-y-6">
         <!-- Tarjeta: Clubes -->
-        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition">
+        <div class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 border border-border/50 hover:shadow-lg hover:shadow-primary/10 transition">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-house text-xl text-indigo-800"></i>
+            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-house text-xl text-primary"></i>
             </div>
-            <h3 class="font-bold text-indigo-600 text-lg">Clubes</h3>
+            <h3 class="font-bold text-primary text-lg">Clubes</h3>
           </div>
-          <p class="text-sm text-gray-600 mb-3">
+          <p class="text-sm text-text-muted mb-3">
             Agrega tu club de esgrima al directorio. 
-            <span class="text-green-600 font-semibold">¡Completamente gratis!</span>
+            <span class="text-accent font-semibold">¡Completamente gratis!</span>
           </p>
-          <ul class="space-y-1.5 text-sm text-gray-500">
+          <ul class="space-y-1.5 text-sm text-text-muted">
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Visibilidad para tu club
             </li>
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Conexión con nuevos esgrimistas
             </li>
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Sin costo de registro
             </li>
           </ul>
         </div>
 
         <!-- Tarjeta: Proveedores -->
-        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition">
+        <div class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 border border-border/50 hover:shadow-lg hover:shadow-primary/10 transition">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-              <i class="fa-solid fa-store text-xl text-blue-600"></i>
+            <div class="w-12 h-12 bg-primary-light/10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-store text-xl text-primary-light"></i>
             </div>
-            <h3 class="font-bold text-blue-600 text-lg">Proveedores</h3>
+            <h3 class="font-bold text-primary-light text-lg">Proveedores</h3>
           </div>
-          <p class="text-sm text-gray-600 mb-3">
+          <p class="text-sm text-text-muted mb-3">
             ¿Vendes material, reparas o importas? Llega a miles de esgrimistas.
           </p>
-          <ul class="space-y-1.5 text-sm text-gray-500">
+          <ul class="space-y-1.5 text-sm text-text-muted">
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Escaparate para tu negocio
             </li>
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Conexión con clubes y atletas
             </li>
             <li class="flex items-center gap-2">
-              <i class="fa-solid fa-check-circle text-green-500 text-xs"></i>
+              <i class="fa-solid fa-circle-check text-primary-light text-xs"></i>
               Opción de destacar tu perfil
             </li>
           </ul>
         </div>
 
         <!-- Tarjeta: Información de contacto -->
-        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-          <h4 class="font-semibold text-gray-700 mb-3 flex items-center gap-2">
+        <div class="bg-surface-muted/30 rounded-3xl p-6 border border-border/50">
+          <h4 class="font-semibold text-text mb-3 flex items-center gap-2">
             <i class="fa-solid fa-circle-info text-primary"></i>
             Información
           </h4>
-          <div class="space-y-2 text-sm text-gray-600">
+          <div class="space-y-2 text-sm text-text-muted">
             <p class="flex items-start gap-3">
               <i class="fa-regular fa-envelope text-primary mt-0.5"></i>
               <span>info@esgrimacercademi.com</span>
@@ -130,14 +128,14 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
 
       <!-- Columna Derecha: Formulario -->
       <div class="lg:w-2/3">
-        <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 h-full">
-          <h2 class="text-2xl font-bold font-heading text-primary mb-2">
-            <i class="fa-regular fa-pen-to-square text-gold mr-2"></i>
+        <div class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 md:p-8 border border-border/50 h-full">
+          <h2 class="text-2xl font-bold font-heading text-text mb-2 flex items-center gap-2">
+            <i class="fa-regular fa-pen-to-square text-primary"></i>
             Envíanos un mensaje
           </h2>
-          <p class="text-gray-600 text-sm mb-6">
+          <p class="text-text-muted text-sm mb-6">
             Cuéntanos sobre tu club o negocio y te agregaremos al directorio.
-            <span class="text-green-600 font-semibold"> Los clubes son gratuitos.</span>
+            <span class="text-accent font-semibold"> Los clubes son gratuitos.</span>
           </p>
 
           <!-- 🔥 FORMULARIO FORMSPREE -->
@@ -149,8 +147,8 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <!-- Nombre -->
               <div>
-                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
-                  Nombre completo <span class="text-red-500">*</span>
+                <label for="nombre" class="block text-sm font-medium text-text mb-1">
+                  Nombre completo <span class="text-accent">*</span>
                 </label>
                 <input 
                   type="text" 
@@ -158,14 +156,14 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
                   name="nombre" 
                   required
                   placeholder="Ej: Carlos Méndez"
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                  class="w-full px-4 py-3 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-soft focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                 />
               </div>
 
               <!-- Email -->
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                  Correo electrónico <span class="text-red-500">*</span>
+                <label for="email" class="block text-sm font-medium text-text mb-1">
+                  Correo electrónico <span class="text-accent">*</span>
                 </label>
                 <input 
                   type="email" 
@@ -173,35 +171,35 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
                   name="email" 
                   required
                   placeholder="Ej: carlos@club.com"
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                  class="w-full px-4 py-3 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-soft focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                 />
               </div>
             </div>
 
             <!-- Teléfono (opcional) -->
             <div>
-              <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
-                Teléfono <span class="text-gray-400 text-xs">(opcional)</span>
+              <label for="telefono" class="block text-sm font-medium text-text mb-1">
+                Teléfono <span class="text-text-soft text-xs">(opcional)</span>
               </label>
               <input 
                 type="tel" 
                 id="telefono" 
                 name="telefono" 
                 placeholder="Ej: +58 412-1234567"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                class="w-full px-4 py-3 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-soft focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
               />
             </div>
 
             <!-- Tipo de solicitud -->
             <div>
-              <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">
-                Tipo de solicitud <span class="text-red-500">*</span>
+              <label for="tipo" class="block text-sm font-medium text-text mb-1">
+                Tipo de solicitud <span class="text-accent">*</span>
               </label>
               <select 
                 id="tipo" 
                 name="tipo" 
                 required
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none bg-white"
+                class="w-full px-4 py-3 rounded-xl border border-border/60 bg-surface text-text focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none cursor-pointer"
               >
                 <option value="">Selecciona una opción...</option>
                 <option value="club">Agregar mi club (gratis)</option>
@@ -214,16 +212,16 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
 
             <!-- Mensaje -->
             <div>
-              <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
-                Mensaje <span class="text-red-500">*</span>
+              <label for="mensaje" class="block text-sm font-medium text-text mb-1">
+                Mensaje <span class="text-accent">*</span>
               </label>
               <textarea 
                 id="mensaje" 
                 name="mensaje" 
                 rows="5" 
                 required
-                placeholder="Cuéntanos sobre tu club o negocio. ¿Qué servicios ofreces? ¿En qué ciudad estás? Pagina web o Instagram"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-y"
+                placeholder="Cuéntanos sobre tu club o negocio. ¿Qué servicios ofreces? ¿En qué ciudad estás? Página web o Instagram"
+                class="w-full px-4 py-3 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-soft focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-y"
               ></textarea>
             </div>
 
@@ -234,39 +232,39 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
                 id="consentimiento" 
                 name="consentimiento" 
                 required
-                class="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                class="mt-1 w-4 h-4 text-primary border-border rounded focus:ring-primary accent-primary"
               />
-              <label for="consentimiento" class="text-sm text-gray-600">
+              <label for="consentimiento" class="text-sm text-text-muted">
                 Acepto que mis datos sean utilizados para contactarme y gestionar mi solicitud según la 
-                <a href="/privacidad" class="text-primary hover:underline">Política de Privacidad</a>.
-                <span class="text-red-500">*</span>
+                <a href="/privacidad" class="text-primary hover:text-accent transition-colors font-medium">Política de Privacidad</a>.
+                <span class="text-accent">*</span>
               </label>
             </div>
 
             <!-- Botón de envío -->
             <button 
               type="submit"
-              class="w-full bg-primary text-white font-semibold py-3.5 rounded-xl hover:bg-primary-light transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
+              class="w-full bg-accent text-text-inverse font-semibold py-3.5 rounded-xl hover:bg-accent-light transition-all duration-200 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
               <i class="fa-regular fa-paper-plane"></i>
               Enviar mensaje
             </button>
 
             <!-- Mensaje de éxito -->
-            <div id="form-success" class="hidden p-4 bg-green-50 border border-green-200 rounded-xl text-center">
-              <i class="fa-regular fa-circle-check text-green-500 text-2xl mb-2"></i>
-              <p class="text-green-700 font-semibold">¡Mensaje enviado con éxito!</p>
-              <p class="text-sm text-green-600">Te responderemos en menos de 48 horas.</p>
+            <div id="form-success" class="hidden p-4 bg-primary-light/10 border border-primary-light/30 rounded-2xl text-center">
+              <i class="fa-regular fa-circle-check text-primary-light text-2xl mb-2"></i>
+              <p class="text-primary font-semibold">¡Mensaje enviado con éxito!</p>
+              <p class="text-sm text-primary-light">Te responderemos en menos de 48 horas.</p>
             </div>
 
             <!-- Mensaje de error -->
-            <div id="form-error" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl text-center">
-              <i class="fa-regular fa-circle-xmark text-red-500 text-2xl mb-2"></i>
-              <p class="text-red-700 font-semibold">Error al enviar el mensaje</p>
-              <p class="text-sm text-red-600">Por favor, inténtalo de nuevo o contáctanos directamente.</p>
+            <div id="form-error" class="hidden p-4 bg-accent/10 border border-accent/30 rounded-2xl text-center">
+              <i class="fa-regular fa-circle-xmark text-accent text-2xl mb-2"></i>
+              <p class="text-accent font-semibold">Error al enviar el mensaje</p>
+              <p class="text-sm text-accent/80">Por favor, inténtalo de nuevo o contáctanos directamente.</p>
             </div>
 
-            <p class="text-xs text-gray-400 text-center mt-2">
+            <p class="text-xs text-text-soft text-center mt-2">
               <i class="fa-solid fa-lock mr-1"></i>
               Tus datos están seguros. No compartimos tu información con terceros.
             </p>
@@ -276,45 +274,45 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
     </div>
 
     <!-- 🔥 Sección de preguntas frecuentes -->
-    <section class="mt-12 bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-200">
-      <h2 class="text-2xl font-bold font-heading text-center mb-6">
-        <i class="fa-regular fa-circle-question text-primary mr-2"></i>
+    <section class="mt-12 bg-surface-muted/30 rounded-3xl p-6 md:p-8 border border-border/50">
+      <h2 class="text-2xl font-bold font-heading text-center mb-6 text-text flex items-center justify-center gap-2">
+        <i class="fa-regular fa-circle-question text-primary"></i>
         Preguntas Frecuentes
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div>
-          <h4 class="font-semibold text-primary flex items-center gap-2">
-            <i class="fa-regular fa-circle-check text-gold"></i>
+          <h4 class="font-semibold text-text flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-accent"></i>
             ¿Agregar mi club es realmente gratis?
           </h4>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-text-muted mt-1">
             Sí. Todos los clubes de esgrima en Venezuela pueden aparecer en el directorio sin ningún costo.
           </p>
         </div>
         <div>
-          <h4 class="font-semibold text-primary flex items-center gap-2">
-            <i class="fa-regular fa-circle-check text-gold"></i>
+          <h4 class="font-semibold text-text flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-accent"></i>
             ¿Cómo agrego mi club?
           </h4>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-text-muted mt-1">
             Completa el formulario con los datos de tu club y lo agregaremos en menos de 48 horas.
           </p>
         </div>
         <div>
-          <h4 class="font-semibold text-primary flex items-center gap-2">
-            <i class="fa-regular fa-circle-check text-gold"></i>
+          <h4 class="font-semibold text-text flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-accent"></i>
             ¿Qué incluye el perfil de mi club?
           </h4>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-text-muted mt-1">
             Nombre, especialidad, ciudad, dirección, horarios, fundador, contacto y enlaces a redes sociales.
           </p>
         </div>
         <div>
-          <h4 class="font-semibold text-primary flex items-center gap-2">
-            <i class="fa-regular fa-circle-check text-gold"></i>
+          <h4 class="font-semibold text-text flex items-center gap-2">
+            <i class="fa-regular fa-circle-check text-accent"></i>
             ¿Los proveedores también son gratuitos?
           </h4>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-text-muted mt-1">
             Los proveedores tienen un perfil básico gratuito. Ofrecemos opciones premium para destacar.
           </p>
         </div>
@@ -323,46 +321,47 @@ const descripcion = 'Contacta con nosotros para agregar tu club de esgrima (grat
   </div>
 </Layout>
 
- 
 <!-- 🔥 SCRIPT PARA MANEJAR EL FORMULARIO -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector<HTMLFormElement>('form');
     const successDiv = document.getElementById('form-success');
     const errorDiv = document.getElementById('form-error');
 
-    if (form) {
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        successDiv.classList.add('hidden');
-        errorDiv.classList.add('hidden');
+    // ✅ Salida temprana: si falta algo esencial, no seguimos
+    if (!form || !successDiv || !errorDiv) return;
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
+      // Ocultar mensajes previos
+      successDiv!.classList.add('hidden');
+      errorDiv!.classList.add('hidden');
 
-          if (response.ok) {
-            successDiv.classList.remove('hidden');
-            form.reset();
-            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            errorDiv.classList.remove('hidden');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          errorDiv.classList.remove('hidden');
+      const formData = new FormData(form!);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form!.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          successDiv!.classList.remove('hidden');
+          form!.reset();
+          successDiv!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          errorDiv!.classList.remove('hidden');
         }
-      });
-    }
+      } catch (error) {
+        console.error('Error:', error);
+        errorDiv!.classList.remove('hidden');
+      }
+    });
   });
 </script>

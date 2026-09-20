@@ -168,47 +168,46 @@ const descripcion =
   "Encuentra las mejores guías de compra para equipamiento de esgrima: zapatillas, caretas, trajes, empuñaduras y más. Consejos para elegir tu equipo sin gastar de más.";
 ---
 
-<Layout title={titulo} description={descripcion}>
+ <Layout title={titulo} description={descripcion}>
   <!-- 🔥 Datos estructurados JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div class="container mx-auto px-4 py-8">
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
-      <a href="/" class="hover:text-primary transition-colors">
-        <i class="fa-solid fa-house w-4 h-4 inline"></i>
-        <span class="ml-1">Inicio</span>
+    <nav class="flex items-center gap-2 text-sm text-text-muted mb-8 flex-wrap">
+      <a href="/" class="hover:text-primary transition-colors inline-flex items-center gap-1">
+        <i class="fa-solid fa-house text-xs"></i>
+        <span>Inicio</span>
       </a>
-      <i class="fa-solid fa-chevron-right w-4 h-4 text-gray-300"></i>
+      <i class="fa-solid fa-chevron-right text-[10px] text-text-soft"></i>
       <span class="text-primary font-medium">Guías</span>
     </nav>
 
     <!-- Hero -->
-    <div
-      class="bg-linear-to-r from-primary to-primary-light text-white rounded-2xl p-8 mb-8"
-    >
+    <div class="bg-linear-to-r from-primary to-primary-light text-text-inverse rounded-3xl p-8 mb-8 shadow-lg shadow-primary/10">
       <div class="flex flex-col md:flex-row md:items-center gap-6">
         <div class="flex-1">
-          <div class="flex items-center gap-2 text-sm font-bold text-gold mb-2">
+          <div class="flex items-center gap-2 text-sm font-bold mb-3">
             <a
               href="#articulos"
-              class="hover:text-gold transition-colors bg-indigo-500 px-3 py-1 rounded-full"
+              class="bg-accent/20 text-text-inverse hover:bg-accent transition-colors px-3 py-1 rounded-full backdrop-blur-sm border border-accent/30"
             >
-              Ver Articulos de Esgrima
+              <i class="fa-solid fa-book-open text-xs mr-1.5"></i>
+              Ver Artículos de Esgrima
             </a>
           </div>
           <h1 class="text-3xl md:text-4xl font-bold font-heading mb-2">
             {guia.titulo}
           </h1>
-          <p class="text-gray-300 text-lg">
+          <p class="text-surface-muted text-lg">
             {guia.descripcion}
           </p>
-          <p class="text-gray-300 text-lg">
+          <p class="text-surface-muted text-lg mt-2">
             Desde zapatillas hasta caretas, te ayudamos a tomar la decisión
             correcta.
           </p>
-          <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
-            <span><i class="fa-regular fa-user"></i> {guia.autor}</span>
+          <div class="flex items-center gap-4 mt-4 text-sm text-surface-muted/80">
+            <span><i class="fa-regular fa-user mr-1"></i> {guia.autor}</span>
           </div>
         </div>
         <div class="shrink-0">
@@ -225,53 +224,51 @@ const descripcion =
     </div>
 
     <!-- 📝 Introducción SEO -->
-    <div
-      class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100"
-    >
-      <h2 class="text-2xl font-bold font-heading text-primary mb-4">
-        <i class="fa-solid fa-circle-info text-gold mr-2"></i>
+    <div class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 md:p-8 mb-8 border border-border/50">
+      <h2 class="text-2xl font-bold font-heading text-text mb-4">
+        <i class="fa-solid fa-circle-info text-primary mr-2"></i>
         Lo que debes saber antes de comprar tu equipo de esgrima
       </h2>
-      <p class="text-gray-700 leading-relaxed mb-4">
+      <p class="text-text-muted leading-relaxed mb-4">
         Ingresar al mundo de la esgrima es una experiencia emocionante, pero
         equiparse correctamente puede generar muchas dudas. Si eres un
         aficionado dando sus primeros pasos o buscas renovar tu material, esta
         guía te enseñará a elegir el equipamiento adecuado sin gastar de más.
       </p>
 
-      <h3 class="text-xl font-bold font-heading text-primary mt-6 mb-3">
+      <h3 class="text-xl font-bold font-heading text-text mt-6 mb-3">
         Factores clave para elegir:
       </h3>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-6 space-y-2 text-text-muted marker:text-accent">
         <li>
-          <strong>Nivel de protección (Newton):</strong> Para entrenamientos locales
+          <strong class="text-text">Nivel de protección (Newton):</strong> Para entrenamientos locales
           suelen bastar telas de 350N. Si planeas competir internacionalmente, necesitarás
           homologación FIE de 800N.
         </li>
         <li>
-          <strong>El tipo de empuñadura:</strong> En espada y florete deberás elegir
+          <strong class="text-text">El tipo de empuñadura:</strong> En espada y florete deberás elegir
           entre la empuñadura francesa (recta) o la ortopédica (anatómica).
         </li>
         <li>
-          <strong>Tallas en centímetros:</strong> No adivines tu talla. Mide tu contorno
+          <strong class="text-text">Tallas en centímetros:</strong> No adivines tu talla. Mide tu contorno
           de pecho, cintura y la circunferencia de tu cabeza para evitar devoluciones
           costosas.
         </li>
       </ul>
 
-      <h3 class="text-xl font-bold font-heading text-primary mt-6 mb-3">
-        <i class="fa-solid fa-store text-gold mr-2"></i>
+      <h3 class="text-xl font-bold font-heading text-text mt-6 mb-3">
+        <i class="fa-solid fa-store text-primary mr-2"></i>
         ¿Dónde comprar equipos de esgrima?
       </h3>
-      <p class="text-gray-700 leading-relaxed mb-3">
+      <p class="text-text-muted leading-relaxed mb-3">
         Dependiendo de tu presupuesto y de la urgencia que tengas, existen
         diferentes alternativas para adquirir tus chaquetas, caretas y armas.
       </p>
 
-      <h4 class="font-bold text-primary mt-4 mb-2">
+      <h4 class="font-bold text-text mt-4 mb-2">
         Tiendas especializadas en Venezuela
       </h4>
-      <p class="text-gray-700 leading-relaxed">
+      <p class="text-text-muted leading-relaxed">
         Si te encuentras en el país, la opción más directa es contactar a
         distribuidores especializados. Comprar localmente te permite recibir
         asesoría inmediata y evitar los tiempos de espera del envío
@@ -280,89 +277,89 @@ const descripcion =
         adquirir repuestos rápidos como cables de cuerpo o puntas de armas.
       </p>
 
-      <h3 class="text-xl font-bold font-heading text-primary mt-6 mb-3">
-        <i class="fa-solid fa-tag text-gold mr-2"></i>
+      <h3 class="text-xl font-bold font-heading text-text mt-6 mb-3">
+        <i class="fa-solid fa-tag text-primary mr-2"></i>
         Estrategias para encontrar equipos de esgrima baratos
       </h3>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-6 space-y-2 text-text-muted marker:text-accent">
         <li>
-          <strong>Compra kits de iniciación:</strong> Las tiendas suelen vender paquetes
+          <strong class="text-text">Compra kits de iniciación:</strong> Las tiendas suelen vender paquetes
           que incluyen careta, chaqueta, guante y un arma a un precio menor que comprando
           cada pieza por separado.
         </li>
         <li>
-          <strong>Aprovecha el mercado de segunda mano:</strong> Pregunta en tus clubes
+          <strong class="text-text">Aprovecha el mercado de segunda mano:</strong> Pregunta en tus clubes
           locales. Muchos esgrimistas que cambian de categoría o se retiran venden
           sus uniformes en excelente estado.
         </li>
         <li>
-          <strong>Busca marcas alternativas:</strong> Firmas como Absolute Fencing
+          <strong class="text-text">Busca marcas alternativas:</strong> Firmas como Absolute Fencing
           o Blue Gauntlet ofrecen una relación calidad-precio ideal para principiantes
           que buscan equipos de esgrima baratos pero seguros.
         </li>
       </ul>
 
-      <h3 class="text-xl font-bold font-heading text-primary mt-6 mb-3">
-        <i class="fa-brands fa-amazon text-gold mr-2"></i>
+      <h3 class="text-xl font-bold font-heading text-text mt-6 mb-3">
+        <i class="fa-brands fa-amazon text-primary mr-2"></i>
         ¿Es buena idea comprar en Amazon?
       </h3>
-      <p class="text-gray-700 leading-relaxed">
+      <p class="text-text-muted leading-relaxed">
         Para los aficionados en Latinoamérica, comprar en Amazon es una de las
         soluciones más cómodas debido a la facilidad de los envíos puerta a
         puerta.
       </p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-2">
+      <ul class="list-disc pl-6 space-y-2 text-text-muted mt-2 marker:text-accent">
         <li>
-          <strong>Variedad de accesorios:</strong> Es una plataforma excelente para
+          <strong class="text-text">Variedad de accesorios:</strong> Es una plataforma excelente para
           comprar guantes, calcetines térmicos, bolsas de esgrima (estuches) y herramientas
           de mantenimiento.
         </li>
         <li>
-          <strong>Marcas accesibles:</strong> Encontrarás opciones económicas para
+          <strong class="text-text">Marcas accesibles:</strong> Encontrarás opciones económicas para
           entrenamiento diario.
         </li>
       </ul>
-      <div
-        class="mt-3 p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700"
-      >
-        <i class="fa-solid fa-triangle-exclamation mr-2"></i>
-        <strong>Nota de seguridad:</strong> Al comprar armas completas, hojas o caretas
+
+      <!-- Nota de seguridad -->
+      <div class="mt-4 p-4 bg-surface-muted/40 border border-border/60 rounded-2xl text-sm text-text-muted">
+        <i class="fa-solid fa-triangle-exclamation text-accent mr-2"></i>
+        <strong class="text-text">Nota de seguridad:</strong> Al comprar armas completas, hojas o caretas
         en plataformas genéricas, asegúrate siempre de que el vendedor sea una marca
         de esgrima reconocida para garantizar que los materiales cumplan con las normas
         de seguridad contra impactos.
       </div>
 
-      <div
-        class="mt-6 p-4 bg-gold/10 border border-gold rounded-xl text-center"
-      >
-        <p class="text-sm text-gray-700">
-          <i class="fa-solid fa-lightbulb text-gold mr-2"></i>
-          <strong>Conclusión:</strong> Invertir en esgrima es invertir en tu seguridad.
+      <!-- Conclusión -->
+      <div class="mt-6 p-4 bg-surface-muted/30 border border-border rounded-2xl text-center">
+        <p class="text-sm text-text-muted">
+          <i class="fa-solid fa-lightbulb text-accent mr-2"></i>
+          <strong class="text-text">Conclusión:</strong> Invertir en esgrima es invertir en tu seguridad.
           Comienza adquiriendo lo básico (careta y guante) y ve completando tu kit
           a medida que avances en tu club.
         </p>
       </div>
     </div>
+
     <!-- 🏷️ Marcas Destacadas -->
     <section
       id="marcas"
-      class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-8 border border-gray-100"
+      class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 md:p-8 mb-8 border border-border/50"
     >
-      <h2 class="text-2xl font-bold font-heading mb-4">Marcas Internacionales</h2>
+      <h2 class="text-2xl font-bold font-heading mb-4 text-text">Marcas Internacionales</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {
           marcas.map((marca) => (
-            <div class="bg-gray-50 rounded-xl p-2 border border-gray-200 hover:border-primary transition">
+            <div class="bg-background rounded-2xl p-3 border border-border/40 hover:border-border transition">
               <div class="flex items-center gap-3">
                 <img
                   src={marca.icono}
                   alt={marca.nombre}
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 rounded-2xl"
                   loading="lazy"
                 />
                 <div>
-                  <h3 class="font-bold text-primary">{marca.nombre}</h3>
-                  <p class="text-sm text-gray-600">{marca.descripcion}</p>
+                  <h3 class="font-bold text-text">{marca.nombre}</h3>
+                  <p class="text-sm text-text-muted">{marca.descripcion}</p>
                 </div>
               </div>
             </div>
@@ -370,14 +367,13 @@ const descripcion =
         }
       </div>
     </section>
+
     <!-- 📋 Guías en Grid -->
     <section
       id="articulos"
-      class="bg-white rounded-2xl shadow-md p-6 md:p-8 border border-gray-100 mb-12"
+      class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 md:p-8 border border-border/50 mb-12"
     >
-      <h2
-        class="text-2xl font-bold font-heading text-primary mb-6 flex items-center gap-2"
-      >
+      <h2 class="text-2xl font-bold font-heading text-text mb-6 flex items-center gap-2">
         Equipamiento de Esgrima
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -385,13 +381,13 @@ const descripcion =
           guias.map((guia) => (
             <a
               href={guia.url}
-              class={`group bg-white rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border overflow-hidden ${
-                guia.destacado ? "border-gold" : "border-gray-100"
+              class={`group bg-surface rounded-2xl shadow-md shadow-primary/5 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300 border overflow-hidden ${
+                guia.destacado ? "border-accent" : "border-border/50 hover:border-border"
               }`}
             >
               <div class="flex flex-col sm:flex-row">
                 {/* Imagen */}
-                <div class="sm:w-32 h-32 sm:h-auto overflow-hidden bg-gray-100 shrink-0">
+                <div class="sm:w-32 h-32 sm:h-auto overflow-hidden bg-surface-muted/30 shrink-0">
                   <img
                     src={guia.icono}
                     alt={guia.titulo}
@@ -399,29 +395,28 @@ const descripcion =
                     loading="lazy"
                   />
                 </div>
-
-                {/* Contenido */}
+ {/* Contenido */}
                 <div class="p-5 flex-1">
                   <div class="flex items-start justify-between gap-2">
-                    <h2 class="text-xl font-bold text-primary group-hover:text-gold transition-colors line-clamp-1">
+                    <h2 class="text-xl font-bold text-text group-hover:text-primary-light transition-colors line-clamp-1">
                       {guia.titulo}
                     </h2>
                     {guia.destacado && (
-                      <span class="text-xs bg-gold/20 text-gold-dark px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
-                        <i class="fa-solid fa-star text-gold mr-0.5" />
+                      <span class="text-xs bg-accent/10 text-accent px-2 py-0.5 rounded-full font-semibold whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-star text-[10px]"></i>
                         Destacada
                       </span>
                     )}
                   </div>
-                  <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                  <p class="text-sm text-text-muted mt-1 line-clamp-2">
                     {guia.descripcion}
                   </p>
-                  <div class="flex items-center gap-3 mt-2 text-xs text-gray-400">
+                  <div class="flex items-center gap-3 mt-2 text-xs text-text-soft">
                     <span>
-                      <i class="fa-regular fa-calendar" /> {guia.fecha}
+                      <i class="fa-regular fa-calendar mr-1"></i> {guia.fecha}
                     </span>
-                    <span class="w-1 h-1 rounded-full bg-gray-300" />
-                    <span class="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                    <span class="w-1 h-1 rounded-full bg-text-soft/50"></span>
+                    <span class="bg-surface-muted/50 text-text-muted px-2 py-0.5 rounded-full">
                       {guia.categoria}
                     </span>
                   </div>
@@ -434,52 +429,46 @@ const descripcion =
     </section>
 
     <!-- ❓ Preguntas Frecuentes (FAQ) -->
-    <section
-      class="bg-white rounded-2xl shadow-md p-6 md:p-8 border border-gray-100"
-    >
-      <h2
-        class="text-2xl font-bold font-heading text-primary mb-6 flex items-center gap-2"
-      >
-        <i class="fa-regular fa-circle-question text-gold"></i>
+    <section class="bg-surface rounded-3xl shadow-md shadow-primary/5 p-6 md:p-8 border border-border/50">
+      <h2 class="text-2xl font-bold font-heading text-text mb-6 flex items-center gap-2">
+        <i class="fa-regular fa-circle-question text-primary"></i>
         Preguntas Frecuentes sobre Equipamiento de Esgrima
       </h2>
 
-      <div class="space-y-6">
-        <div>
-          <h3 class="font-bold text-primary text-lg flex items-center gap-2">
-            <i class="fa-regular fa-circle-question text-gold text-sm"></i>
-            ¿Cuánto cuesta un equipo de esgrima completo para principiantes?
+      <div class="space-y-5">
+        <div class="bg-background rounded-2xl p-5 border border-border/40">
+          <h3 class="font-bold text-text text-lg flex items-start gap-2">
+            <i class="fa-regular fa-circle-question text-accent text-sm mt-1.5 shrink-0"></i>
+            <span>¿Cuánto cuesta un equipo de esgrima completo para principiantes?</span>
           </h3>
-          <p class="text-gray-700 mt-1">
+          <p class="text-text-muted mt-2 pl-6">
             Un kit básico de iniciación (careta, chaqueta, guante y arma de
-            entrenamiento) puede oscilar entre los <strong
-              >$200 y $350 USD</strong
-            > en marcas accesibles. Si buscas homologación FIE para alta competencia,
-            el costo puede superar los <strong>$800 USD</strong>.
+            entrenamiento) puede oscilar entre los <strong class="text-text">$200 y $350 USD </strong>
+             en marcas accesibles. Si buscas homologación FIE para alta competencia,
+            el costo puede superar los <strong class="text-text">$800 USD</strong>.
           </p>
         </div>
 
-        <div>
-          <h3 class="font-bold text-primary text-lg flex items-center gap-2">
-            <i class="fa-regular fa-circle-question text-gold text-sm"></i>
-            ¿Qué significa la certificación FIE en los uniformes?
+        <div class="bg-background rounded-2xl p-5 border border-border/40">
+          <h3 class="font-bold text-text text-lg flex items-start gap-2">
+            <i class="fa-regular fa-circle-question text-accent text-sm mt-1.5 shrink-0"></i>
+            <span>¿Qué significa la certificación FIE en los uniformes?</span>
           </h3>
-          <p class="text-gray-700 mt-1">
-            Significa que el equipo ha sido aprobado por la <strong
-              >Federación Internacional de Esgrima</strong
-            >. Estas prendas y caretas pasan por pruebas estrictas de
+          <p class="text-text-muted mt-2 pl-6">
+            Significa que el equipo ha sido aprobado por la <strong class="text-text">Federación Internacional de Esgrima</strong>.
+            Estas prendas y caretas pasan por pruebas estrictas de
             resistencia (como soportar 800 Newtons de presión en la tela y 1600
             Newtons en la careta) para garantizar la máxima seguridad en torneos
             oficiales.
           </p>
         </div>
 
-        <div>
-          <h3 class="font-bold text-primary text-lg flex items-center gap-2">
-            <i class="fa-regular fa-circle-question text-gold text-sm"></i>
-            ¿Dónde se pueden tomar clases y comprar material en Venezuela?
+        <div class="bg-background rounded-2xl p-5 border border-border/40">
+          <h3 class="font-bold text-text text-lg flex items-start gap-2">
+            <i class="fa-regular fa-circle-question text-accent text-sm mt-1.5 shrink-0"></i>
+            <span>¿Dónde se pueden tomar clases y comprar material en Venezuela?</span>
           </h3>
-          <p class="text-gray-700 mt-1">
+          <p class="text-text-muted mt-2 pl-6">
             Las principales escuelas de esgrima en Venezuela se encuentran en
             centros deportivos verticales regionales (Base de Misiones),
             complejos deportivos estadales. Para el material, se suele recurrir
@@ -487,16 +476,15 @@ const descripcion =
           </p>
         </div>
 
-        <div>
-          <h3 class="font-bold text-primary text-lg flex items-center gap-2">
-            <i class="fa-regular fa-circle-question text-gold text-sm"></i>
-            ¿Se pueden lavar los trajes de esgrima en la lavadora?
+        <div class="bg-background rounded-2xl p-5 border border-border/40">
+          <h3 class="font-bold text-text text-lg flex items-start gap-2">
+            <i class="fa-regular fa-circle-question text-accent text-sm mt-1.5 shrink-0"></i>
+            <span>¿Se pueden lavar los trajes de esgrima en la lavadora?</span>
           </h3>
-          <p class="text-gray-700 mt-1">
+          <p class="text-text-muted mt-2 pl-6">
             Sí, la mayoría de las chaquetas y pantalones de entrenamiento se
-            pueden lavar a máquina con <strong
-              >agua fría y ciclo delicado</strong
-            >. Sin embargo, nunca debes usar cloro (lejía) ni secadora
+            pueden lavar a máquina con <strong class="text-text">agua fría y ciclo delicado</strong>.
+            Sin embargo, nunca debes usar cloro (lejía) ni secadora
             automática, ya que dañan las fibras de protección (como el Kevlar o
             nailon balístico). Las chaquetas eléctricas (cojas) no deben lavarse
             a máquina.
@@ -506,22 +494,20 @@ const descripcion =
     </section>
 
     <!-- 📢 Llamada a la acción -->
-    <section
-      class="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-200 text-center"
-    >
-      <h3 class="text-xl font-bold font-heading mb-2">
+    <section class="mt-8 bg-surface-muted/30 rounded-3xl p-8 border border-border text-center">
+      <h3 class="text-xl font-bold font-heading mb-2 text-text">
         <i class="fa-regular fa-circle-question text-primary mr-2"></i>
         ¿Tienes dudas sobre qué equipo elegir?
       </h3>
-      <p class="text-gray-600 mb-4">
+      <p class="text-text-muted mb-4">
         Contácta proveedores nacionales que te ayudarán a encontrar la mejor
         opción para tu nivel y presupuesto.
       </p>
       <a
         href="/proveedores"
-        class="inline-block bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary-light transition"
+        class="inline-flex items-center gap-2 bg-accent text-text-inverse px-8 py-3 rounded-xl hover:bg-accent-light transition shadow-md shadow-accent/20 font-semibold"
       >
-        <i class="fa-regular fa-envelope mr-2"></i>
+        <i class="fa-regular fa-envelope"></i>
         Contactar ahora
       </a>
     </section>

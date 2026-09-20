@@ -1,23 +1,25 @@
 ---
 // src/components/layout/Nav.astro
 import navigationData from '../data/navigation.json';
-import { 
-  FiHome, FiMapPin, FiBookOpen, FiFileText, 
-  FiShoppingBag, FiFile, FiMail, FiChevronDown,
-  FiMenu, FiSearch, FiShield
-} from 'react-icons/fi';
+ 
 
 const menuItems = navigationData.menu;
 const logoHeight = 60;
-
-// Mapeo de iconos
-const iconMap = {
-  FiHome, FiMapPin, FiBookOpen, FiFileText,
-  FiShoppingBag, FiFile, FiMail
+ 
+ 
+// Mapeo de iconos → FontAwesome
+const iconMap: Record<string, string> = {
+  FiHome: 'fa-solid fa-house',
+  FiMapPin: 'fa-solid fa-location-dot',
+  FiBookOpen: 'fa-solid fa-book-open',
+  FiFileText: 'fa-solid fa-file-lines',
+  FiShoppingBag: 'fa-solid fa-bag-shopping',
+  FiFile: 'fa-regular fa-file',
+  FiMail: 'fa-regular fa-envelope',
 };
 ---
 
-<nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-999">
+<nav class="bg-background/95 backdrop-blur-md border-b border-border/40 shadow-sm sticky top-0 z-999">
   <div class="container mx-auto px-4 py-2">
     <div class="flex items-center justify-between h-20">
       
@@ -28,190 +30,203 @@ const iconMap = {
           alt="Esgrima Cerca de Mí" 
           height={logoHeight}
           width="auto"
-          class="h-15 w-auto transition-transform duration-300 group-hover:scale-105 rounded-sm"
+          class="h-15 w-auto transition-transform duration-300 group-hover:scale-105 rounded-2xl"
         />
-         
       </a>
 
       <!-- Desktop Menu -->
       <div class="hidden lg:flex items-center gap-1">
         {
           menuItems.map((item) => {
-            const IconComponent = iconMap[item.icon] || FiHome;
+            const iconClass = iconMap[item.icon] || 'fa-solid fa-house';
             return (
-              <>
-                <div class="relative group">
-                  {item.submenu ? (
-                    <>
-                      <button 
-                        class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200 group-hover:bg-gray-50"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <IconComponent className="w-4 h-4" />
-                        {item.label}
-                        <FiChevronDown className="w-3.5 h-3.5 ml-0.5 transition-transform duration-200 group-hover:rotate-180" />
-                      </button>
-                      
-                      {/* Submenú desplegable */}
-                      <div class="absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left scale-95 group-hover:scale-100">
-                        <div class="py-2">
-                          {
-                            item.submenu.map((sub) => (
-                              <a
-                                href={sub.href}
-                                class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-150"
-                              >
-                                {sub.label}
-                              </a>
-                            ))
-                          }
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <a
-                      href={item.href}
-                      class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-200"
+              <div class="relative group">
+                {item.submenu ? (
+                  <>
+                    <button 
+                      class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium text-text-muted hover:text-primary hover:bg-surface-muted/40 transition-all duration-200"
+                      aria-haspopup="true"
+                      aria-expanded="false"
                     >
-                      <IconComponent className="w-4 h-4" />
+                      <i class={`${iconClass} text-xs`}></i>
                       {item.label}
-                    </a>
-                  )}
-                </div>
-              </>
+                      <i class="fa-solid fa-chevron-down text-[10px] ml-0.5 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    
+                    <!-- Submenú desplegable -->
+                    <div class="absolute left-0 mt-2 w-56 bg-surface rounded-2xl shadow-xl shadow-primary/10 border border-border/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left scale-95 group-hover:scale-100">
+                      <div class="py-2">
+                        {
+                          item.submenu.map((sub) => (
+                            <a
+                              href={sub.href}
+                              class="flex items-center px-4 py-2.5 text-sm text-text-muted hover:text-primary hover:bg-surface-muted/40 transition-colors duration-150 first:rounded-t-2xl last:rounded-b-2xl"
+                            >
+                              {sub.label}
+                            </a>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium text-text-muted hover:text-primary hover:bg-surface-muted/40 transition-all duration-200"
+                  >
+                    <i class={`${iconClass} text-xs`}></i>
+                    {item.label}
+                  </a>
+                )}
+              </div>
             );
           })
         }
       </div>
 
-      
-
       <!-- Mobile Menu Button -->
       <button 
         id="mobileMenuButton"
-        class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+        class="lg:hidden p-2 rounded-xl hover:bg-surface-muted/40 transition-colors duration-200"
         aria-label="Abrir menú"
         aria-expanded="false"
+        aria-controls="mobileMenu"
       >
-        <FiMenu className="w-6 h-6 text-gray-700" />
+        <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl text-text"></i>
       </button>
     </div>
 
     <!-- Mobile Menu -->
     <div 
       id="mobileMenu"
-      class="lg:hidden hidden bg-white border-t border-gray-100 py-4 max-h-[calc(100vh-80px)] overflow-y-auto"
+      class="lg:hidden hidden bg-surface border-t border-border/40 py-4 max-h-[calc(100vh-80px)] overflow-y-auto"
       role="navigation"
       aria-label="Menú móvil"
     >
       {
         menuItems.map((item) => {
-          const IconComponent = iconMap[item.icon] || FiHome;
+          const iconClass = iconMap[item.icon] || 'fa-solid fa-house';
+          const submenuId = `submenu-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
           return (
-            <>
-              <div class="border-b border-gray-50 last:border-0">
-                {item.submenu ? (
-                  <>
-                    <button 
-                      class="mobile-submenu-toggle w-full flex items-center justify-between px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
-                      data-target={`submenu-${item.label}`}
-                    >
-                      <span class="flex items-center gap-2">
-                        <IconComponent className="w-5 h-5" />
-                        {item.label}
-                      </span>
-                      <FiChevronDown className="w-5 h-5 transition-transform duration-200" />
-                    </button>
-                    <div 
-                      id={`submenu-${item.label}`}
-                      class="mobile-submenu hidden pl-8 space-y-1 pb-2"
-                    >
-                      {
-                        item.submenu.map((sub) => (
-                          <a
-                            href={sub.href}
-                            class="block px-4 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
-                          >
-                            {sub.label}
-                          </a>
-                        ))
-                      }
-                    </div>
-                  </>
-                ) : (
-                  <a
-                    href={item.href}
-                    class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors duration-150"
+            <div class="border-b border-border/30 last:border-0">
+              {item.submenu ? (
+                <>
+                  <button 
+                    class="mobile-submenu-toggle w-full flex items-center justify-between px-4 py-3 text-left text-text-muted hover:text-primary hover:bg-surface-muted/40 rounded-xl transition-colors duration-150"
+                    data-target={submenuId}
+                    aria-expanded="false"
                   >
-                    <IconComponent className="w-5 h-5" />
-                    {item.label}
-                  </a>
-                )}
-              </div>
-            </>
+                    <span class="flex items-center gap-2">
+                      <i class={`${iconClass} text-sm`}></i>
+                      {item.label}
+                    </span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" data-chevron></i>
+                  </button>
+                  <div 
+                    id={submenuId}
+                    class="mobile-submenu hidden pl-8 space-y-1 pb-2"
+                  >
+                    {
+                      item.submenu.map((sub) => (
+                        <a
+                          href={sub.href}
+                          class="block px-4 py-2 text-sm text-text-muted hover:text-primary hover:bg-surface-muted/40 rounded-xl transition-colors duration-150"
+                        >
+                          {sub.label}
+                        </a>
+                      ))
+                    }
+                  </div>
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  class="flex items-center gap-2 px-4 py-3 text-text-muted hover:text-primary hover:bg-surface-muted/40 rounded-xl transition-colors duration-150"
+                >
+                  <i class={`${iconClass} text-sm`}></i>
+                  {item.label}
+                </a>
+              )}
+            </div>
           );
         })
       }
-      
-      
     </div>
   </div>
 </nav>
 
-<!-- Script para Mobile Menu -->
+<!-- 🔥 Script mejorado: Mobile Menu + Submenús + Responsive -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('mobileMenuButton');
     const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('hidden');
-        menuButton.setAttribute('aria-expanded', !isOpen);
-      });
+    const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+    // ✅ Salida temprana si no existen
+    if (!menuButton || !mobileMenu || !mobileMenuIcon) return;
+
+    // 🔹 Abrir/cerrar menú móvil
+    function toggleMobileMenu(forceClose = false) {
+      const isCurrentlyHidden = mobileMenu.classList.contains('hidden');
+      const shouldOpen = forceClose ? false : isCurrentlyHidden;
+
+      mobileMenu.classList.toggle('hidden', !shouldOpen);
+      menuButton.setAttribute('aria-expanded', String(shouldOpen));
+
+      // Cambiar ícono: bars <-> xmark
+      mobileMenuIcon.classList.toggle('fa-bars', !shouldOpen);
+      mobileMenuIcon.classList.toggle('fa-xmark', shouldOpen);
+
+      // Bloquear scroll del body cuando está abierto (en móvil)
+      document.body.style.overflow = shouldOpen ? 'hidden' : '';
     }
 
-    // Toggle de submenús en móvil
-    document.querySelectorAll('.mobile-submenu-toggle').forEach(button => {
+    menuButton.addEventListener('click', () => toggleMobileMenu());
+
+    // 🔹 Submenús móviles (con FontAwesome)
+    const submenuToggles = document.querySelectorAll<HTMLElement>('.mobile-submenu-toggle');
+
+    submenuToggles.forEach((button) => {
       button.addEventListener('click', () => {
         const targetId = button.dataset.target;
+        if (!targetId) return;
+
         const submenu = document.getElementById(targetId);
-        if (submenu) {
-          submenu.classList.toggle('hidden');
-          const icon = button.querySelector('svg:last-child');
-          if (icon) {
-            icon.classList.toggle('rotate-180');
-          }
+        const chevron = button.querySelector<HTMLElement>('[data-chevron]');
+        if (!submenu) return;
+
+        const isOpening = submenu.classList.contains('hidden');
+
+        submenu.classList.toggle('hidden', !isOpening);
+        button.setAttribute('aria-expanded', String(isOpening));
+
+        // Rotar chevron
+        if (chevron) {
+          chevron.classList.toggle('rotate-180', isOpening);
         }
       });
     });
+
+    // 🔹 Cerrar menú al hacer clic en un link (mejor UX)
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleMobileMenu(true);
+      });
+    });
+
+    // 🔹 Cerrar menú al pasar a desktop (evita bug de scroll bloqueado)
+    const desktopBreakpoint = window.matchMedia('(min-width: 1024px)');
+    desktopBreakpoint.addEventListener('change', (e) => {
+      if (e.matches) {
+        toggleMobileMenu(true);
+      }
+    });
+
+    // 🔹 Cerrar menú con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        toggleMobileMenu(true);
+      }
+    });
   });
 </script>
-
-<style is:global>
-  .group:hover .group-hover\:visible {
-    visibility: visible !important;
-  }
-  
-  .group:hover .group-hover\:opacity-100 {
-    opacity: 1 !important;
-  }
-  
-  .group:hover .group-hover\:scale-100 {
-    transform: scale(1) !important;
-  }
-  
-  #mobileMenu::-webkit-scrollbar {
-    width: 4px;
-  }
-  
-  #mobileMenu::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  #mobileMenu::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 9999px;
-  }
-</style>

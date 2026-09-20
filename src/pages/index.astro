@@ -7,11 +7,7 @@ import {
   getProveedores,
   getClubesDestacados
 } from '../utils/dataLoader';
-import { 
-  FiMapPin, FiUsers, FiShoppingBag, FiBookOpen, 
-  FiFileText, FiAward, FiTrendingUp, FiChevronRight,
-  FiStar, FiShield, FiZap, FiTarget
-} from 'react-icons/fi';
+ 
 
 // 🔥 Cargar datos
 const clubes = await getTodosClubes();
@@ -30,7 +26,7 @@ const seccionesValor = [
     descripcion: 'Encuentra el club de esgrima más cercano a ti. Filtra por estado, ciudad y especialidad para encontrar tu lugar ideal.',
     icono: 'fa-solid fa-lightbulb',
     enlace: '/clubes',
-    enlaceTexto: 'Ver clubes →',
+    enlaceTexto: 'Ver clubes',
     color: 'bg-blue-50 border-blue-200'
   },
   {
@@ -38,7 +34,7 @@ const seccionesValor = [
     descripcion: 'Conecta con los mejores proveedores de material de esgrima. Desde tiendas físicas hasta talleres de reparación.',
     icono: 'fa-solid fa-shopping-bag',
     enlace: '/proveedores',
-    enlaceTexto: 'Ver proveedores →',
+    enlaceTexto: 'Ver proveedores',
     color: 'bg-green-50 border-green-200'
   },
   {
@@ -46,7 +42,7 @@ const seccionesValor = [
     descripcion: 'Elige el equipo perfecto con nuestras guías comparativas. Zapatillas, caretas, trajes y más.',
     icono: 'fa-solid fa-book-open',
     enlace: '/guias',
-    enlaceTexto: 'Ver guías →',
+    enlaceTexto: 'Ver guías',
     color: 'bg-gold/10 border-gold/30'
   },
   {
@@ -54,7 +50,7 @@ const seccionesValor = [
     descripcion: 'Conoce los requisitos más importantes y necesarios para montar un club de esgrima en Venezuela.',
     icono: 'fa-solid fa-file-text',
     enlace: '/guias/montar-club',
-    enlaceTexto: 'Ver info →',
+    enlaceTexto: 'Ver info',
     color: 'bg-purple-50 border-purple-200'
   }
 ];
@@ -77,19 +73,23 @@ const cta = {
 };
 ---
 
-<Layout>
+ <Layout>
   <main>
     <!-- Hero Section con Buscador -->
-    <section class="bg-linear-to-r from-indigo-800 to-primary-light text-white py-16 md:py-24">
-      <div class="container mx-auto px-4 text-center">
+    <section class="relative bg-[url(/images/bg-1.jpg)] bg-cover bg-center py-16 md:py-24 text-text-inverse">
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-linear-to-r from-primary-dark/90 via-primary/85 to-primary-light/75"></div>
+      
+      <div class="relative container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-4 font-heading">
-          Escuelas de Esgrima En Venezuela
+          Escuelas de Esgrima  
+           <span class="underline decoration-amber-200 decoration-4 underline-offset-4"> En Venezuela</span>
         </h1>
         <p class="text-xl md:text-2xl mb-4 opacity-90 max-w-2xl mx-auto">
           El directorio más completo de clubes de esgrima en Venezuela
         </p>
         <p class="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
-          Hemos recopilado los mejores gimnasios, academias, escuelas, clubes de esgrima y proveedeores de equipamientos en toda Venezuela para que compares precios, horarios, niveles lo mas cerca de ti.
+          Hemos recopilado los mejores gimnasios, academias, escuelas, clubes de esgrima y proveedores de equipamiento en toda Venezuela para que compares precios, horarios y niveles lo más cerca de ti.
         </p>
         
         <!-- 🔥 BUSCADOR GLOBAL -->
@@ -101,19 +101,19 @@ const cta = {
           className="max-w-3xl mx-auto"
         />
         
-        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm opacity-80">
-          <span class="flex items-center gap-1">
-            <span class="w-2 h-2 rounded-full bg-gold"></span>
+        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm opacity-90">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
             {totalClubes} clubes
           </span>
-          <span class="w-px h-4 bg-white/20"></span>
-          <span class="flex items-center gap-1">
-            <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span class="w-px h-4 bg-text-inverse/25"></span>
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
             {totalProveedores} proveedores
           </span>
-          <span class="w-px h-4 bg-white/20"></span>
-          <span class="flex items-center gap-1">
-            <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span class="w-px h-4 bg-text-inverse/25"></span>
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
             {totalItems} resultados disponibles
           </span>
         </div>
@@ -121,35 +121,35 @@ const cta = {
     </section>
 
     <!-- 🔥 SECCIÓN: Lo que ofrecemos (Valor) -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-background">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold font-heading mb-3">
+          <h2 class="text-3xl font-bold font-heading mb-3 text-text">
             Todo lo que necesitas para la esgrima
           </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
+          <p class="text-text-muted max-w-2xl mx-auto">
             Un ecosistema completo para conectar esgrimistas, clubes y proveedores en un solo lugar.
           </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {seccionesValor.map((seccion) => (
-            <div class={`rounded-xl p-6 border-2 transition hover:shadow-lg hover:-translate-y-1 duration-300 ${seccion.color} bg-white`}>
-              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <div class={`rounded-2xl p-6 border border-border/60 bg-surface transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${seccion.color}`}>
+              <div class="w-14 h-14 bg-surface-muted/60 rounded-2xl flex items-center justify-center mb-4">
                 <i class={`${seccion.icono} text-2xl text-primary`}></i>
               </div>
-              <h3 class="text-xl font-bold font-heading text-primary mb-2">
+              <h3 class="text-xl font-bold font-heading text-text mb-2">
                 {seccion.titulo}
               </h3>
-              <p class="text-sm text-gray-600 mb-4">
+              <p class="text-sm text-text-muted mb-4">
                 {seccion.descripcion}
               </p>
               <a 
                 href={seccion.enlace} 
-                class="text-sm font-semibold text-primary hover:text-gold transition-colors inline-flex items-center gap-1"
+                class="text-sm font-semibold text-primary hover:text-accent transition-colors inline-flex items-center gap-1"
               >
                 {seccion.enlaceTexto}
-                <FiChevronRight className="w-4 h-4" />
+                <i class="fa-solid fa-chevron-right text-xs"></i>
               </a>
             </div>
           ))}
@@ -160,41 +160,41 @@ const cta = {
     <!-- 🔥 SECCIÓN: Banner Publicitario -->
     <section class="py-12 bg-background">
       <div class="container mx-auto px-4">
-        <div class="bg-linear-to-r from-primary to-primary-light rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
+        <div class="bg-linear-to-r from-primary to-primary-light rounded-3xl p-8 md:p-12 text-text-inverse overflow-hidden relative">
           <div class="flex flex-col md:flex-row md:items-center gap-6">
             <div class="flex-1">
-              <div class="flex items-center gap-2 text-gold mb-2">
-                <FiStar className="w-5 h-5" />
+              <div class="flex items-center gap-2 text-accent mb-2">
+                <i class="fa-solid fa-star text-sm"></i>
                 <span class="text-sm font-semibold">Espacio Publicitario</span>
               </div>
               <h3 class="text-2xl md:text-3xl font-bold font-heading mb-3">
                 {banner.titulo}
               </h3>
-              <p class="text-gray-300 text-sm md:text-base max-w-lg">
+              <p class="text-surface-muted text-sm md:text-base max-w-lg">
                 {banner.descripcion}
               </p>
               <div class="mt-6 flex flex-wrap gap-3">
                 <a 
                   href="/contacto" 
-                  class="inline-block bg-gold text-primary font-semibold px-6 py-2.5 rounded-lg hover:bg-gold-light transition shadow-lg"
+                  class="inline-flex items-center gap-2 bg-accent text-text-inverse font-semibold px-6 py-2.5 rounded-xl hover:bg-accent-light transition shadow-lg shadow-accent/20"
                 >
-                  <FiTrendingUp className="w-4 h-4 inline mr-2" />
+                  <i class="fa-solid fa-arrow-trend-up"></i>
                   Contrata aquí
                 </a>
                 <a 
                   href="/proveedores" 
-                  class="inline-block bg-white/10 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition border border-white/20"
+                  class="inline-block bg-text-inverse/10 text-text-inverse font-semibold px-6 py-2.5 rounded-xl hover:bg-text-inverse/20 transition border border-text-inverse/20"
                 >
                   Ver proveedores
                 </a>
               </div>
             </div>
             <div class="shrink-0">
-              <div class="bg-white/10 rounded-2xl p-6 text-center w-32 md:w-40 mx-auto">
-                <FiTarget className="w-12 h-12 text-gold mx-auto" />
-                <p class="text-xs text-gray-300 mt-2">Llega a miles</p>
-                <p class="text-lg font-bold text-gold">+{totalItems}</p>
-                <p class="text-[10px] text-gray-400">usuarios potenciales</p>
+              <div class="bg-text-inverse/10 rounded-2xl p-6 text-center w-32 md:w-40 mx-auto border border-text-inverse/10">
+                <i class="fa-solid fa-bullseye text-4xl text-accent mx-auto"></i>
+                <p class="text-xs text-surface-muted mt-2">Llega a miles</p>
+                <p class="text-lg font-bold text-accent">+{totalItems}</p>
+                <p class="text-[10px] text-surface-muted/70">usuarios potenciales</p>
               </div>
             </div>
           </div>
@@ -203,13 +203,13 @@ const cta = {
     </section>
 
     <!-- Clubes Destacados -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-background">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold font-heading mb-3">
+          <h2 class="text-3xl font-bold font-heading mb-3 text-text">
             Clubes Destacados
           </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
+          <p class="text-text-muted max-w-2xl mx-auto">
             Los clubes más reconocidos de Venezuela. Encuentra el tuyo y empieza a practicar esgrima.
           </p>
         </div>
@@ -222,13 +222,17 @@ const cta = {
               ))}
             </div>
             <div class="text-center mt-8">
-              <a href="/clubes" class="inline-block px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-light transition">
-                Ver todos los clubes <FiChevronRight className="w-4 h-4 inline" />
+              <a 
+                href="/clubes" 
+                class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-text-inverse rounded-xl hover:bg-primary-light transition shadow-md shadow-primary/10"
+              >
+                Ver todos los clubes 
+                <i class="fa-solid fa-chevron-right text-xs"></i>
               </a>
             </div>
           </>
         ) : (
-          <p class="text-center text-gray-500">No hay clubes destacados disponibles.</p>
+          <p class="text-center text-text-soft">No hay clubes destacados disponibles.</p>
         )}
       </div>
     </section>
@@ -236,43 +240,43 @@ const cta = {
     <!-- 🔥 SECCIÓN: Llamada a la acción final (CTA) -->
     <section class="py-10 bg-background">
       <div class="container mx-auto px-4 text-center">
-        <div class="bg-linear-to-r from-slate-200 to-indigo-100 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <FiAward className="w-8 h-8 text-primary" />
+        <div class="bg-surface-muted/30 rounded-3xl shadow-lg shadow-primary/5 p-8 md:p-12 border border-border/50">
+          <div class="w-16 h-16 bg-surface-muted/60 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-award text-2xl text-primary"></i>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold font-heading mb-3">
+          <h2 class="text-2xl md:text-3xl font-bold font-heading mb-3 text-text">
             {cta.titulo}
           </h2>
-          <p class="text-gray-600 mb-6">
+          <p class="text-text-muted mb-6">
             {cta.descripcion}
           </p>
           <div class="flex flex-wrap justify-center gap-4">
             <a 
               href={cta.enlace1} 
-              class="px-8 py-3 bg-primary text-white rounded-xl hover:bg-primary-light transition shadow-md hover:shadow-lg inline-flex items-center gap-2"
+              class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-text-inverse rounded-xl hover:bg-primary-light transition shadow-md hover:shadow-lg shadow-primary/10"
             >
-              <FiMapPin className="w-5 h-5" />
+              <i class="fa-solid fa-location-dot"></i>
               {cta.boton1}
             </a>
             <a 
               href={cta.enlace2} 
-              class="px-8 py-3 bg-gray-100 text-primary rounded-xl hover:bg-gray-200 transition inline-flex items-center gap-2 border border-primary/20"
+              class="inline-flex items-center gap-2 px-8 py-3 bg-surface text-primary rounded-xl hover:bg-surface-muted/50 transition border border-border"
             >
-              <FiShield className="w-5 h-5" />
+              <i class="fa-solid fa-shield-halved"></i>
               {cta.boton2}
             </a>
           </div>
-          <div class="mt-6 pt-6 border-t border-gray-100 flex flex-wrap justify-center gap-6 text-sm font-bold text-gray-100">
-            <span class="flex items-center gap-1 bg-indigo-700/60 px-4 py-2 rounded-2xl">
-              <FiZap className="w-4 h-4 text-gold" />
+          <div class="mt-6 pt-6 border-t border-border/50 flex flex-wrap justify-center gap-4 text-sm font-bold">
+            <span class="flex items-center gap-2 bg-primary text-text-inverse px-4 py-2 rounded-2xl">
+              <i class="fa-solid fa-bolt text-accent"></i>
               Gratis para clubes
             </span>
-            <span class="flex items-center gap-1 bg-indigo-700/60 px-4 py-2 rounded-2xl">
-              <FiUsers className="w-4 h-4 text-gold" />
+            <span class="flex items-center gap-2 bg-primary text-text-inverse px-4 py-2 rounded-2xl">
+              <i class="fa-solid fa-users text-accent"></i>
               {totalClubes} clubes
             </span>
-            <span class="flex items-center gap-1 bg-indigo-700/60 px-3 py-2 rounded-2xl">
-              <FiShoppingBag className="w-4 h-4 text-gold " />
+            <span class="flex items-center gap-2 bg-primary text-text-inverse px-4 py-2 rounded-2xl">
+              <i class="fa-solid fa-bag-shopping text-accent"></i>
               {totalProveedores} proveedores
             </span>
           </div>

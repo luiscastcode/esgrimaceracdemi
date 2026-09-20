@@ -28,7 +28,7 @@ const BuscadorGlobal = ({
       ...p,
       tipo: 'proveedor',
       url: `/proveedores/${p.slug}`,
-      icon: <FiBriefcase className="w-4 h-4 text-blue-500" />
+      icon: <FiBriefcase className="w-4 h-4 text-primary-light" />
     }))
   ];
 
@@ -139,7 +139,7 @@ const BuscadorGlobal = ({
     return (
       <>
         {texto.substring(0, index)}
-        <span className="bg-gold/30 font-semibold">
+        <span className="bg-accent/20 text-text font-semibold rounded px-0.5">
           {texto.substring(index, index + q.length)}
         </span>
         {texto.substring(index + q.length)}
@@ -152,7 +152,7 @@ const BuscadorGlobal = ({
       {/* Input de búsqueda */}
       <div className="relative">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <FiSearch className="w-5 h-5 text-gray-400" />
+          <FiSearch className="w-5 h-5 text-text-muted" />
         </div>
         
         <input
@@ -167,7 +167,7 @@ const BuscadorGlobal = ({
             }
           }}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-4 text-gray-400 text-lg bg-white rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200 shadow-sm"
+          className="w-full pl-12 pr-12 py-4 text-text text-lg bg-surface rounded-2xl border-2 border-border/60 placeholder:text-text-soft focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200 shadow-md shadow-primary/5"
           aria-label="Buscar clubes y proveedores"
           autoComplete="off"
         />
@@ -176,7 +176,7 @@ const BuscadorGlobal = ({
         {query && (
           <button
             onClick={limpiarBusqueda}
-            className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute inset-y-0 right-0 pr-4 flex items-center text-text-muted hover:text-primary transition-colors"
             aria-label="Limpiar búsqueda"
           >
             <FiX className="w-5 h-5" />
@@ -195,52 +195,52 @@ const BuscadorGlobal = ({
       {isOpen && resultados.length > 0 && (
         <div 
           ref={resultsRef}
-          className="absolute mt-2 w-full bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 animate-fade-in"
+          className="absolute mt-2 w-full bg-surface rounded-2xl shadow-xl shadow-primary/10 border border-border/50 overflow-hidden z-50 animate-fade-in"
           role="listbox"
         >
           {resultados.map((item, index) => (
             <a
               key={item.id || item.slug}
               href={item.url}
-              className={`flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0 ${
-                index === selectedIndex ? 'bg-gray-50' : ''
+              className={`flex items-center gap-4 px-4 py-3 hover:bg-surface-muted/30 transition-colors border-b border-border/30 last:border-0 ${
+                index === selectedIndex ? 'bg-surface-muted/30' : ''
               }`}
               role="option"
               aria-selected={index === selectedIndex}
               onMouseEnter={() => setSelectedIndex(index)}
             >
               {/* Icono según tipo */}
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 rounded-2xl bg-surface-muted/40 flex items-center justify-center">
                 {item.logo ? (
                   <img 
                     src={item.logo} 
                     alt={item.nombre} 
-                    className="w-8 h-8 rounded-full object-cover"
+                    className="w-8 h-8 rounded-2xl object-cover"
                     loading="lazy"
                   />
                 ) : (
-                  item.icon || <FiMapPin className="w-4 h-4 text-gray-400" />
+                  item.icon || <FiMapPin className="w-4 h-4 text-text-muted" />
                 )}
               </div>
 
               {/* Información */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-800 truncate">
+                  <span className="font-semibold text-text truncate">
                     {resaltarTexto(item.nombre, query)}
                   </span>
                   {item.destacado && (
-                    <FiStar className="w-3 h-3 text-gold fill-gold flex-shrink-0" />
+                    <FiStar className="w-3 h-3 text-accent fill-accent shrink-0" />
                   )}
-                  <span className={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 ${
+                  <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 font-medium ${
                     item.tipo === 'club' 
                       ? 'bg-primary/10 text-primary' 
-                      : 'bg-blue-50 text-blue-600'
+                      : 'bg-primary-light/10 text-primary-light'
                   }`}>
                     {item.tipo === 'club' ? 'Club' : 'Proveedor'}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm text-text-muted">
                   {item.ciudad && (
                     <span className="truncate">
                       {resaltarTexto(item.ciudad, query)}
@@ -249,7 +249,7 @@ const BuscadorGlobal = ({
                   )}
                   {item.especialidad && (
                     <>
-                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                      <span className="w-1 h-1 rounded-full bg-text-soft/50"></span>
                       <span className="truncate">
                         {resaltarTexto(item.especialidad, query)}
                       </span>
@@ -257,7 +257,7 @@ const BuscadorGlobal = ({
                   )}
                   {item.categoria && (
                     <>
-                      <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                      <span className="w-1 h-1 rounded-full bg-text-soft/50"></span>
                       <span className="truncate">
                         {resaltarTexto(item.categoria, query)}
                       </span>
@@ -267,12 +267,12 @@ const BuscadorGlobal = ({
               </div>
 
               {/* Flecha */}
-              <FiSearch className="w-4 h-4 text-gray-300 flex-shrink-0" />
+              <FiSearch className="w-4 h-4 text-text-soft shrink-0" />
             </a>
           ))}
 
           {/* Footer de resultados */}
-          <div className="px-4 py-2 bg-gray-50 text-xs text-gray-400 text-center border-t border-gray-100">
+          <div className="px-4 py-2 bg-surface-muted/30 text-xs text-text-muted text-center border-t border-border/40">
             {resultados.length} resultados encontrados
           </div>
         </div>
@@ -280,14 +280,16 @@ const BuscadorGlobal = ({
 
       {/* Mensaje de "sin resultados" */}
       {isOpen && query.length >= 2 && resultados.length === 0 && !isLoading && (
-        <div className="absolute mt-2 w-full bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 p-6 text-center">
-          <FiSearch className="w-8 h-8 mx-auto text-gray-300 mb-2" />
-          <p className="text-gray-500">No encontramos resultados para <strong>"{query}"</strong></p>
-          <p className="text-sm text-gray-400 mt-1">Prueba con otras palabras clave</p>
+        <div className="absolute mt-2 w-full bg-surface rounded-2xl shadow-xl shadow-primary/10 border border-border/50 overflow-hidden z-50 p-6 text-center">
+          <div className="w-16 h-16 mx-auto bg-surface-muted/40 rounded-2xl flex items-center justify-center mb-3">
+            <FiSearch className="w-7 h-7 text-text-soft" />
+          </div>
+          <p className="text-text-muted">No encontramos resultados para <strong className="text-text">"{query}"</strong></p>
+          <p className="text-sm text-text-soft mt-1">Prueba con otras palabras clave</p>
         </div>
       )}
     </div>
   );
 };
 
-export default BuscadorGlobal;
+export default BuscadorGlobal; 
